@@ -1,19 +1,18 @@
-## How to use the manuscript template?
+# Beta Diversity Hotspots - The Manuscript
 
-- Click on the "Use this template" button
-- Add an `ACCESS_TOKEN` secret to your repository
-- Trigger a build by pushing a commit
-- Go to `http://you.github.io/repo-name/` to view the html version, PDF, and LaTeX source
-- Edit this README!
-- Add your references to the `references.bib` file
-- Edit the `metadata.json` file to add the title, abstract, authors
-- Edit the `manuscript.md` file to make changes to your text
+<p align="center">
+  <img align = "center" src="figures/lcbd-bart.png" width="75%"
+       title = "Species richness">
+</p>
 
-## What are things to *not* do?
+M.Sc chapter manuscript. See the repo with codes [here](https://github.com/gabrieldansereau/betadiversity-hotspots).
 
-- Do not add or remove fields in `metadata.json`
-- Do not modify the version numbers in the build matrix of the github workflow
+## Manuscript versions
 
-## Can I use this to build the pdf locally?
+[main_html]: https://gabrieldansereau.github.io/ms_betadiversity_hotspots/
+[main_draft]: https://gabrieldansereau.github.io/ms_betadiversity_hotspots/draft.pdf
+[main_preprint]: https://gabrieldansereau.github.io/ms_betadiversity_hotspots/preprint.pdf
 
-- Yes, but you're on your own
+- [:blue_book: website][main_html]
+- [:page_facing_up: draft][main_draft]
+- [:newspaper: preprint][main_preprint]
