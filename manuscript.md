@@ -91,8 +91,8 @@ BART models (right) were both transformed into presence-absence data per species
 before calculating richness.
 
 <p align="center">
-    <img src="fig/lcbd-raw.png" width="49%" />
-    <img src="fig/lcbd-bart.png" width="49%" />
+    <img src="figures/lcbd-raw.png" width="49%" />
+    <img src="figures/lcbd-bart.png" width="49%" />
 </p>
 
 Figure: Distribution of the LCBD values in North America, calculated from the
@@ -102,8 +102,8 @@ predictions (right) were converted into presence-absence data per species, then
 the Hellinger transformation was applied before computing the LCBD indices.
 
 <p align="center">
-    <img src="fig/relationship-raw.png" width="49%" />
-    <img src="fig/relationship-bart.png" width="49%" />
+    <img src="figures/relationship-raw.png" width="49%" />
+    <img src="figures/relationship-bart.png" width="49%" />
 </p>
 
 Figure: Relationship between the species richness and the LCBD value of each
@@ -111,7 +111,7 @@ site based on the occurrence observations from eBird (left) and the SDM
 predictions (right). LCBD values were scaled to the maximum value observed after
 applying Hellinger transformation.
 
-![NE subareas](../../fig/bart/05-1_bart_subareas_combined.png)
+![NE subareas](figures/subareas-combined.png)
 
 Figure: Comparison between a species-rich region (Northeast) and a species-poor
 one (Southwest) at a given scale, based on the SDM predictions.
@@ -145,7 +145,7 @@ unlikely that all species could be found in a single site given their different
 niche preferences, while poor sites are much more feasible. These sites will
 almost always contribute more to the variance, as measured by LCBD values.
 
-![3 scales](../../fig/bart/05-2_bart_subareas_3scales.png)
+![3 scales](figures/subareas-scaling.png)
 
 Figure: Effect of scaling and full region extent size on the relationship
 between site richness and LCBD value. LCBD values are re-calculated at each
