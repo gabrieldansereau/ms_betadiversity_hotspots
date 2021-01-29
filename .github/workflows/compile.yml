@@ -3,7 +3,7 @@ name: Compile the document
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 jobs:
@@ -93,7 +93,7 @@ jobs:
     name: Deploy to gh-pages
     needs: [generate, build]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
       - name: Download dist folder
