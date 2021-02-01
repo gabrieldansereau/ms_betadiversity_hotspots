@@ -80,8 +80,8 @@ cover fraction values.
 ## Figures
 
 <p align="center">
-    <img src="fig/richness-raw.png" width="49%" />
-    <img src="fig/richness-bart.png" width="49%" />
+    <img src="figures/richness-raw.png" width="49%" />
+    <img src="figures/richness-bart.png" width="49%" />
 </p>
 
 Figure: Distribution of species richness in North America, defined as the number
