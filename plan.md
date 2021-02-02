@@ -50,74 +50,67 @@ distribution modeling
 ## Abstract
 
 Beta diversity is an essential measure to describe the organization of
-biodiversity in space.
-The calculation of local contributions to beta diversity (LCBD), specifically,
-allows for the identification of sites with exceptional diversity within a
-region of interest.
-To this day, LCBD indices have mostly been used on regional, smaller scales with
-relatively few sites.
-Furthermore, as beta diversity implies a comparison among the sites of a given
-region, their use is typically restricted to strictly sampled sites with known 
-species composition, hence to discontinuous spatial scales.
-Here, we investigate the variation of LCBD indices on extended spatial scales
-including both species-poor and species-rich regions, and investigate their
-applicability for continuous scales and unsampled sites through the use of
-species distribution models (SDMs).
-To this aim, we used Bayesian additive regression trees (BARTs) to model species
-composition on continuous scales based on observation data from the eBird
-database.
-Our results highlight a changing relationship between site richness and LCBD
-values for species-poor and species-rich region depending on the extent of the
-full region of interest.
-We also show that SDMs return relevant LCBD predictions displaying the same
-relationship as the one obtained with observation data only.
-Hence, our method could prove useful to identify beta diversity hotspots in
-unsampled locations, which could be important targets for conservation purposes.
+biodiversity in space. The calculation of local contributions to beta diversity
+(LCBD), specifically, allows for the identification of sites with exceptional
+diversity within a region of interest. To this day, LCBD indices have mostly
+been used on regional, smaller scales with relatively few sites. Furthermore, as
+beta diversity implies a comparison among the sites of a given region, their use
+is typically restricted to strictly sampled sites with known species
+composition, hence to discontinuous spatial scales. Here, we investigate the
+variation of LCBD indices on extended spatial scales including both species-poor
+and species-rich regions, and investigate their applicability for continuous
+scales and unsampled sites through the use of species distribution models
+(SDMs). To this aim, we used Bayesian additive regression trees (BARTs) to model
+species composition on continuous scales based on observation data from the
+eBird database. Our results highlight a changing relationship between site
+richness and LCBD values for species-poor and species-rich region depending on
+the extent of the full region of interest. We also show that SDMs return
+relevant LCBD predictions displaying the same relationship as the one obtained
+with observation data only. Hence, our method could prove useful to identify
+beta diversity hotspots in unsampled locations, which could be important targets
+for conservation purposes.
 
 ## Figures
 
 <p align="center">
-    <img src="fig/richness-raw.png" width="49%" />
-    <img src="fig/richness-bart.png" width="49%" />
+    <img src="figures/richness-raw.png" width="49%" />
+    <img src="figures/richness-bart.png" width="49%" />
 </p>
 
 Figure: Distribution of species richness in North America, defined as the number
-of Warblers species per site (10 arc-minutes pixels).
-The raw occurrence observations from eBird (left) and the SDM
-predictions from the single-species BART models (right) were both transformed
-into presence-absence data per species before calculating richness.
+of Warblers species per site (10 arc-minutes pixels). The raw occurrence
+observations from eBird (left) and the SDM predictions from the single-species
+BART models (right) were both transformed into presence-absence data per species
+before calculating richness.
 
 <p align="center">
-    <img src="fig/lcbd-raw.png" width="49%" />
-    <img src="fig/lcbd-bart.png" width="49%" />
+    <img src="figures/lcbd-raw.png" width="49%" />
+    <img src="figures/lcbd-bart.png" width="49%" />
 </p>
 
 Figure: Distribution of the LCBD values in North America, calculated from the
 variance of the site-by-species community matrix Y and scaled to the maximum
-value observed.
-Occurrence observations from eBird (left) and single-species SDM predictions
-(right) were converted into presence-absence data per species, then the
-Hellinger transformation was applied before computing the LCBD indices.
+value observed. Occurrence observations from eBird (left) and single-species SDM
+predictions (right) were converted into presence-absence data per species, then
+the Hellinger transformation was applied before computing the LCBD indices.
 
 <p align="center">
-    <img src="fig/relationship-raw.png" width="49%" />
-    <img src="fig/relationship-bart.png" width="49%" />
+    <img src="figures/relationship-raw.png" width="49%" />
+    <img src="figures/relationship-bart.png" width="49%" />
 </p>
 
 Figure: Relationship between the species richness and the LCBD value of each
 site based on the occurrence observations from eBird (left) and the SDM
-predictions (right).
-LCBD values were scaled to the maximum value observed after applying Hellinger
-transformation.
+predictions (right). LCBD values were scaled to the maximum value observed after
+applying Hellinger transformation.
 
-![NE subareas](../../fig/bart/05-1_bart_subareas_combined.png)
+![NE subareas](figures/subareas-combined.png)
 
 Figure: Comparison between a species-rich region (Northeast) and a species-poor
 one (Southwest) at a given scale, based on the SDM predictions.
 
-![3 scales](../../fig/bart/05-2_bart_subareas_3scales.png)
+![3 scales](figures/subareas-scaling.png)
 
 Figure: Effect of scaling and full region extent size on the relationship
-between site richness and LCBD value.
-LCBD values are re-calculated at each scale based on the sites in this region
-only.
+between site richness and LCBD value. LCBD values are re-calculated at each
+scale based on the sites in this region only.
