@@ -83,8 +83,6 @@ cover fraction values.
 - Relationship varies according to scale, being well defined at smaller scales
   and becoming increasingly vague on larger extents
 
-![Comparison between a species-rich region (Northeast) and a species-poor one (Southwest) at a given scale, based on the SDM predictions](figures/subareas-combined.png){#fig:subareas}
-
 The relationship between LCBD values and species richness displayed two
 constrasting profiles in species-rich and species-poor regions (@fig:subareas).
 In a species-rich region, such as the Northeastern region of our study extent
@@ -104,7 +102,19 @@ sites only comprise around 10 species and few sites comprise more than 20,
 regions with 40 species stand out more and are more exceptional in such
 species-poor regions than they would be in species-rich ones.
 
-![Effect of scaling and full region extent size on the relationship between site richness and LCBD value. LCBD values are re-calculated at each scale based on the sites in this region only](figures/subareas-scaling.png)
+![Comparison between a species-rich region (Northeast) and a species-poor one (Southwest) at a given scale, based on the SDM predictions](figures/subareas-combined.png){#fig:subareas}
+
+The LCBD-richness relationship shows some important variation when scaling up
+and changing the full extent of the region under study (@fig:scaling). On
+smaller scales, starting with a species-rich region, the relationship is
+well-defined, decreasing and curvilinear. However, as the scale increases and
+progressively reaches species-poor regions, the relationship broadens, displays
+more variance, and loses its clear definition, while remaining generally
+decreasing. The minimum relatiave LCBD values also increases, going from near
+zero to 0.3, showing a higher contribution of the less exceptional sites to the
+overall diversity on extended scales.
+
+![Effect of scaling and full region extent size on the relationship between site richness and LCBD value. LCBD values are re-calculated at each scale based on the sites in this region only](figures/subareas-scaling.png){#fig:scaling}
 
 ## Extra figures
 
