@@ -83,36 +83,26 @@ cover fraction values.
 - Relationship varies according to scale, being well defined at smaller scales
   and becoming increasingly vague on larger extents
 
-![Comparison between a species-rich region (Northeast) and a species-poor one (Southwest) at a given scale, based on the SDM predictions](figures/subareas-combined.png)
+![Comparison between a species-rich region (Northeast) and a species-poor one (Southwest) at a given scale, based on the SDM predictions](figures/subareas-combined.png){#fig:subareas}
 
-This figure highlights the difference between species-rich and species-poor
-subareas. In a species-rich region, such as the Northeastern region of our study
-extent (North America), LCBD scores display a decreasing relationship with
-species richness. Hence, the sites with the highest LCBD values, i.e. the unique
-ones in terms of species composition, are the species-poor sites, while
-the species-rich sites display low scores. Thus, our results show that the only
-way to stand out in such a region is by having few species. Since most sites
-comprise between 20 to 30 warblers species, the most species-rich ones with 40
-species do not stand out and are not as exceptional as the ones with 10 species
-or fewer. The Southwest subarea, on the other hand, shows a different
-relationship. The sites with the highest LCBD values are once again the poorest
-ones in terms of species richness. However, since most sites only comprise
-around 10 species, the decreasing relationship with richness is initially much
-sharper, and displays a more important increase as richness reaches 20 species.
-This way, species-rich sites comprising around 40 species stand out more and are
-more exceptional in species-poor regions than in species-rich ones.
-
-This result higlights an important aspect regarding the LCBD measure: contrary
-to previous findings, it does not simply decrease with species richness. In
-fact, the relationship with richness is not constant -- it actually depends on
-the general profile of the region on which it is applied, and whether or not
-this region is species-poor or species-rich. A parabolic relationship was
-actually expected when the measure was introduced, as both extremes should
-normally stand out. An explanation for the previously observed results could be
-that extremely rich sites are just much less ecologically possible. It is
-unlikely that all species could be found in a single site given their different
-niche preferences, while poor sites are much more feasible. These sites will
-almost always contribute more to the variance, as measured by LCBD values.
+The relationship between LCBD values and species richness displayed two
+constrasting profiles in species-rich and species-poor regions (@fig:subareas).
+In a species-rich region, such as the Northeastern region of our study extent
+(North America), LCBD scores display a decreasing relationship with species
+richness. Hence, the sites with the highest LCBD values, i.e. the unique ones in
+terms of species composition, are the species-poor sites, while the species-rich
+sites display lower LCBD scores. Therefore, our results show that the only way
+for a site to stand out and "be exceptional" in such a region is to have few
+species. Since most sites in the Northeastern region comprise between 20 to 30
+warblers species, the richest ones with 40 species do not stand out and are not
+as exceptional as the ones with 10 species or fewer. The Southwest subarea, on
+the other hand, shows a different relationship. While the sites with the highest
+LCBD values are once again the poorest ones in terms of species richness, the
+decreasing relationship with richness is initially much sharper, and displays a
+more important increase as richness reaches 20 species. Since most
+sites only comprise around 10 species and few sites comprise more than 20, 
+regions with 40 species stand out more and are more exceptional in such
+species-poor regions than they would be in species-rich ones.
 
 ![Effect of scaling and full region extent size on the relationship between site richness and LCBD value. LCBD values are re-calculated at each scale based on the sites in this region only](figures/subareas-scaling.png)
 
@@ -158,5 +148,17 @@ applying Hellinger transformation.
   unique differ, to link with considerations beta diversity itself
 - Scales difference: aggregating too many different sites possibly masks
   patterns of uniqueness?
+
+This result higlights an important aspect regarding the LCBD measure: contrary
+to previous findings, it does not simply decrease with species richness. In
+fact, the relationship with richness is not constant -- it actually depends on
+the general profile of the region on which it is applied, and whether or not
+this region is species-poor or species-rich. A parabolic relationship was
+actually expected when the measure was introduced, as both extremes should
+normally stand out. An explanation for the previously observed results could be
+that extremely rich sites are just much less ecologically possible. It is
+unlikely that all species could be found in a single site given their different
+niche preferences, while poor sites are much more feasible. These sites will
+almost always contribute more to the variance, as measured by LCBD values.
 
 # References
