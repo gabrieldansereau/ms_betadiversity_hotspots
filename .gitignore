@@ -1,5 +1,9 @@
+# Files ignored by template
 dist/
 *.log
 *synctex*
 references.json
 affiliations.json
+
+# Other files
+*.code-workspace
