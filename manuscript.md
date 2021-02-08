@@ -47,6 +47,8 @@ material necessary to reproduces theses analyses, including code scripts and
 data, is available at
 https://github.com/gabrieldansereau/betadiversity-hotspots.
 
+## Occurrence data
+
 We focused our analyses on the Warblers family (_Parulidae_)in North America
 (Canada, US, Mexico). We collected all occurrence data available in the eBird
 database [@Sullivan2009EbiCit] in June 2019, which represented roughly 30
@@ -66,6 +68,8 @@ effort covariates in the model [@Johnston2019BesPra]. Therefore, we believe the
 dataset can be appropriately used to achieve our objective of expanding measures
 of exceptional biodiversity through space. 
 
+## Environmental data
+
 We collected the data available in the WorldClim 2 database [@Fick2017Wor2N] for
 North America, to which we decided to restrict our analyses. The WorldClim data
 consists of spatially interpolated monthly climate data for global areas,
@@ -84,7 +88,13 @@ Copernicus data is available at a 100m spatial resolution, finer than for the
 WorldClim data, hence we coarsened it to the same resolution by averaging the
 cover fraction values.
 
-## Results
+## Species distribution models
+
+## Quantification of ecological uniqueness
+
+## Investigation of regional and scaling variation
+
+# Results
 
 - SDMs results are similar to raw observations for richness, LCBD, and
   relationship
