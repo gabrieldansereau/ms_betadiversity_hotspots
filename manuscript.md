@@ -38,6 +38,15 @@ on observation data from the eBird database.
 - Subareas (rich & poor)
 - 3 scales
 
+We measure how compositional uniqueness varies on extended continuous scales. We
+first predict species composition on continuous scales using extended occurrence
+data from eBird and species distribution models. We then quantify compositional
+uniqueness for both predicted and observed data, and compare the relationship
+between uniqueness and richness for different regions and scales. All the
+material necessary to reproduces theses analyses, including code scripts and
+data, is available at
+https://github.com/gabrieldansereau/betadiversity-hotspots.
+
 We focused our analyses on the Warblers family (_Parulidae_)in North America
 (Canada, US, Mexico). We collected all occurrence data available in the eBird
 database [@Sullivan2009EbiCit] in June 2019, which represented roughly 30
