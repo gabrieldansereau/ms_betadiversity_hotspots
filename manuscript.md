@@ -76,23 +76,22 @@ the species not being recorded, hence we considered them as true absences, simil
 
 ## Environmental data
 
-We collected the data available in the WorldClim 2 database [@Fick2017Wor2N] for
-North America, to which we decided to restrict our analyses. The WorldClim data
-consists of spatially interpolated monthly climate data for global areas,
-available for resolutions from 10 arc-minutes to 30 arc-seconds (around 18 km²
-and 1 km² at the equator). Since the release of the first version of the
-database in 2005 [@Hijmans2005VerHig], it became the most common source of
-climate data for SDM studies [@Booth2014BioFir]. The variables we used were
-different measures of temperature and precipitation, with very
-high global cross-validation coefficients (> 0.99 and 0.86 respectively)
-[@Fick2017Wor2N]. We chose to use the coarser 10 arc-minutes resolution in our
-preliminary analyses, as we believed it was sufficient for proof of concept of
-our method. We also collected land cover data from the Copernicus Global land
-service [@Buchhorn2019CopGlo]. These data consisted of 10 variables for the main
-land cover classes, each represented by their percentage of cover fraction. The
-Copernicus data is available at a 100m spatial resolution, finer than for the
-WorldClim data, hence we coarsened it to the same resolution by averaging the
-cover fraction values.
+Our environmental data consisted of climatic data from WorldClim 2.1
+[@Fick2017Wor2N] and land cover data from the Copernicus Global Land Service
+[@Buchhorn2019CopGlo]. The WorldClim data consists of spatially interpolated
+monthly climate data for global land areas. We downloaded the data at a
+resolution of 10 arc-minutes (around 18 km² at the equator), the coarsest
+resolution available. We selected 8 of the 19 standard _bioClim_ variables
+representing annual trends, ranges, and extremes of temperature and
+precipitation (annual mean, ranges, extremas, seasonality): bio1, bio2, bio5,
+bio5, bio6, bio12, bio13, bio14, bio15. The Copernicus data is a set of
+variables representing 10 land cover classes and measured as a percentage
+of land cover fraction. The data is only available at a finer resolution of
+100m. We coarsened it to the same 10 arc-minutes resolution as the WorldClim
+data by averaging the land cover fraction values. We first selected the 10 land
+cover variables, but later removed two of them (moss and snow) from our
+predictive models as their cover fraction was 0% on all sites with Warblers
+observations, hence they did not provide any predictive value to our SDM models.
 
 ## Species distribution models
 
