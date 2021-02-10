@@ -43,30 +43,36 @@ first predict species composition on continuous scales using extended occurrence
 data from eBird and species distribution models. We then quantify compositional
 uniqueness for both predicted and observed data, and compare the relationship
 between uniqueness and richness for different regions and scales. All the
-material necessary to reproduces theses analyses, including code scripts and
+material necessary to reproduces these analyses, including code scripts and
 data, is available at
 https://github.com/gabrieldansereau/betadiversity-hotspots.
 
 ## Occurrence data
 
-We focused our analyses on the Warblers family (_Parulidae_)in North America
-(Canada, US, Mexico). We collected all occurrence data available in the eBird
-database [@Sullivan2009EbiCit] in June 2019, which represented roughly 30
-million observations. Global citizen-contributed databases often present
-additional challenges compared to conventional datasets due to their lack of
-structure, as well as spatial and taxonomic biases [@Johnston2019BesPra].
-However, eBird offers two advantages over other large scale datasets
-[@Johnston2019BesPra]\: 1) the data is structured as checklists and users can
-explicitly specify their observations as "complete checklists" when all detected
-species were reported, which allows inferring information on species absences,
-and 2) the dataset is semi-structured, and checklists are associated with
-metadata describing sampling effort, such as duration of search, distance
-travelled and number of observers, which can be used as controls in the
-analyses. Hence, model performance can be improved by inferring absences and
-subsampling checklists, while spatial bias can be compensated by including
-effort covariates in the model [@Johnston2019BesPra]. Therefore, we believe the
-dataset can be appropriately used to achieve our objective of expanding measures
-of exceptional biodiversity through space. 
+We used occurrence data from eBird [@Sullivan2009EbiCit] in June 2019. We
+restricted our analyses to the Warblers family (_Parulidae_) in North America
+(Canada, United States, Mexico). eBird is a semi-structured citizen science data
+set, meaning that observations are structured as checklists of species recorded
+in an observation run [@Johnston2019BesPra]. Observers can explicitly specify
+that their checklists contain all species detected during a run, in which case
+it is labelled as a "complete checklist". Using complete checklists instead of
+regular checklists offers large performance gains in species distribution models
+[@Johnston2019BesPra]. We therefore selected the data from the complete
+checklists only. Our final data set comprised 62 Warblers species and nearly 23
+million observations from 9 million checklists.
+
+We then converted the occurrence data to a presence-absence format compatible
+with community analyses. We considered every pixel from our 10 arc-minutes
+environmental layers as a site. We then verified, for each species, if there was
+a single observation in every sites. We recorded the outcome as a binary value:
+present (1) if a species was ever recorded in a site, and absent (0) if it
+was not. Complete checklists ensure that these are non-detections, rather than
+the species not being recorded, hence we considered them as true absences, similar to @Johnston2019BesPra.
+- Given that we used complete checklists only, the absence of a species in a
+  site means that it was not detected, and discards the possibility that it was
+  simply not recorded by the user. 
+- The absence of a species in a complete checklist _is_ a non-detection event,
+  not an omission of record by the user.
 
 ## Environmental data
 
