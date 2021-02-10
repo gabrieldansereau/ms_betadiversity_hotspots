@@ -84,16 +84,26 @@ resolution of 10 arc-minutes (around 18 km² at the equator), the coarsest
 resolution available. We selected 8 of the 19 standard _bioClim_ variables
 representing annual trends, ranges, and extremes of temperature and
 precipitation (annual mean, ranges, extremas, seasonality): bio1, bio2, bio5,
-bio5, bio6, bio12, bio13, bio14, bio15. The Copernicus data is a set of
-variables representing 10 land cover classes and measured as a percentage
-of land cover fraction. The data is only available at a finer resolution of
-100m. We coarsened it to the same 10 arc-minutes resolution as the WorldClim
-data by averaging the land cover fraction values. We first selected the 10 land
-cover variables, but later removed two of them (moss and snow) from our
-predictive models as their cover fraction was 0% on all sites with Warblers
-observations, hence they did not provide any predictive value to our SDM models.
+bio6, bio12, bio13, bio14, bio15. The Copernicus data is a set of variables
+representing 10 land cover classes and measured as a percentage of land cover
+fraction. The data is only available at a finer resolution of 100m. We coarsened
+it to the same 10 arc-minutes resolution as the WorldClim data by averaging the
+land cover fraction values. We first selected the 10 land cover variables, but
+later removed two of them (moss and snow) from our predictive models as their
+cover fraction was 0% on all sites with Warblers observations, hence they did
+not provide any predictive value to our SDM models.
 
 ## Species distribution models
+
+We predicted species distribution on continuous scales from our presence-absence
+data using Bayesian Additive Regression Trees (BARTs) [@Chipman2010BarBay], a
+classification and regression trees method recently suggested for species
+distribution modelling [@Carlson2020EmbSpe]. We used the package `embarcadero`
+[@Carlson2020EmbSpe] in R [@RCoreTeam2020RLan] to perform the BART models. We
+performed BARTs separately for all species and estimated the probability of
+occurrence for all the sites in our region of interest, then converted the
+results to a binary outcome given a threshold that maximises the True skill
+statistic, as suggested in @Carlson2020EmbSpe. 
 
 ## Quantification of ecological uniqueness
 
