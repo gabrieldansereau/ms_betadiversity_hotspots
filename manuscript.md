@@ -67,7 +67,9 @@ environmental layers as a site. We then verified, for each species, if there was
 a single observation in every sites. We recorded the outcome as a binary value:
 present (1) if a species was ever recorded in a site, and absent (0) if it
 was not. Complete checklists ensure that these are non-detections, rather than
-the species not being recorded, hence we considered them as true absences, similar to @Johnston2019BesPra.
+the species not being recorded, hence we considered them as true absences,
+similar to @Johnston2019BesPra.
+
 - Given that we used complete checklists only, the absence of a species in a
   site means that it was not detected, and discards the possibility that it was
   simply not recorded by the user. 
@@ -99,11 +101,11 @@ We predicted species distribution on continuous scales from our presence-absence
 data using Bayesian Additive Regression Trees (BARTs) [@Chipman2010BarBay], a
 classification and regression trees method recently suggested for species
 distribution modelling [@Carlson2020EmbSpe]. We used the package `embarcadero`
-[@Carlson2020EmbSpe] in R [@RCoreTeam2020RLan] to perform the BART models. We
-performed BARTs separately for all species and estimated the probability of
-occurrence for all the sites in our region of interest, then converted the
-results to a binary outcome given a threshold that maximises the True skill
-statistic, as suggested in @Carlson2020EmbSpe. 
+[@Carlson2020EmbSpe] in _R v4.0.2_ [@RCoreTeam2020RLan] to perform the BART
+models. We performed BARTs separately for all species and estimated the
+probability of occurrence for all the sites in our region of interest, then
+converted the results to a binary outcome given a threshold that maximises the
+True skill statistic, as suggested in @Carlson2020EmbSpe. 
 
 ## Quantification of ecological uniqueness
 
@@ -128,6 +130,20 @@ values as the relative to the maximum value from each matrix Y, meaning that the
 new maximum value is 1, and all other values represent fractions of it.
 
 ## Investigation of regional and scaling variation
+
+To investigate possible regional and scaling effects, we recalculated LCBD
+values on subregions at different locations or at different scales. First, we
+selected two subregions of equivalent size (20 longitude degrees by 10 latitude
+degres) with two contrasting richness profiles to verify if the relationship
+between species richness and LCBD values was similar. We selected a Northeast
+subregion, mostly species-rich, and a Southwest subregion, mostly species-poor
+(for both observed and predicted data). The coordinates of both subregions are
+shown on @fig:subareas. Second, we recalculated the LCBD indices at three
+different scales, starting with a focus on the Northeast subregion and
+progressively extending the extent to encompass the Southwest subregion
+(@fig:scaling). We did these two verifications with both the observed and
+predicted data, but only illustrate the results with the predicted data as both
+were qualitatively similar.
 
 # Results
 
