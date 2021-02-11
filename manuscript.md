@@ -53,15 +53,17 @@ https://github.com/gabrieldansereau/betadiversity-hotspots.
 We used occurrence data from eBird [@Sullivan2009EbiCit] in June 2019. We
 restricted our analyses to the Warblers family (_Parulidae_) in North America
 (Canada, United States, Mexico) using the _R_ package `auk`
-[@Strimas-Mackey2018AukEbi]. eBird is a semi-structured
-citizen science data set, meaning that observations are structured as checklists
-of species recorded in an observation run [@Johnston2019BesPra]. Observers can
-explicitly specify that their checklists contain all species detected during a
-run, in which case it is labelled as a "complete checklist". Using complete
-checklists instead of regular checklists offers large performance gains in
-species distribution models [@Johnston2019BesPra]. We therefore selected the
-data from the complete checklists only. Our final data set comprised 62 Warblers
-species and nearly 23 million observations from 9 million checklists.
+[@Strimas-Mackey2018AukEbi]. eBird is a semi-structured citizen science data
+set, meaning that observations are structured as checklists of species recorded
+in an observation run [@Johnston2019BesPra]. Observers can explicitly specify
+that their checklist contains all species they could detect and identify during
+a sampling event, in which case it is labelled as a "complete checklist". Using
+complete checklists instead of regular checklists allows to infer non-detections
+in locations where detection efforts did occur, which offers large performance
+gains in species distribution models [@Johnston2019BesPra]. We therefore
+selected the data from the complete checklists only. Our final data set
+comprised 62 Warblers species and nearly 23 million observations from 9 million
+checklists.
 
 We then converted the occurrence data to a presence-absence format compatible
 with community analyses. We considered every pixel from our 10 arc-minutes
@@ -86,7 +88,9 @@ Our environmental data consisted of climatic data from WorldClim 2.1
 monthly climate data for global land areas. We downloaded the data at a
 resolution of 10 arc-minutes (around 18 km² at the equator), the coarsest
 resolution available, using the _Julia_ package `SimpleSDMLayers.jl`
-[@Dansereau2021SimJl]. We selected 8 of the 19 standard _bioClim_ variables
+[@Dansereau2021SimJl]. The coarse resolution should mitigate potential
+imprecisions in the eBird regarding the extent of the sampled areas in each
+observation checklist. We selected 8 of the 19 standard _bioClim_ variables
 representing annual trends, ranges, and extremes of temperature and
 precipitation (annual mean, ranges, extremas, seasonality): bio1, bio2, bio5,
 bio6, bio12, bio13, bio14, bio15. The Copernicus data is a set of variables
@@ -105,12 +109,17 @@ our SDM models.
 We predicted species distribution on continuous scales from our presence-absence
 data using Bayesian Additive Regression Trees (BARTs) [@Chipman2010BarBay], a
 classification and regression trees method recently suggested for species
-distribution modelling [@Carlson2020EmbSpe]. We used the package `embarcadero`
-[@Carlson2020EmbSpe] in _R v4.0.2_ [@RCoreTeam2020RLan] to perform the BART
-models. We performed BARTs separately for all species and estimated the
-probability of occurrence for all the sites in our region of interest, then
-converted the results to a binary outcome given a threshold that maximises the
-True skill statistic, as suggested by @Carlson2020EmbSpe. 
+distribution modelling [@Carlson2020EmbSpe]. BARTs are sum-of-trees models,
+conceptually similar to Boosted Regression Trees and Random Forest, but
+following a Bayesian paradigm: trees are constrained as weak learners by priors
+regarding structure and nodes, then fitting and inference is done through an
+iterative Bayesian backfitting MCMC algorithm generating a posterior
+distribution of predicted classification probabilities [@Chipman2010BarBay;
+@Carlson2020EmbSpe]. We used the package `embarcadero` [@Carlson2020EmbSpe] in
+_R_ to perform the BART models. We performed BARTs separately for all species
+and estimated the probability of occurrence for all the sites in our region of
+interest, then converted the results to a binary outcome given a threshold that
+maximises the True skill statistic (TSS), as suggested by @Carlson2020EmbSpe. 
 
 ## Quantification of ecological uniqueness
 
