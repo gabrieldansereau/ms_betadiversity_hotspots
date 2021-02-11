@@ -107,6 +107,26 @@ statistic, as suggested in @Carlson2020EmbSpe.
 
 ## Quantification of ecological uniqueness
 
+We used the method from @Legendre2013BetDiv to quantify compositional uniqueness
+from overall beta diversity for both observed and predicted data. First, we
+assembled species presence-absence data (observed and predicted) by site to form
+two site-by-species community matrices $Y$. We measured species richness per
+site as the sum of each row, or the number species present. We removed the sites
+without any species from the predicted community matrix (the observed commmunity
+matrix, by design, was only composed of sites with at least one species
+present), and applied the Hellinger transformation to our $Y$ matrix, as
+recommended by @Legendre2013BetDiv for presence-absence data. We then measured
+the local contributions to beta diversity (LCBD), which quantify how much a
+specific site (a row in matrix $Y$) contributes to the overall variance in the
+community [@Legendre2013BetDiv]. High LCBD values indicate a unique community
+composition, while low values indicate a more common set of species. We note
+that our LCBD values, which add up to 1 by definition, were very low given the
+high number of sites in both our observed and predicted data sets. However, the
+relative difference between the values matters more than their absolute order of
+magnitude to differentiate their uniqueness. We decided to report the LCBD
+values as the relative to the maximum value from each matrix Y, meaning that the
+new maximum value is 1, and all other values represent fractions of it.
+
 ## Investigation of regional and scaling variation
 
 # Results
