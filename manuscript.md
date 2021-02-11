@@ -38,28 +38,30 @@ on observation data from the eBird database.
 - Subareas (rich & poor)
 - 3 scales
 
-We measure how compositional uniqueness varies on extended continuous scales. We
-first predict species composition on continuous scales using extended occurrence
-data from eBird and species distribution models. We then quantify compositional
-uniqueness for both predicted and observed data, and compare the relationship
-between uniqueness and richness for different regions and scales. All the
-material necessary to reproduces these analyses, including code scripts and
-data, is available at
+We measured how compositional uniqueness varies on extended continuous scales.
+We first predicted species composition on continuous scales using extended
+occurrence data from eBird and species distribution models. We then quantified
+compositional uniqueness for both predicted and observed data, and compared the
+relationship between uniqueness and richness for different regions and scales.
+We used _Julia v1.5.3_ [@Bezanson2017JulFre] for most of the project, as well as
+_R v4.0.2_ [@RCoreTeam2020RLan] for some specific steps. All the scripts used
+for the analyses are available at
 https://github.com/gabrieldansereau/betadiversity-hotspots.
 
 ## Occurrence data
 
 We used occurrence data from eBird [@Sullivan2009EbiCit] in June 2019. We
 restricted our analyses to the Warblers family (_Parulidae_) in North America
-(Canada, United States, Mexico). eBird is a semi-structured citizen science data
-set, meaning that observations are structured as checklists of species recorded
-in an observation run [@Johnston2019BesPra]. Observers can explicitly specify
-that their checklists contain all species detected during a run, in which case
-it is labelled as a "complete checklist". Using complete checklists instead of
-regular checklists offers large performance gains in species distribution models
-[@Johnston2019BesPra]. We therefore selected the data from the complete
-checklists only. Our final data set comprised 62 Warblers species and nearly 23
-million observations from 9 million checklists.
+(Canada, United States, Mexico) using the _R_ package `auk`
+[@Strimas-Mackey2018AukEbi]. eBird is a semi-structured
+citizen science data set, meaning that observations are structured as checklists
+of species recorded in an observation run [@Johnston2019BesPra]. Observers can
+explicitly specify that their checklists contain all species detected during a
+run, in which case it is labelled as a "complete checklist". Using complete
+checklists instead of regular checklists offers large performance gains in
+species distribution models [@Johnston2019BesPra]. We therefore selected the
+data from the complete checklists only. Our final data set comprised 62 Warblers
+species and nearly 23 million observations from 9 million checklists.
 
 We then converted the occurrence data to a presence-absence format compatible
 with community analyses. We considered every pixel from our 10 arc-minutes
@@ -83,17 +85,20 @@ Our environmental data consisted of climatic data from WorldClim 2.1
 [@Buchhorn2019CopGlo]. The WorldClim data consists of spatially interpolated
 monthly climate data for global land areas. We downloaded the data at a
 resolution of 10 arc-minutes (around 18 km² at the equator), the coarsest
-resolution available. We selected 8 of the 19 standard _bioClim_ variables
+resolution available, using the _Julia_ package `SimpleSDMLayers.jl`
+[@Dansereau2021SimJl]. We selected 8 of the 19 standard _bioClim_ variables
 representing annual trends, ranges, and extremes of temperature and
 precipitation (annual mean, ranges, extremas, seasonality): bio1, bio2, bio5,
 bio6, bio12, bio13, bio14, bio15. The Copernicus data is a set of variables
-representing 10 land cover classes and measured as a percentage of land cover
-fraction. The data is only available at a finer resolution of 100m. We coarsened
+representing 10 land cover classes (e.g. crops, tree, urban area) and measured
+as a percentage of land cover fraction. The data is only available at a finer
+resolution of 100m, which we downloaded directly from the website. We coarsened
 it to the same 10 arc-minutes resolution as the WorldClim data by averaging the
-land cover fraction values. We first selected the 10 land cover variables, but
-later removed two of them (moss and snow) from our predictive models as their
-cover fraction was 0% on all sites with Warblers observations, hence they did
-not provide any predictive value to our SDM models.
+land cover fraction values with `GDAL` [@GDAL/OGRcontributors2021GdaOgr]. We
+first selected the 10 land cover variables, but later removed two of them (moss
+and snow) from our predictive models as their cover fraction was 0% on all sites
+with Warblers observations, hence they did not provide any predictive value to
+our SDM models.
 
 ## Species distribution models
 
@@ -105,7 +110,7 @@ distribution modelling [@Carlson2020EmbSpe]. We used the package `embarcadero`
 models. We performed BARTs separately for all species and estimated the
 probability of occurrence for all the sites in our region of interest, then
 converted the results to a binary outcome given a threshold that maximises the
-True skill statistic, as suggested in @Carlson2020EmbSpe. 
+True skill statistic, as suggested by @Carlson2020EmbSpe. 
 
 ## Quantification of ecological uniqueness
 
@@ -124,10 +129,10 @@ community [@Legendre2013BetDiv]. High LCBD values indicate a unique community
 composition, while low values indicate a more common set of species. We note
 that our LCBD values, which add up to 1 by definition, were very low given the
 high number of sites in both our observed and predicted data sets. However, the
-relative difference between the values matters more than their absolute order of
-magnitude to differentiate their uniqueness. We decided to report the LCBD
-values as the relative to the maximum value from each matrix Y, meaning that the
-new maximum value is 1, and all other values represent fractions of it.
+relative difference between the scores matters more than the absolute value to
+differentiate their uniqueness. We decided to report the LCBD values as the
+relative to the maximum value from each matrix Y, meaning that the new maximum
+value is 1, and all other values represent fractions of it.
 
 ## Investigation of regional and scaling variation
 
