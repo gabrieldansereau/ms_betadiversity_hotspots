@@ -6,14 +6,6 @@ bibliography: [references.bib]
 
 # Introduction
 
-- LCBD as useful measure for ecological uniqueness
-- Restriction to small scales & few sites, unlike BD itself
-- Restriction to known composition
-- Potential to fill-in gaps through SDMs
-- Poses question of applicability on large, continuous scales
-- Potential varying relationship between richness-LCBD, given dependence of BD
-  on scale
-
 Beta diversity is an essential measure to describe the organization of
 biodiversity in space. The calculation of local contributions to beta diversity
 (LCBD), specifically, allows for the identification of sites with exceptional
@@ -30,13 +22,6 @@ regression trees (BARTs) to model species composition on continuous scales based
 on observation data from the eBird database.
 
 # Methods
- 
-- eBird & transformation to presence-absence
-- WorldClim & Copernicus, variable selection
-- BARTs with `embarcadero`
-- Richness, LCBD with hellinger transformation, relationship
-- Subareas (rich & poor)
-- 3 scales
 
 We measured how compositional uniqueness varies on extended continuous scales.
 We first predicted species composition on continuous scales using extended
@@ -73,12 +58,6 @@ present (1) if a species was ever recorded in a site, and absent (0) if it
 was not. Complete checklists ensure that these are non-detections, rather than
 the species not being recorded, hence we considered them as true absences,
 similar to @Johnston2019BesPra.
-
-- Given that we used complete checklists only, the absence of a species in a
-  site means that it was not detected, and discards the possibility that it was
-  simply not recorded by the user. 
-- The absence of a species in a complete checklist _is_ a non-detection event,
-  not an omission of record by the user.
 
 ## Environmental data
 
@@ -161,12 +140,6 @@ were qualitatively similar.
 
 # Results
 
-- SDMs results are similar to raw observations for richness, LCBD, and
-  relationship
-- Relationship is different for species-rich & species-poor sites
-- Relationship varies according to scale, being well defined at smaller scales
-  and becoming increasingly vague on larger extents
-
 The relationship between LCBD values and species richness displayed two
 constrasting profiles in species-rich and species-poor regions (@fig:subareas).
 In a species-rich region, such as the Northeastern region of our study extent
@@ -235,13 +208,6 @@ predictions (right). LCBD values were scaled to the maximum value observed after
 applying Hellinger transformation.
 
 # Discussion
-
-- Same results with SDMS mean they could reliably be used to fill-in for
-  knowledge gaps, potentially for conservation too
-- Difference between species-poor & species-rich sites: shows ways to be
-  unique differ, to link with considerations beta diversity itself
-- Scales difference: aggregating too many different sites possibly masks
-  patterns of uniqueness?
 
 This result higlights an important aspect regarding the LCBD measure: contrary
 to previous findings, it does not simply decrease with species richness. In
