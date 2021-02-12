@@ -35,20 +35,20 @@ https://github.com/gabrieldansereau/betadiversity-hotspots.
 
 ## Occurrence data
 
-We used occurrence data from eBird [@Sullivan2009EbiCit] in June 2019. We
-restricted our analyses to the Warblers family (_Parulidae_) in North America
-(Canada, United States, Mexico) using the _R_ package `auk`
-[@Strimas-Mackey2018AukEbi]. eBird is a semi-structured citizen science data
-set, meaning that observations are structured as checklists of species recorded
-in an observation run [@Johnston2019BesPra]. Observers can explicitly specify
-that their checklist contains all species they could detect and identify during
-a sampling event, in which case it is labelled as a "complete checklist". Using
-complete checklists instead of regular checklists allows to infer non-detections
-in locations where detection efforts did occur, which offers large performance
-gains in species distribution models [@Johnston2019BesPra]. We therefore
-selected the data from the complete checklists only. Our final data set
-comprised 62 Warblers species and nearly 23 million observations from 9 million
-checklists.
+We used occurrence data from eBird [@Sullivan2009EbiCit] downloaded through the
+eBird Basic Dataset from June 2019 [@eBirdBasicDataset2019VerEbd]. We restricted
+our analyses to the Warblers family (_Parulidae_) in North America (Canada,
+United States, Mexico) using the _R_ package `auk` [@Strimas-Mackey2018AukEbi].
+eBird is a semi-structured citizen science data set, meaning that observations
+are reported as checklists of species detected in an observation run
+[@Johnston2020AnaGui]. Observers can explicitly specify that their checklist
+contains all species they could detect and identify during a sampling event, in
+which case it is labelled as a "complete checklist". Using complete checklists
+instead of regular checklists allows to infer non-detections in locations where
+detection efforts did occur, which offers large performance gains in species
+distribution models [@Johnston2020AnaGui]. We therefore selected the data from
+the complete checklists only. Our final data set comprised 62 Warblers species
+and nearly 23 million observations from 9 million checklists.
 
 We then converted the occurrence data to a presence-absence format compatible
 with community analyses. We considered every pixel from our 10 arc-minutes
@@ -57,7 +57,7 @@ a single observation in every sites. We recorded the outcome as a binary value:
 present (1) if a species was ever recorded in a site, and absent (0) if it
 was not. Complete checklists ensure that these are non-detections, rather than
 the species not being recorded, hence we considered them as true absences,
-similar to @Johnston2019BesPra.
+similar to @Johnston2020AnaGui.
 
 ## Environmental data
 
@@ -68,20 +68,19 @@ monthly climate data for global land areas. We downloaded the data at a
 resolution of 10 arc-minutes (around 18 km² at the equator), the coarsest
 resolution available, using the _Julia_ package `SimpleSDMLayers.jl`
 [@Dansereau2021SimJl]. The coarse resolution should mitigate potential
-imprecisions in the eBird regarding the extent of the sampled areas in each
+imprecisions in the eBird data regarding the extent of the sampled areas in each
 observation checklist. We selected 8 of the 19 standard _bioClim_ variables
 representing annual trends, ranges, and extremes of temperature and
-precipitation (annual mean, ranges, extremas, seasonality): bio1, bio2, bio5,
-bio6, bio12, bio13, bio14, bio15. The Copernicus data is a set of variables
-representing 10 land cover classes (e.g. crops, tree, urban area) and measured
-as a percentage of land cover fraction. The data is only available at a finer
-resolution of 100m, which we downloaded directly from the website. We coarsened
-it to the same 10 arc-minutes resolution as the WorldClim data by averaging the
-land cover fraction values with `GDAL` [@GDAL/OGRcontributors2021GdaOgr]. We
-first selected the 10 land cover variables, but later removed two of them (moss
-and snow) from our predictive models as their cover fraction was 0% on all sites
-with Warblers observations, hence they did not provide any predictive value to
-our SDM models.
+precipitation: bio1, bio2, bio5, bio6, bio12, bio13, bio14, bio15. The
+Copernicus data is a set of variables representing 10 land cover classes (e.g.
+crops, tree, urban area) and measured as a percentage of land cover fraction.
+The data is only available at a finer resolution of 100m, which we downloaded
+directly from the website. We coarsened it to the same 10 arc-minutes resolution
+as the WorldClim data by averaging the cover fraction values of the pixels with
+`GDAL` [@GDAL/OGRcontributors2021GdaOgr]. We first selected the 10 land cover
+variables, but later removed two of them (moss and snow) from our predictive
+models as their cover fraction was 0% on all sites with Warblers observations,
+hence they did not provide any predictive value to our SDM models.
 
 ## Species distribution models
 
@@ -98,41 +97,42 @@ distribution of predicted classification probabilities [@Chipman2010BarBay;
 _R_ to perform the BART models. We performed BARTs separately for all species
 and estimated the probability of occurrence for all the sites in our region of
 interest, then converted the results to a binary outcome given a threshold that
-maximises the True skill statistic (TSS), as suggested by @Carlson2020EmbSpe. 
+maximises the True Skill Statistic (TSS), as suggested by @Carlson2020EmbSpe. 
 
 ## Quantification of ecological uniqueness
 
 We used the method from @Legendre2013BetDiv to quantify compositional uniqueness
 from overall beta diversity for both observed and predicted data. First, we
-assembled species presence-absence data (observed and predicted) by site to form
-two site-by-species community matrices $Y$. We measured species richness per
-site as the sum of each row, or the number species present. We removed the sites
-without any species from the predicted community matrix (the observed commmunity
-matrix, by design, was only composed of sites with at least one species
-present), and applied the Hellinger transformation to our $Y$ matrix, as
-recommended by @Legendre2013BetDiv for presence-absence data. We then measured
-the local contributions to beta diversity (LCBD), which quantify how much a
-specific site (a row in matrix $Y$) contributes to the overall variance in the
-community [@Legendre2013BetDiv]. High LCBD values indicate a unique community
-composition, while low values indicate a more common set of species. We note
-that our LCBD values, which add up to 1 by definition, were very low given the
-high number of sites in both our observed and predicted data sets. However, the
-relative difference between the scores matters more than the absolute value to
-differentiate their uniqueness. We decided to report the LCBD values as the
-relative to the maximum value from each matrix Y, meaning that the new maximum
-value is 1, and all other values represent fractions of it.
+assembled species presence-absence data by site to form two site-by-species
+community matrices $Y$, one from observed data and one from predicted data. We
+measured species richness per site as the sum of each row, or the number species
+present. We removed the sites without any species from the predicted community
+matrix (this was not necessary for the observed community matrix, as it was, by
+design, only composed of sites with at least one species present), and applied
+the Hellinger transformation to our $Y$ matrices, as recommended by
+@Legendre2013BetDiv for presence-absence data. We then measured the local
+contributions to beta diversity (LCBD), which quantify how much a specific site
+(a row in matrix $Y$) contributes to the overall variance in the community
+[@Legendre2013BetDiv]. High LCBD values indicate a unique community composition,
+while low values indicate a more common set of species. We note that our LCBD
+values, which add up to 1 by definition, were very low given the high number of
+sites in both our observed and predicted data sets. However, the relative
+difference between the scores matters more than the absolute value to
+differentiate their uniqueness. Therefore, we decided to report the LCBD values
+as relative to the maximum value from each matrix Y, meaning that the new
+maximum value was 1, and all other values represented fractions of it.
 
 ## Investigation of regional and scaling variation
 
 To investigate possible regional and scaling effects, we recalculated LCBD
-values on subregions at different locations or at different scales. First, we
-selected two subregions of equivalent size (20 longitude degrees by 10 latitude
-degres) with two contrasting richness profiles to verify if the relationship
-between species richness and LCBD values was similar. We selected a Northeast
-subregion, mostly species-rich, and a Southwest subregion, mostly species-poor
-(for both observed and predicted data). The coordinates of both subregions are
-shown on @fig:subareas. Second, we recalculated the LCBD indices at three
-different scales, starting with a focus on the Northeast subregion and
+values on various subregions at different locations and at different scales.
+First, we selected two subregions of equivalent size (20 longitude degrees by 10
+latitude degres) with two contrasting richness profiles to verify if the
+relationship between species richness and LCBD values was similar. We selected a
+Northeast subregion, mostly species-rich, and a Southwest subregion, mostly
+species-poor (for both observed and predicted data). The coordinates of both
+subregions are shown on @fig:subareas. Second, we recalculated the LCBD indices
+at three different scales, starting with a focus on the Northeast subregion and
 progressively extending the extent to encompass the Southwest subregion
 (@fig:scaling). We did these two verifications with both the observed and
 predicted data, but only illustrate the results with the predicted data as both
