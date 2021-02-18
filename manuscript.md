@@ -194,6 +194,17 @@ diversity on extended scales.
     <img src="figures/richness-bart.png" width="49%" />
 </p>
 
+<div id="fig:figureRef">
+
+![a](figures/richness-raw.png){#fig:figureRefA width=49%}
+
+![b](figures/richness-bart.png){#fig:figureRefB width=49%}
+
+Figure 1: Caption of figure. a — subfigure 1 caption, b — subfigure 2
+caption
+
+</div>
+
 Figure: Distribution of species richness in North America, defined as the number
 of Warblers species per site (10 arc-minutes pixels). The raw occurrence
 observations from eBird (left) and the SDM predictions from the single-species
