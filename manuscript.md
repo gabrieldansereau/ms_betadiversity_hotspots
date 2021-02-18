@@ -146,6 +146,12 @@ similar.
 
 # Results
 
+## Species distribution models generate relevant community predictions
+
+## The relationship on extended spatial scales is broad and less clearly defined
+
+## Uniqueness displays regional variation as two distinct profiles
+
 The relationship between LCBD values and species richness displayed two
 contrasting profiles in species-rich and species-poor regions (@fig:subareas).
 In a species-rich region, such as the Northeastern region of our study extent
@@ -166,6 +172,8 @@ regions with 40 species stand out more and are more exceptional in such
 species-poor regions than they would be in species-rich ones.
 
 ![Comparison between a species-rich region (Northeast) and a species-poor one (Southwest) at a given scale, based on the SDM predictions](figures/subareas-combined.png){#fig:subareas}
+
+## Uniqueness depends on the scale on which it is measured
 
 The LCBD-richness relationship shows some important variation when scaling up
 and changing the region's study extent (@fig:scaling). On smaller scales,
