@@ -197,7 +197,6 @@ diversity on extended scales.
 <div id="fig:figureRef">
 
 ![a](figures/richness-raw.png){#fig:figureRefA width=49%}
-
 ![b](figures/richness-bart.png){#fig:figureRefB width=49%}
 
 Figure 1: Caption of figure. a — subfigure 1 caption, b — subfigure 2
