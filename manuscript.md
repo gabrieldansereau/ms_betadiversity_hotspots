@@ -148,17 +148,6 @@ similar.
 
 ## Species distribution models generate relevant community predictions
 
-Re-attempting subfigures @fig:figureRefA and @fig:figureRefB, and of course @fig:figureRef.
-
-<div id="fig:figureRef">
-![a](figures/richness-raw.png){#fig:figureRefA width=49%}
-![b](figures/richness-bart.png){#fig:figureRefB width=49%}
-
-Figure 1: Caption of figure. a — subfigure 1 caption, b — subfigure 2
-caption
-
-</div>
-
 ## The relationship on extended spatial scales is broad and less clearly defined
 
 ## Uniqueness displays regional variation as two distinct profiles
