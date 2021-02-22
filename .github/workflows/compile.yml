@@ -49,7 +49,7 @@ jobs:
       - name: Build the tex files
         run: |
           pandoc manuscript.md -s -o dist/draft.tex -F pandoc-crossref --citeproc --bibliography=references.json --metadata-file=metadata.json --metadata-file=affiliations.json --template=.assets/templates/draft.tex -M "subfigGrid=true"
-          pandoc manuscript.md -s -o dist/preprint.tex -F pandoc-crossref --citeproc --bibliography=references.json --metadata-file=metadata.json --metadata-file=affiliations.json --template=.assets/templates/preprint.tex "subfigGrid=true"
+          pandoc manuscript.md -s -o dist/preprint.tex -F pandoc-crossref --citeproc --bibliography=references.json --metadata-file=metadata.json --metadata-file=affiliations.json --template=.assets/templates/preprint.tex -M "subfigGrid=true"
       - name: Save artifacts
         if: always()
         uses: actions/upload-artifact@master
