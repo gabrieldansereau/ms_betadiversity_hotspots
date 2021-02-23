@@ -153,7 +153,7 @@ similar.
 What's going on with the subfigures from @fig:lcbd, do I need to call you like
 this @fig:lcbdA and @fig:lcbdB ??
 
-<div id="fig:lcbd" class="subfigures">
+<div id="fig:lcbd">
 
 ![a](figures/lcbd-raw.png){#fig:lcbdA}
 
