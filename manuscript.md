@@ -150,18 +150,6 @@ similar.
 
 ## The relationship on extended spatial scales is broad and less clearly defined
 
-What's going on with the subfigures from @fig:lcbd, do I need to call you like
-this @fig:lcbd (a) and @fig:lcbd (b) ??
-
-<div id="fig:lcbd">
-
-![a](figures/lcbd-raw.png){#fig:lcbdA width=49%}
-![b](figures/lcbd-bart.png){#fig:lcbdB width=49%}
-
-Distribution of the LCBD values in North America, calculated from the variance of the community matrix Y and scaled to the maximum value observed. The Hellinger transformation was applied on the raw occurrence data before calculating the LCBD indices, b — SDM predictions were converted into presence-absence data, but no transformation was applied before calculating the LCBD indices
-
-</div>
-
 ## Uniqueness displays regional variation as two distinct profiles
 
 The relationship between LCBD values and species richness displayed two
