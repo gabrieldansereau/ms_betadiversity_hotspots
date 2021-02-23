@@ -159,7 +159,7 @@ this @fig:lcbdA and @fig:lcbdB ??
 
   ![b](figures/lcbd-bart.png){#fig:lcbdB}
 
-Distribution of the LCBD values in North America, calculated from the variance of the community matrix Y and scaled to the maximum value observed. The Hellinger transformation was applied on the raw occurrence data before calculating the LCBD indices. SDM predictions were converted into presence-absence data, but no transformation was applied before calculating the LCBD indices.
+Distribution of the LCBD values in North America, calculated from the variance of the community matrix Y and scaled to the maximum value observed. a — The Hellinger transformation was applied on the raw occurrence data before calculating the LCBD indices. b — SDM predictions were converted into presence-absence data, but no transformation was applied before calculating the LCBD indices.
 
 </div>
 
