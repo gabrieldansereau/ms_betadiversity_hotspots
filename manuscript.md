@@ -152,11 +152,11 @@ similar.
 
 <div id="fig:lcbd" class="subfigures">
 
-  ![Raw occurrence data (Hellinger transformed)](figures/lcbd-raw.png){#fig:lcbd_raw}
+  ![a](figures/lcbd-raw.png){#fig:lcbdA}
 
-  ![SDM predictions](figures/lcbd-bart.png){#fig:lcbd_sdm}
+  ![b](figures/lcbd-bart.png){#fig:lcbdB}
 
-Distribution of the LCBD values in North America, calculated from the variance of the community matrix Y and scaled to the maximum value observed. The Hellinger transformation was applied on the raw occurrence data (@fig:lcbd_raw) before calculating the LCBD indices. SDM predictions (@fig:lcbd_sdm) were converted into presence-absence data, but no transformation was applied before calculating the LCBD indices.
+Distribution of the LCBD values in North America, calculated from the variance of the community matrix Y and scaled to the maximum value observed. The Hellinger transformation was applied on the raw occurrence data (@fig:lcbdA) before calculating the LCBD indices. SDM predictions (@fig:lcbdB) were converted into presence-absence data, but no transformation was applied before calculating the LCBD indices.
 
 </div>
 
