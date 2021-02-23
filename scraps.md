@@ -1,5 +1,7 @@
 # Scraps
 
+## Methods
+
 #### Complete checklists introduction
 
 Complete checklists allow to infer non-detection of a species in locations
@@ -30,3 +32,18 @@ of predicted classification probabilities [@Carlson2020EmbSpe].
 BARTs are a bayesian sum-of-trees model where trees are constrained by priors
 and inclusing an iterative Bayesian backfitting MCMC algorithm
 [@Chipman2010BarBay]. 
+
+## Results
+
+## Distribution results
+
+The species distribution models generated richness and uniqueness results that
+matched those from observed data, comforting their potential to fill-in gaps in
+poorly sampled regions. 
+
+The species distribution models generated relevant community predictions in
+terms of richness and uniqueness, which match the results from the
+observed data.
+
+At a broad and coarse scale, this should be similar to the distributions from
+IUCN.
