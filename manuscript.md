@@ -150,21 +150,21 @@ similar.
 
 The species distribution models generated richness and uniqueness results that
 matched those from observed data, comforting their potential to fill-in gaps in
-poorly sampled regions. @fig:richness (a) shows that species richness from
-observation data is higher on the East coast and lower on the West coast, with
-many unsampled patches in the North, Midwest, and Southwest. Richness results
-from SDM data (@fig:richness (b)) fill in most of the gaps while still
-displaying higher richness on the East coast, as well as sites with few or no
-species up North and in the Midwest. There is no clear latitudinal gradient in
-richness, but rather an East-West one, with landmarks such as the Rockies and
-croplands in the Midwest, which should be species-poor habitats, notably
-visible on the maps, separating the East and West.
+poorly sampled regions ([@fig:richness]). Species richness from observation data
+([@fig:richness_raw]) is higher on the East coast and lower on the West coast,
+with many unsampled patches in the North, Midwest, and Southwest. Richness
+results from SDM data ([@fig:richness_bart]) fill in most of the gaps while
+still displaying higher richness on the East coast, as well as sites with few or
+no species up North and in the Midwest. There is no clear latitudinal gradient
+in richness, but rather an East-West one, with landmarks such as the Rockies and
+croplands in the Midwest, which should be species-poor habitats, notably visible
+on the maps, separating the East and West.
 
 <div id="fig:richness">
 
-![a](figures/richness-raw.png)
+![](figures/richness-raw.png){#fig:richness_raw}
 
-![b](figures/richness-bart.png)
+![](figures/richness-bart.png){#fig:richness_bart}
 
 Distribution of species richness in North America, defined as the number of
 Warblers species per site, where each site is a 10 arc-minutes pixel. The
@@ -177,20 +177,20 @@ Warblers species present.
 </div>
 
 The SDM predictions highlighted similar results regarding the LCBD sites,
-providing relevant measures to fill in gaps. LCBD scores were low on the East
-Coast, and higher on the border of sampled sites in the Midwest, as well as in
-North and in the South where sites with observations were more sparse (@fig:lcbd
-(a)). Results from SDM predictions are similar, with lower LCBD values in the
-East, and more unique sites in the Midwest region and Central Mexico, as well as
-in some Northern regions (@fig:lcbd (b)). There is no clear latitudinal gradient
-once again and the East-West contrast, while present, is less clear than on the
-richness maps.
+providing relevant measures to fill in gaps ([@fig:lcbd]). LCBD scores were low
+on the East Coast, and higher on the border of sampled sites in the Midwest, as
+well as in North and in the South where sites with observations were more sparse
+([@fig:lcbd_raw]). Results from SDM predictions are similar, with lower LCBD
+values in the East, and more unique sites in the Midwest region and Central
+Mexico, as well as in some Northern regions ([@fig:lcbd_bart]). There is no
+clear latitudinal gradient once again and the East-West contrast, while present,
+is less clear than on the richness maps.
 
 <div id="fig:lcbd">
 
-![a](figures/lcbd-raw.png)
+![](figures/lcbd-raw.png){#fig:lcbd_raw}
 
-![b](figures/lcbd-bart.png)
+![](figures/lcbd-bart.png){#fig:lcbd_bart}
 
 Distribution of the LCBD values in North America, calculated from the variance
 of the site-by-species community matrix Y and scaled to the maximum value
@@ -205,20 +205,20 @@ environmental data but without any Warblers species present.
 ## The relationship on extended spatial scales is broad and less clearly defined
 
 The relationship between species richness and LCBD scores was decreasing on
-extended continuous scales [@fig:relationship], as stated in earlier studiers;
+extended continuous scales ([@fig:relationship]), as stated in earlier studiers;
 however, the relationship is broad, poorly defined, and shows a lot of
 variation. Both observed and predicted data follow this similar relationship,
 but the relationship is even broader with the predicted data. The latter also
-seems to capture an extra association for sites of medium richness, who
-can sometimes reach higher LCBD values (e.g. 20 species and a LCBD score around
-0.9 for predicted data, compared with a score around 0.6 for observed data). The
+seems to capture an extra association for sites of medium richness, who can
+sometimes reach higher LCBD values (e.g. 20 species and a LCBD score around 0.9
+for predicted data, compared with a score around 0.6 for observed data). The
 minimal LCBD values are also higher for predicted data than for observed data.
 
 <div id="fig:relationship">
 
-![a](figures/relationship-raw.png)
+![](figures/relationship-raw.png){#fig:relationship_raw}
 
-![b](figures/relationship-bart.png)
+![](figures/relationship-bart.png){#fig:relationship_bart}
 
 Relationship between the species richness and the LCBD value of each
 site based on the occurrence observations from eBird (a) and the SDM
@@ -230,7 +230,7 @@ applying Hellinger transformation.
 ## Uniqueness displays regional variation as two distinct profiles
 
 The relationship between LCBD values and species richness displayed two
-contrasting profiles in species-rich and species-poor regions (@fig:subareas).
+contrasting profiles in species-rich and species-poor regions ([@fig:subareas]).
 In a species-rich region, such as the Northeastern region of our study extent
 (North America), LCBD scores display a decreasing relationship with species
 richness. Hence, the sites with the highest LCBD values, i.e. the unique ones in
@@ -253,7 +253,7 @@ species-poor regions than they would be in species-rich ones.
 ## Uniqueness depends on the scale on which it is measured
 
 The LCBD-richness relationship shows some important variation when scaling up
-and changing the region's study extent (@fig:scaling). On smaller scales,
+and changing the region's study extent ([@fig:scaling]). On smaller scales,
 starting with a species-rich region, the relationship is well-defined,
 decreasing and curvilinear. However, as the scale increases and progressively
 reaches species-poor regions, the relationship broadens, displays more variance,
