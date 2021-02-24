@@ -21,6 +21,74 @@ species distribution models (SDMs). To this aim, we used Bayesian additive
 regression trees (BARTs) to model species composition on continuous scales based
 on observation data from the eBird database.
 
+- Introduction
+  - LCBD as useful measure for ecological uniqueness
+  - Restriction to small scales & few sites, unlike BD itself
+  - Restriction to known composition
+  - Potential to fill-in gaps through SDMs
+  - Poses question of applicability on large, continuous scales
+  - Potential varying relationship between richness-LCBD, given dependence of BD
+    on scale
+
+Beta diversity, defined as the variation in species composition among sites in a
+geographic region of interest [@LegeBorc05], is an essential measure to describe
+the organization of biodiversity in space. Total beta diversity within a
+community can be partitioned into local contributions to beta diversity (LCBD)
+[@LegeDeC13], which allows for the identification of sites with exceptional
+species composition, hence exceptional biodiversity. Such a method is useful for
+both community ecology and conservation biology, as it highlights sites that are
+most important for their research or conservation values. However, LCBD
+calculation methods require complete information on community composition, such
+as a community composition matrix $Y$, thus they are inappropriate for partially
+sampled or unsampled sites. To our knowledge, theses methods have mostly been
+applied on community data from sampled sites, hence on discontinuous spatial
+scales, e.g. at intervals along a river stream [@LegeDeC13]. This raises the
+following questions: 1\) could LCBD indices be extended to continuous spatial
+scales, and 2\) could this provide novel ecological insights in poorly sampled
+regions? We aim to answer these questions by combining the LCBD calculation
+methods with predictive biogeography approaches, and suggest that this would
+allow for the identification of hotspots with high conservation value in poorly
+sampled regions.
+
+Species distribution models (SDMs) already allow to make predictions on
+continuous spatial scales, and these predictions could therefore be used to
+calculate LCBD indices. SDMs, also known as bioclimatic envelope models
+[@ArauPete12], aim to predict species presence or absence based on previous
+observations of occurrence, and the environmental conditions at which these were
+made [@PoisLaBr19]. Examples of uses include climate change impact and invasion
+risk assessment, reserve selection and design, and discovery of new populations
+[@ArauPete12]. This way, they generate novel ecological insights for unsampled
+or lesser-known locations [@PoisLaBr19], an approach yet to be applied to the
+LCBD framework. We believe that a predictive approach such as this one would
+bring a new perspective to biodiversity study and community ecology. By using
+SDMs, we would be able to expand community information already available, and
+thus work on a much larger community matrices than in typical LCBD studies,
+which might highlight new diversity hotspots.
+
+Climate and biodiversity data on extended spatial scales are increasingly
+available online. For instance, the Worldclim 2.0 database [@FickHijm17]
+provides interpolated climate data for global land areas at very high spatial
+resolution, and the eBird platform [@SullWood09] provides a rapidly growing,
+citizen-contributed database of worldwide bird observations. Both of these are
+commonly used in SDMs, and offer relevant information on extended spatial
+scales. Therefore, we believe that these datasets could be used to predict
+community composition and calculate LCBD indices on continuous spatial scales,
+and that the result would be representative of the true community structure.
+
+The predictive approach we suggest would be especially useful in poorly sampled
+regions, or in regions with only sparse sampling. While it does not replace a
+full sampling within the community, predictions and exploratory analyses do
+provide relevant ecological insights that could be used in different ways. For
+instance, our method could help identify unsampled sites with potential
+conservation value which should be targeted as soon as possible in future
+studies. We believe that the method could also be combined with IPCC climate
+change scenarios, which provide projections for climate variables, in a way that
+would allow us to model beta diversity changes with climate change and to
+identify the sites where the changes in the community will be most important.
+Once again,this would prove very relevant in an informative approach, suggesting
+sites to prioritize for future conservation and more structured research.
+
+
 # Methods
 
 We measured how compositional uniqueness varies on extended continuous scales.
