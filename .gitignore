@@ -7,3 +7,4 @@ affiliations.json
 
 # Other files
 *.code-workspace
+.vscode/
