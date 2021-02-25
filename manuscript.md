@@ -30,6 +30,27 @@ on observation data from the eBird database.
   - Potential varying relationship between richness-LCBD, given dependence of BD
     on scale
 
+Ecological communities can be viewed as simply an assemblage of species. Such a
+view opens the perspective of predicting community composition from predictions
+of individual species, the aim of species distribution models (SDMs). At their
+core, SDMs aim to predict the distribution of a species based on information
+about where the species was previously reported, matched with environmental data
+at those locations, and then make predictions at other (unsampled) locations
+based on their environmental conditions. Going from single-species SDMs to a
+whole community is not a trivial task -- many alternatives have been suggested,
+such as stacked species distribution models (SSDMs) [@Ferrier2006], spatially
+explicit species assemblage modelling (SESAM) [@Guisan2011], joint species
+distribution models (JSDMs) [@Pollock2014], and hierarchical modeling of species
+communities (HMSC) [@Ovaskainen2017]. Reasons behind these alternative methods
+vary, but there are some reasons to believe that even S-SDMs, in a sense the
+most simple and less community-specific method, provide reliable community
+predictions [@Norberg2019; @Zurrell2020]. Regardless of the method used,
+community-level analyses can be applied on the resulting community prediction
+[@Ferrier2006]. This is something that has been lacking for a while, especially
+for measures other than species richness [@Ferrier2006]. This is true for the
+framework of local contributions to beta diversity (LCBD) [@Legendre2013BetDiv],
+measuring the uniqueness of communities, which to our knowledge has never been
+applied on SDM results.
 Beta diversity, defined as the variation in species composition among sites in a
 geographic region of interest [@LegeBorc05], is an essential measure to describe
 the organization of biodiversity in space. Total beta diversity within a
