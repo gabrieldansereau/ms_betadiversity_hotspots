@@ -4,8 +4,7 @@ bibliography: [references.bib]
 
 <div style="text-align: justify">
 
-# Introduction
-
+# Abstract (sort-of)
 Beta diversity is an essential measure to describe the organization of
 biodiversity in space. The calculation of local contributions to beta diversity
 (LCBD), specifically, allows for the identification of sites with exceptional
@@ -21,6 +20,8 @@ species distribution models (SDMs). To this aim, we used Bayesian additive
 regression trees (BARTs) to model species composition on continuous scales based
 on observation data from the eBird database.
 
+# Introduction
+
 - Introduction
   - LCBD as useful measure for ecological uniqueness
   - Restriction to small scales & few sites, unlike BD itself
@@ -30,6 +31,44 @@ on observation data from the eBird database.
   - Potential varying relationship between richness-LCBD, given dependence of BD
     on scale
 
+Identifying the factors that drive the distribution of biodiversity in space is
+a complex matter.
+
+Identifying areas of exceptional biodiversity in space is a key question for
+the conservation and management of natural habitats. Yet, there is a plenitude
+of definitions over what constitutes a key biodiversity area or how to measure
+it. This comes from two overarching challenges: we do not have perfect
+biological data to assess biodiversity everywhere on Earth, and we do not know
+all the drivers of biological diversity to compensate for it. Given this, we
+have seen the rise of field-specific methods and metrics, which at best 
+
+Beta diversity, defined as the variation in species composition among sites in a
+geographic region of interest [@Legendre2005AnaBet], is an essential measure to
+describe the organization of biodiversity in space. Total beta diversity within
+a community can be partitioned into local contributions to beta diversity (LCBD)
+[@Legendre2013BetDiv], which allows for the identification of sites with
+exceptional species composition, hence exceptional biodiversity. Such a method,
+focusing on specific sites, is useful for both community ecology and
+conservation biology, as it highlights areas that are most important for their
+research or conservation values. However, LCBD calculation methods require
+complete information on community composition, such as a community composition
+matrix $Y$, thus they are inappropriate for partially sampled or unsampled
+sites. To our knowledge, theses methods have mostly been applied on community
+data from well-defined sampled sites, for example at intervals along a river
+stream [@Legendre2013BetDiv], hence on discontinuous spatial scales. This raises
+the following questions: 1\) could LCBD indices be extended to continuous
+spatial scales, and 2\) could this provide novel ecological insights in poorly
+sampled regions? We aim to answer these questions by combining the LCBD
+calculation methods with predictive biogeography approaches, and suggest that
+this would allow for the identification of hotspots with high conservation value
+in poorly sampled regions.
+
+Yet, predictive approaches are increasingly common and some methods, such as
+species distribution models (SDMs), can generate novel ecological insights for
+unsampled or lesser-known locations [@Poisot2019DatSyn]. This approach has yet
+to be combined with LCBD methods, and raises the issue of calculating the
+uniqueness scores on much larger community matrices. 
+
 Ecological communities can be viewed as simply an assemblage of species. Such a
 view opens the perspective of predicting community composition from predictions
 of individual species, the aim of species distribution models (SDMs). At their
@@ -38,38 +77,22 @@ about where the species was previously reported, matched with environmental data
 at those locations, and then make predictions at other (unsampled) locations
 based on their environmental conditions. Going from single-species SDMs to a
 whole community is not a trivial task -- many alternatives have been suggested,
-such as stacked species distribution models (SSDMs) [@Ferrier2006], spatially
-explicit species assemblage modelling (SESAM) [@Guisan2011], joint species
-distribution models (JSDMs) [@Pollock2014], and hierarchical modeling of species
-communities (HMSC) [@Ovaskainen2017]. Reasons behind these alternative methods
-vary, but there are some reasons to believe that even S-SDMs, in a sense the
-most simple and less community-specific method, provide reliable community
-predictions [@Norberg2019; @Zurrell2020]. Regardless of the method used,
-community-level analyses can be applied on the resulting community prediction
-[@Ferrier2006]. This is something that has been lacking for a while, especially
-for measures other than species richness [@Ferrier2006]. This is true for the
-framework of local contributions to beta diversity (LCBD) [@Legendre2013BetDiv],
-measuring the uniqueness of communities, which to our knowledge has never been
-applied on SDM results.
-Beta diversity, defined as the variation in species composition among sites in a
-geographic region of interest [@LegeBorc05], is an essential measure to describe
-the organization of biodiversity in space. Total beta diversity within a
-community can be partitioned into local contributions to beta diversity (LCBD)
-[@LegeDeC13], which allows for the identification of sites with exceptional
-species composition, hence exceptional biodiversity. Such a method is useful for
-both community ecology and conservation biology, as it highlights sites that are
-most important for their research or conservation values. However, LCBD
-calculation methods require complete information on community composition, such
-as a community composition matrix $Y$, thus they are inappropriate for partially
-sampled or unsampled sites. To our knowledge, theses methods have mostly been
-applied on community data from sampled sites, hence on discontinuous spatial
-scales, e.g. at intervals along a river stream [@LegeDeC13]. This raises the
-following questions: 1\) could LCBD indices be extended to continuous spatial
-scales, and 2\) could this provide novel ecological insights in poorly sampled
-regions? We aim to answer these questions by combining the LCBD calculation
-methods with predictive biogeography approaches, and suggest that this would
-allow for the identification of hotspots with high conservation value in poorly
-sampled regions.
+such as stacked species distribution models (SSDMs) [@Ferrier2006SpaMod],
+spatially explicit species assemblage modelling (SESAM) [@Guisan2011SesNew],
+joint species distribution models (JSDMs) [@Pollock2014UndCoo], and hierarchical
+modeling of species communities (HMSC) [@Ovaskainen2017HowMak]. Reasons behind
+these alternative methods vary, but there are some reasons to believe that even
+S-SDMs, in a sense the most simple and less community-specific method, provide
+reliable community predictions [@Norberg2019ComEva; @Zurell2020TesSpe].
+Regardless of the method used, community-level analyses can be applied on the
+resulting community prediction [@Ferrier2006SpaMod]. This is something that has
+been lacking for a while, especially for measures other than species richness
+[@Ferrier2006SpaMod]. This is true for the framework of local contributions to
+beta diversity (LCBD) [@Legendre2013BetDiv], measuring the uniqueness of
+communities, which to our knowledge has never been applied on SDM results.
+
+Measuring local contributions to beta diversity opens-up two questions: how does
+the measure behave on continuous scales, as well as on extended spatial scales?
 
 Species distribution models (SDMs) already allow to make predictions on
 continuous spatial scales, and these predictions could therefore be used to
