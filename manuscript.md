@@ -30,24 +30,24 @@ for conservation purposes.
 # Introduction
 
 Beta diversity, defined as the variation in species composition among sites in a
-geographic region of interest (Legendre et al., 2005), is an essential measure
+geographic region of interest [@Legendre2005AnaBet], is an essential measure
 to describe the organization of biodiversity in space. Total beta diversity
 within a community can be partitioned into local contributions to beta diversity
-(LCBD) (Legendre & De Cáceres, 2013), which allows for the identification of
+(LCBD) [@Legendre2013BetDiv], which allows for the identification of
 sites with exceptional species composition, hence exceptional biodiversity. Such
 a method, focusing on specific sites, is useful for both community ecology and
 conservation biology, as it highlights areas that are most important for their
 research or conservation values. However, the use of LCBD indices is currently
 limited in two ways. First, LBCD indices are typically used on smaller regional
 scales with relatively few sites, for example on fish communities at intervals
-along a river stream (Legendre & De Cáceres, 2013). Second, LCBD calculation
+along a river stream [@Legendre2013BetDiv]. Second, LCBD calculation
 methods require complete information on community composition, such as a
 community composition matrix Y, thus they are inappropriate for partially
 sampled sites, let alone for unsampled ones. Accordingly, the method is of
 limited use to identify areas with exceptional biodiversity in regions with poor
 and sparse sampling. However, predictive approaches are increasingly common
 given recent development of computational methods, which often generate novel
-ecological insights from existing data (Poisot et al., 2019) including for
+ecological insights from existing data [@Poisot2019DatSyn] including for
 unsampled or lesser-known locations, as well as larger spatial scales. Here, we
 examine whether the LCBD method can be used to assess ecological uniqueness on
 extended and continuous scales based on predictions of species distributions,
@@ -57,28 +57,29 @@ identification of exceptional biodiversity areas.
 Ecological communities can be viewed as simply an assemblage of species. Such a
 view opens the perspective of predicting community composition from predictions
 of individual species, the aim of species distribution models (SDMs).
-Community-level modelling from SDMs is not an especially novel idea (Ferrier et
-al., 2002; Ferrier & Guisan, 2006), but it is increasingly relevant with the
-advent of large-scale, massive, and open data sources on species occurrences,
-often contributed by citizens, such as eBird and GBIF. At their core, SDMs aim
-to predict the distribution of a species based on information about where the
-species was previously reported, matched with environmental data at those
-locations, and then make predictions at other (unsampled) locations based on
-their respective environmental conditions. Going from single-species SDMs to a
-whole community is not a trivial task -- many alternatives have been suggested,
-such as stacked species distribution models (SSDMs) (Ferrier & Guisan, 2006),
-spatially explicit species assemblage modelling (SESAM) (Guisan & Rahbek, 2011),
-joint species distribution models (JSDMs) (Pollock et al., 2014), and
-hierarchical modeling of species communities (HMSC) (Ovaskainen et al., 2017).
-Reasons behind these alternative methods vary, but there are some reasons to
-believe that even S-SDMs, in a sense the most simple and less community-specific
-method, provide reliable community predictions (Norberg et al., 2019; Zurell et
-al., 2020). Regardless of the method used, community-level analyses can be
-applied on the resulting community prediction (Ferrier & Guisan, 2006),
-something which has been lacking for measures other than species richness
-(Ferrier & Guisan, 2006). This is true for the framework of local contributions
-to beta diversity (LCBD) (Legendre & De Cáceres, 2013), measuring the uniqueness
-of communities, which to our knowledge has never been applied on SDM results. 
+Community-level modelling from SDMs is not an especially novel idea
+[@Ferrier2002ExtSta; @Ferrier2006SpaMod], but it is increasingly relevant with
+the advent of large-scale, massive, and open data sources on species
+occurrences, often contributed by citizens, such as eBird and GBIF. At their
+core, SDMs aim to predict the distribution of a species based on information
+about where the species was previously reported, matched with environmental data
+at those locations, and then make predictions at other (unsampled) locations
+based on their respective environmental conditions. Going from single-species
+SDMs to a whole community is not a trivial task -- many alternatives have been
+suggested, such as stacked species distribution models (SSDMs)
+[@Ferrier2006SpaMod], spatially explicit species assemblage modelling (SESAM)
+[@Guisan2011SesNew], joint species distribution models (JSDMs)
+[@Pollock2014UndCoo], and hierarchical modeling of species communities (HMSC)
+[@Ovaskainen2017HowMak]. Reasons behind these alternative methods vary, but
+there are some reasons to believe that even S-SDMs, in a sense the most simple
+and less community-specific method, provide reliable community predictions
+[@Norberg2019ComEva; @Zurell2020TesSpe]. Regardless of the method used,
+community-level analyses can be applied on the resulting community prediction
+[@Ferrier2006SpaMod], something which has been lacking for measures other
+than species richness [@Ferrier2006SpaMod]. This is true for the framework
+of local contributions to beta diversity (LCBD) [@Legendre2013BetDiv],
+measuring the uniqueness of communities, which to our knowledge has never been
+applied on SDM results. 
 
 However, applying local contributions to beta diversity on SDM predictions
 raises the issue of calculating the uniqueness scores on much larger community
@@ -87,12 +88,12 @@ scale of the predictions, as there will be more sites in the region of interest
 now that it is not restricted to sampled ones, and (ii)  because of the larger
 spatial extent allowed by SDM predictions. As mentioned earlier, LCBD scores are
 normally used on relatively few sites on regional scales (although some studies
-did apply it on near continental ones (Poisot et al., 2017; Taranu et al.,
-2020), the total number of sites was relatively low). Having a lot of sites as
-well as a large extent opens up the possibility of capturing a lot of
-variability of habitats­ and community composition, but also a great number of
-very similar ones, which could possibly change the way that exceptional sites
-contribute to the overall variance in the large-scale community.
+did apply it on near continental ones [@Poisot2017HosPar; @Taranu2020LarMul],
+the total number of sites was relatively low). Having a lot of sites as well as
+a large extent opens up the possibility of capturing a lot of variability of
+habitats­ and community composition, but also a great number of very similar
+ones, which could possibly change the way that exceptional sites contribute to
+the overall variance in the large-scale community.
 
 Measuring ecological uniqueness from LCBD indices on extended continuous scales
 also raises the question of which sites will be identified as exceptional, and
@@ -100,11 +101,11 @@ for what reason. The intent of the method is that sites should stand out and
 receive a high LCBD score whenever they display an exceptional community
 composition, be it a unique assemblage of species, or a richer or poorer
 community than most in the region. However, empirical studies have shown a
-decreasing relationship between LCBD scores and species richness (Heino &
-Grönroos, 2017). In other words, the method tends to identify the poorest sites
-as the most exceptional ones. This remains to be shown on extended continuous
-scales, as overall beta diversity is strongly dependent on scale, therefore the
-relationship could potentially be different in such a case.
+decreasing relationship between LCBD scores and species richness
+[@Heino2017ExpSpe]. In other words, the method tends to identify the poorest
+sites as the most exceptional ones. This remains to be shown on extended
+continuous scales, as overall beta diversity is strongly dependent on scale,
+therefore the relationship could potentially be different in such a case.
 
 This study shows that species distribution modelling predictions offer relevant
 LCBD and community-level predictions on extended spatial scales, similar to the
