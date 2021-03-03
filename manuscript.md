@@ -251,57 +251,25 @@ similar.
 
 The species distribution models generated richness and uniqueness results that
 matched those from observed data, comforting their potential to fill-in gaps in
-poorly sampled regions ([@fig:richness]). Species richness from observation data
-([@fig:richness_raw]) is higher on the East coast and lower on the West coast,
-with many unsampled patches in the North, Midwest, and Southwest. Richness
-results from SDM data ([@fig:richness_bart]) fill in most of the gaps while
-still displaying higher richness on the East coast, as well as sites with few or
-no species up North and in the Midwest. There is no clear latitudinal gradient
-in richness, but rather an East-West one, with landmarks such as the Rockies and
-croplands in the Midwest, which should be species-poor habitats, notably visible
-on the maps, separating the East and West.
+poorly sampled regions ([@fig:maps]). Species richness from observation data
+([@fig:maps]a) is higher on the East coast and lower on the West coast, with
+many unsampled patches in the North, Midwest, and Southwest. Richness results
+from SDM data ([@fig:maps]b) filled in most of the gaps while still displaying
+higher richness on the East coast, as well as sites with few or no species up
+North and in the Midwest. There was no clear latitudinal gradient in richness,
+but rather an East-West one, with landmarks such as the Rockies and croplands in
+the Midwest, which should be species-poor habitats, notably visible on the maps,
+separating the East and West. The SDM predictions highlighted similar results
+regarding the LCBD sites, providing relevant measures to fill in gaps. LCBD
+scores were low on the East Coast, and higher on the border of sampled sites in
+the Midwest, as well as in North and in the South where sites with observations
+were more sparse ([@fig:maps]c). Results from SDM predictions were similar,
+with lower LCBD values in the East, and more unique sites in the Midwest region
+and Central Mexico, as well as in some Northern regions ([@fig:maps]d).
+There was no clear latitudinal gradient once again and the East-West contrast,
+while present, was less clear than on the richness maps.
 
-<div id="fig:richness">
-
-![](figures/richness-raw.png){#fig:richness_raw}
-
-![](figures/richness-bart.png){#fig:richness_bart}
-
-Distribution of species richness in North America, defined as the number of
-Warblers species per site, where each site is a 10 arc-minutes pixel. The
-occurrence observation data from eBird (a) and the SDM predictions from the
-single-species BART models (b) were both transformed into presence-absence
-data per species before calculating richness. Areas in light grey (not on the
-colour scale) represent mainland sites with environmental data but without any
-Warblers species present.
-
-</div>
-
-The SDM predictions highlighted similar results regarding the LCBD sites,
-providing relevant measures to fill in gaps ([@fig:lcbd]). LCBD scores were low
-on the East Coast, and higher on the border of sampled sites in the Midwest, as
-well as in North and in the South where sites with observations were more sparse
-([@fig:lcbd_raw]). Results from SDM predictions are similar, with lower LCBD
-values in the East, and more unique sites in the Midwest region and Central
-Mexico, as well as in some Northern regions ([@fig:lcbd_bart]). There is no
-clear latitudinal gradient once again and the East-West contrast, while present,
-is less clear than on the richness maps.
-
-<div id="fig:lcbd">
-
-![](figures/lcbd-raw.png){#fig:lcbd_raw}
-
-![](figures/lcbd-bart.png){#fig:lcbd_bart}
-
-Distribution of the LCBD values in North America, calculated from the variance
-of the site-by-species community matrix Y and scaled to the maximum value
-observed. Occurrence observations from eBird (left) and single-species SDM
-predictions (right) were converted into presence-absence data per species, then
-the Hellinger transformation was applied before computing the LCBD indices.
-Areas in light grey (not on the colour scale) represent mainland sites with
-environmental data but without any Warblers species present.
-
-</div>
+![Comparison of species richness and LCBD scores from observed and predicted Warblers occurrences in North America. Values were calculated for sites representing 10 arc-minutes pixels.  We measured species richness after converting the occurrence data from eBird (a) and the SDM predictions from our single-species BART models (b) to a presence-absence format per species. We applied the Hellinger transformation to the presence-absence data, then calculated the LCBD values from the variance of the community matrices. We scaled the LCBD values from the occurrence data (c) and SDM predictions (d) to their respective maximal value. Areas in light grey (not on the colour scale) represent mainland sites with environmental data but without any Warblers species present.](figures/combined-maps.png){@fig:maps}
 
 ## The relationship on extended spatial scales is broad and less clearly defined
 
