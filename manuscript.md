@@ -308,40 +308,6 @@ diversity on extended scales.
 
 ![Effect of scaling and full region extent size on the relationship between site richness and LCBD value. LCBD values are re-calculated at each scale based on the sites in this region only](figures/subareas-scaling.png){#fig:scaling}
 
-## Extra figures
-
-<p align="center">
-    <img src="figures/richness-raw.png" width="49%" />
-    <img src="figures/richness-bart.png" width="49%" />
-</p>
-
-Figure: Distribution of species richness in North America, defined as the number
-of Warblers species per site (10 arc-minutes pixels). The raw occurrence
-observations from eBird (left) and the SDM predictions from the single-species
-BART models (right) were both transformed into presence-absence data per species
-before calculating richness.
-
-<p align="center">
-    <img src="figures/lcbd-raw.png" width="49%" />
-    <img src="figures/lcbd-bart.png" width="49%" />
-</p>
-
-Figure: Distribution of the LCBD values in North America, calculated from the
-variance of the site-by-species community matrix Y and scaled to the maximum
-value observed. Occurrence observations from eBird (left) and single-species SDM
-predictions (right) were converted into presence-absence data per species, then
-the Hellinger transformation was applied before computing the LCBD indices.
-
-<p align="center">
-    <img src="figures/relationship-raw.png" width="49%" />
-    <img src="figures/relationship-bart.png" width="49%" />
-</p>
-
-Figure: Relationship between the species richness and the LCBD value of each
-site based on the occurrence observations from eBird (left) and the SDM
-predictions (right). LCBD values were scaled to the maximum value observed after
-applying Hellinger transformation.
-
 # Discussion
 
 This result highlights an important aspect regarding the LCBD measure: contrary
