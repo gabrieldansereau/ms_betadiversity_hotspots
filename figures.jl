@@ -31,10 +31,10 @@ extrema(vcat(vec(raw.richness.grid), vec(sdm.richness.grid)))
 lims_richness = extrema(mapreduce(collect, vcat, [raw.richness, sdm.richness]))
 lims_lcbd = extrema(mapreduce(collect, vcat, [raw.lcbd, sdm.lcbd]))
 
-plot(raw.richness_plot, raw.lcbd_plot,
-     sdm.richness_plot, sdm.lcbd_plot,
-     clim = [lims_richness lims_lcbd lims_richness lims_lcbd],
-     title = ["a" "c" "b" "d"],
+plot(raw.richness_plot, sdm.richness_plot,
+     raw.lcbd_plot, sdm.lcbd_plot,
+     clim = [lims_richness lims_richness lims_lcbd lims_lcbd],
+     title = ["a" "b" "c" "d"],
      titleloc = :left,
      size = (850, 600), 
      dpi = 200)
