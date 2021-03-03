@@ -271,31 +271,6 @@ while present, was less clear than on the richness maps.
 
 ![Comparison of species richness and LCBD scores from observed and predicted Warblers occurrences in North America. Values were calculated for sites representing 10 arc-minutes pixels.  We measured species richness after converting the occurrence data from eBird (a) and the SDM predictions from our single-species BART models (b) to a presence-absence format per species. We applied the Hellinger transformation to the presence-absence data, then calculated the LCBD values from the variance of the community matrices. We scaled the LCBD values from the occurrence data (c) and SDM predictions (d) to their respective maximal value. Areas in light grey (not on the colour scale) represent mainland sites with environmental data but without any Warblers species present.](figures/combined-maps.png){@fig:maps}
 
-## The relationship on extended spatial scales is broad and less clearly defined
-
-The relationship between species richness and LCBD scores was decreasing on
-extended continuous scales ([@fig:relationship]), as stated in earlier studiers;
-however, the relationship is broad, poorly defined, and shows a lot of
-variation. Both observed and predicted data follow this similar relationship,
-but the relationship is even broader with the predicted data. The latter also
-seems to capture an extra association for sites of medium richness, who can
-sometimes reach higher LCBD values (e.g. 20 species and a LCBD score around 0.9
-for predicted data, compared with a score around 0.6 for observed data). The
-minimal LCBD values are also higher for predicted data than for observed data.
-
-<div id="fig:relationship">
-
-![](figures/relationship-raw.png){#fig:relationship_raw}
-
-![](figures/relationship-bart.png){#fig:relationship_bart}
-
-Relationship between the species richness and the LCBD value of each
-site based on the occurrence observations from eBird (a) and the SDM
-predictions (b). LCBD values were scaled to the maximum value observed after
-applying Hellinger transformation.
-
-</div>
-
 ## Uniqueness displays regional variation as two distinct profiles
 
 The relationship between LCBD values and species richness displayed two
