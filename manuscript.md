@@ -4,7 +4,7 @@ bibliography: [references.bib]
 
 <div style="text-align: justify">
 
-# Abstract (copy-paste from metadata, I just like having it here too 🙃)
+# Abstract (copy-paste from metadata, I just like having it here too)
 
 Beta diversity is an essential measure to describe the organization of
 biodiversity in space. The calculation of local contributions to beta diversity
