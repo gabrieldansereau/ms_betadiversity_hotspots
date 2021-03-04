@@ -75,7 +75,7 @@ alternatives have been suggested, such as stacked species distribution models
 (SESAM) [@Guisan2011SesNew], joint species distribution models (JSDMs)
 [@Pollock2014UndCoo], and hierarchical modeling of species communities (HMSC)
 [@Ovaskainen2017HowMak]. These alternative methods have all have different
-strenghts, but even S-SDMs, in a sense the most simple and less
+strengths, but even S-SDMs, in a sense the most simple and less
 community-specific method, have been shown to provide reliable community
 predictions [@Norberg2019ComEva; @Zurell2020TesSpe]. This is important, as in
 the context of large scale studies with a high number of sites and species, such
@@ -125,6 +125,10 @@ the uniqueness profiles of contrasting subregions to create a new, distinct one
 at the extended scale. Hence, our method could prove useful to identify beta
 diversity hotspots in unsampled locations on large spatial scales, which could
 be important targets for conservation purposes.
+
+Hence, our results has repercussions for the identification of beta diversity
+hotspots or regions on large spatial scales with the LCBD methods with regards
+to be selection of conservation targets.
 
 # Methods
 
@@ -315,12 +319,18 @@ diversity on extended scales.
 # Discussion
 
 Our results show that SDM models provide uniqueness predictions similar to the
-occurrence data while filling in gaps in poorly sampled regions. At the coarse
-spatial scale we used the results are also smoother in subregions, for instance
-in the Northeast, showing that the SDMs may overcome some large scale bias in
-the occurrence data, notably around cities. This shows the potential of the LCBD
-method to identify unique regions more than unique sites on extended
-continuous scales. 
+occurrence data while filling in gaps in poorly sampled regions. This, at first,
+is good as it provides a quantitative evaluation, however imperfect, for sites
+where we would otherwise not have anything. At the coarse spatial scale we used,
+there is also evidence of a spatial smoothing effect caused by the SDMs:
+New-England and the Northeast United States shows more uniform richness and
+uniqueness values on the SDM data than on the observed one. Given that we used a
+very coarse spatial scales, this shows that SDMs may overcome some large scale
+bias in the occurrence data, notably around cities. It also shows that the LCBD
+method has more potential to highlight unique regions more than unique sites on
+extended continuous scales, or at least highlight regional rather than site
+differences. This has implications in terms of conservation, which will be
+discussed later in light of our regional and scaling results.
 
 The regional variation in the relationship between species richness and LCBD
 scores shows that the LCBD method may identify unique sites based on different
@@ -340,6 +350,14 @@ that all species present in a region would cohabit in a single site given their
 different niche requirements. On presence-absence data, however, the number of
 species present at a site is the only way to introduce variance, while on
 abundance data the variation could come from the species counts.
+
+The variation in the LCBD-richness relationship when scaling up and changing the
+the overall study extent shows that the uniqueness patterns highlighted are not
+necessarily the same depending on the scale on which it used. At broad spatial
+scales, the uniqueness profiles from the subregions will merge, but can create a
+new profile with a lot more variation. When too many poor sites are present,
+rich sites will almost certainly have lower LCBD values. This shows that
+aggregating too many different sites can possibly mask some pattern of uniqueness.
 
 This result highlights an important aspect regarding the LCBD measure: contrary
 to previous findings, it does not simply decrease with species richness. In

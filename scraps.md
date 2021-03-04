@@ -47,3 +47,19 @@ observed data.
 
 At a broad and coarse scale, this should be similar to the distributions from
 IUCN.
+
+## Introduction
+
+Ecological communities, in the LCBD framework, are essentially quantitative
+assemblages of species, with variation either in species presence or absence, or
+in species abundance among sites. This is a rather simplistic view, disregarding
+the processes (such as selection, drift, speciation, and dispersion, following
+Vellend (2010)), which are also at the core of community ecology studies. Yet,
+viewing communities as assemblages of species, on a spatial point of view, opens
+the perspective of reassembling communities from single species distributions,
+and notably single species distribution _predictions_. The latter is the purpose
+of the whole field of species distribution modelling (SDM), and the
+corresponding species distribution models (SDMs), whose aim is to ... The view
+of scaling up from single species to community, thus performing community
+modelling, is not a novel idea (Ferrier, Ferrier & Guisan), even in the context
+of SDMs. 
