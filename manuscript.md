@@ -2,9 +2,13 @@
 bibliography: [references.bib]
 ---
 
+<!-- @import "./.vscode/style.less" -->
+
 <div style="text-align: justify">
 
-# Abstract (copy-paste from metadata, I just like having it here too)
+# Abstract 
+
+(copy-paste from metadata, I just like having it here too)
 
 Beta diversity is an essential measure to describe the organization of
 biodiversity in space. The calculation of local contributions to beta diversity
@@ -292,7 +296,7 @@ sites only comprise around 10 species and few sites comprise more than 20,
 regions with 40 species stand out more and are more exceptional in such
 species-poor regions than they would be in species-rich ones.
 
-![Comparison between a species-rich region (Northeast) and a species-poor one (Southwest) at a given scale, based on the SDM predictions](figures/subareas-combined.png){#fig:subareas}
+![Comparison between a species-rich region (Northeast) and a species-poor one (Southwest) at a given scale, based on the SDM predictions. The left side figures represent the scores from the assembled presence-absence predictions, calculated separately in each region after applying the Hellinger transformation. The values were scaled to the maximum LCBD observed in each subregion. The right figures represent the decreasing relationship between LCBD values and species richness, with the number of sites in as the bins of the 2-dimensional histogram. The dashed lines represent the median species richness in each subregion.](figures/subareas-combined.png){#fig:subareas}
 
 ## Uniqueness depends on the scale on which it is measured
 
@@ -306,9 +310,36 @@ minimum relative LCBD values also increase, going from near zero to 0.3,
 showing a higher contribution of the less exceptional sites to the overall
 diversity on extended scales.
 
-![Effect of scaling and full region extent size on the relationship between site richness and LCBD value. LCBD values are re-calculated at each scale based on the sites in this region only](figures/subareas-scaling.png){#fig:scaling}
+![Effect of scaling and full region extent size on the relationship between site richness and LCBD value from the SDM predictions. The LCBD values are re-calculated at each scale based on the sites in this region only and scaled to the maximum value observed in each one. The dashed lines represent the median richness in each region.](figures/subareas-scaling.png){#fig:scaling}
 
 # Discussion
+
+Our results show that SDM models provide uniqueness predictions similar to the
+occurrence data while filling in gaps in poorly sampled regions. At the coarse
+spatial scale we used the results are also smoother in subregions, for instance
+in the Northeast, showing that the SDMs may overcome some large scale bias in
+the occurrence data, notably around cities. This shows the potential of the LCBD
+method to identify unique regions more than unique sites on extended
+continuous scales. 
+
+The regional variation in the relationship between species richness and LCBD
+scores shows that the LCBD method may identify unique sites based on different
+characteristics depending on the region on which it is used. In a
+presence-absence context, in contrast with one based on abundance and count
+data, sites' species richness is probably the most important element to
+determine the LCBD value. In a species-rich region, such as our Northeast one
+(median richness of 23), the only way to stand out is to have few species. On
+the other hand, in a species-poor region, sites with higher richness can also be
+unique, yet still less than the sites with the lowest richness. In other words,
+the method identifies the poorest sites as the most unique in both species-rich
+and species-poor regions, while only identifying rich sites as unique in the
+species-poor region. This could be explained from niche theory and
+presence-absence data: while extremely-rich sites could in theory have high LCBD
+values, such are sites unlikely given ecological constraints. It is unlikely
+that all species present in a region would cohabit in a single site given their
+different niche requirements. On presence-absence data, however, the number of
+species present at a site is the only way to introduce variance, while on
+abundance data the variation could come from the species counts.
 
 This result highlights an important aspect regarding the LCBD measure: contrary
 to previous findings, it does not simply decrease with species richness. In
