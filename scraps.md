@@ -63,3 +63,15 @@ corresponding species distribution models (SDMs), whose aim is to ... The view
 of scaling up from single species to community, thus performing community
 modelling, is not a novel idea (Ferrier, Ferrier & Guisan), even in the context
 of SDMs. 
+
+## Discussion
+
+Our study is also the first to show the large scale distribution of LCBD values,
+with either a high number of sites assembled from presence-absence citizen
+science occurrence data, or with an even higher even number of sites assembled
+from SDM predictions. Our results show that on such large scale, at a coarse
+resolution, regional patterns are more visible than site ones.
+
+Now an important question: can our method (predicting uniqueness on broad
+continuous scales from SDMs) be used for conservation, and if so, hoooooow? Or
+rather, how best given what we know?
