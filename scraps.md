@@ -75,3 +75,15 @@ resolution, regional patterns are more visible than site ones.
 Now an important question: can our method (predicting uniqueness on broad
 continuous scales from SDMs) be used for conservation, and if so, hoooooow? Or
 rather, how best given what we know?
+
+This result highlights an important aspect regarding the LCBD measure: contrary
+to previous findings, it does not simply decrease with species richness. In
+fact, the relationship with richness is not constant -- it actually depends on
+the general profile of the region on which it is applied and whether or not
+this region is species-poor or species-rich. A parabolic relationship was
+actually expected when the measure was introduced, as both extremes should
+normally stand out. An explanation for the previously observed results could be
+that extremely rich sites are just much less ecologically possible. It is
+unlikely that all species could be found in a single site given their different
+niche preferences, while poor sites are much more feasible. These sites will
+almost always contribute more to the variance, as measured by LCBD values. 

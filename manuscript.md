@@ -96,24 +96,25 @@ scale of the predictions, as there will be more sites in the region of interest
 now that it is not restricted to sampled ones, and (ii)  because of the larger
 spatial extent allowed by SDM predictions. As mentioned earlier, LCBD scores are
 normally used on relatively few sites on regional scales (although some studies
-did apply it on near continental ones [@Poisot2017HosPar; @Taranu2020LarMul],
-the total number of sites was relatively low). Having a lot of sites as well as
-a large extent opens up the possibility of capturing a lot of variability of
-habitats­ and community composition, but also a great number of very similar
-ones, which could possibly change the way that exceptional sites contribute to
-the overall variance in the large-scale community. Measuring ecological
-uniqueness from LCBD indices on extended continuous scales also raises the
-question of which sites will be identified as exceptional, and for what reason.
-The intent of the method is that sites should stand out and receive a high LCBD
-score whenever they display an exceptional community composition, be it a unique
-assemblage of species, or a richer or poorer community than most in the region
-[@Legendre2013BetDiv]. However, both the original study and later empirical ones
-have shown a decreasing relationship between LCBD scores and species richness
-[@Legendre2013BetDiv; @Silva2014LocReg; @Heino2017UnrCor; @Heino2017ExpSpe]. In
-other words, the method tends to identify the poorest sites as the most
-exceptional ones. This remains to be shown on extended continuous scales, as
-overall beta diversity is strongly dependent on scale, therefore the
-relationship could potentially be different in such a case.
+did apply it on near continental ones [@Yang2015ComSim; @Poisot2017HosPar;
+@Taranu2020LarMul], but the total number of sites was relatively low). Having a
+lot of sites as well as a large extent opens up the possibility of capturing a
+lot of variability of habitats­ and community composition, but also a great
+number of very similar ones, which could possibly change the way that
+exceptional sites contribute to the overall variance in the large-scale
+community. Measuring ecological uniqueness from LCBD indices on extended
+continuous scales also raises the question of which sites will be identified as
+exceptional, and for what reason. The intent of the method is that sites should
+stand out and receive a high LCBD score whenever they display an exceptional
+community composition, be it a unique assemblage of species, or a richer or
+poorer community than most in the region [@Legendre2013BetDiv]. However, both
+the original study and later empirical ones have shown a decreasing relationship
+between LCBD scores and species richness [@Legendre2013BetDiv; @Silva2014LocReg;
+@Heino2017UnrCor; @Heino2017ExpSpe]. In other words, the method tends to
+identify the poorest sites as the most exceptional ones. This remains to be
+shown on extended continuous scales, as overall beta diversity is strongly
+dependent on scale, therefore the relationship could potentially be different in
+such a case.
 
 This study shows that species distribution modelling offers relevant LCBD and
 community-level predictions on extended spatial scales, similar to the ones
@@ -320,8 +321,8 @@ diversity on extended scales.
 # Discussion
 
 Our results show that SDM models provide uniqueness predictions similar to the
-occurrence data while filling in gaps in poorly sampled regions. This, at first,
-is good as it provides a quantitative evaluation, however imperfect, for sites
+occurrence data while filling in gaps in poorly sampled regions. This is of
+interest as it provides a quantitative evaluation, however imperfect, for sites
 where we would otherwise not have anything. At the coarse spatial scale we used,
 there is also evidence of a spatial smoothing effect caused by the SDMs:
 New-England and the Northeast United States shows more uniform richness and
@@ -347,7 +348,10 @@ desertic regions, which may be more unique if they hold a few specialist
 species, or few suitable and reachable habitat patches given the coarse
 resolution we used  Overall, these distribution results have implications in
 terms of conservation, which will be discussed later in light of our regional
-and scaling results.
+and scaling results. (Ideally there should be something meaningful on birds beta
+diversity somewhere here, probably from @Melo2009EnvDri, which shows higher BD
+in mountainous areas and shows some maps of BD for all Americas which somewhat
+concord to ours)
 
 Our result for our species-rich Northeast subregion showed a decreasing,
 slightly curvilinear relationship between LCBD values and species richness. This
@@ -355,32 +359,38 @@ is in line with the original study on fish communities [@Legendre2013BetDiv] and
 with following ones on insect metacommunities [@Silva2014LocReg;
 @Heino2017UnrCor; @Heino2017ExpSpe], dung beetles [@daSilva2018DisCor;
 @daSilva2020CanTax], aquatic beetles [@Heino2019KniPat], stream
-macroinvertebrates [@Sor2018UniSam], stream diatoms [@Vilmi2017EcoUni], mammals
-(medium-to-large, small, volant) [@daSilva2020CanTax], and a few other
+macroinvertebrates [@Sor2018UniSam], stream diatoms [@Vilmi2017EcoUni],
+multi-trophic pelagic food webs (phytoplankton, zooplankton, fish)
+[@Taranu2020LarMul], mammals (medium-to-large, small, volant)
+[@daSilva2020CanTax], wetland birds [@deDeus2020AviBet], and a few other
 phylogenetic groups (plants, lizards, mites, anurans, mesoinvertebrates)
 [@Landeiro2018SpeLow]. However, it was originally argued that this was not a
 general or obligatory relationship [@Legendre2013BetDiv].  Different
 LCBD-richness relationships have also been observed, with both positive and
-negative relationships for different sites in a single study [@Kong2017SpaVar],
-as well as a negative relation with the number of common species and a positive
-relation with the number of rare species [@Qiao2015BetDiv]. This led
-@daSilva2018DisCor to say that the proportion of rare and common species in the
-communities seems to determine if the relationship will be negative,
-non-significant, or positive. Our results show that this negative LCBD-richness
-relationship is indeed not constant and displays regional variation, as the
-profile was different in our species poor Southwest subregion. 
+negative relationships for different sites or taxonomic groups in some studies
+[@Kong2017SpaVar; @Teittinen2017LocGeo], as well as a negative relation with the
+number of common species and a positive relation with the number of rare species
+[@Qiao2015BetDiv]. This led @daSilva2018DisCor to say that the proportion of
+rare and common species in the communities seems to determine if the
+relationship will be negative, non-significant, or positive. Our results show
+that this negative LCBD-richness relationship is indeed not constant and
+displays regional variation, as the profile was different in our species poor
+Southwest subregion. 
 
 The regional variation in the relationship between species richness and LCBD
 scores shows that the LCBD method may identify unique sites based on different
-characteristics depending on the region on which it is used. In a
-presence-absence context, in contrast with one based on abundance and count
-data, sites' species richness is probably the most important element to
-determine the LCBD value. In a species-rich region, such as our Northeast one
-(median richness of 23), the only way to stand out is to have few species. On
-the other hand, in a species-poor region, sites with higher richness can also be
-unique, yet still less than the sites with the lowest richness. In other words,
-the method identifies the poorest sites as the most unique in both species-rich
-and species-poor regions, while only identifying rich sites as unique in the
+characteristics depending on the region on which it is used. Comparative studies
+have previously found a significative relationship between presence-absence LCBD
+values and richness, but not between abundance LCBD values and richness
+[@Silva2014LocReg; @Heino2017ExpSpe]. In a presence-absence context, in contrast
+with one based on abundance and count data, our results tend to confirm that
+species richness is probably the most important element to determine the LCBD
+value. In a species-rich region, such as our Northeast one (median richness of
+23), the only way to stand out is to have few species. On the other hand, in a
+species-poor region, sites with higher richness can also be unique, yet still
+less than the sites with the lowest richness. In other words, the method
+identifies the poorest sites as the most unique in both species-rich and
+species-poor regions, while only identifying rich sites as unique in the
 species-poor region. This could be explained from niche theory and
 presence-absence data: while extremely-rich sites could in theory have high LCBD
 values, such are sites unlikely given ecological constraints. It is unlikely
@@ -396,18 +406,19 @@ scales, the uniqueness profiles from the subregions will merge, but can create a
 new profile with a lot more variation. When too many poor sites are present,
 rich sites will almost certainly have lower LCBD values. This shows that
 aggregating too many different sites can possibly mask some patterns of
-uniqueness.
+uniqueness. @Allen2019LonEff showed that bird biodiversity was indeed dependent
+on scale, as gamma diversity decreased with land-use change at regional scales,
+but beta diversity increased at landscape scales. @Tan2017HowBet showed that
+both total beta diversity and its causes are dependent on scales, as beta
+diversity decreases with increasing scales, and that environmental filtering has
+greater effect at bigger grain size, such as ours.
 
-This result highlights an important aspect regarding the LCBD measure: contrary
-to previous findings, it does not simply decrease with species richness. In
-fact, the relationship with richness is not constant -- it actually depends on
-the general profile of the region on which it is applied and whether or not
-this region is species-poor or species-rich. A parabolic relationship was
-actually expected when the measure was introduced, as both extremes should
-normally stand out. An explanation for the previously observed results could be
-that extremely rich sites are just much less ecologically possible. It is
-unlikely that all species could be found in a single site given their different
-niche preferences, while poor sites are much more feasible. These sites will
-almost always contribute more to the variance, as measured by LCBD values. 
+(There should be something on the implication of our findings for conservation
+here. Some studies have argued that species-rich and highly-unique sites are
+both relevant, yet different targets for conservation, notably
+@Dubois2020EcoUni and @Yao2021EcoUni with LCBD, and @Socolar2016HowSho with beta
+diversity)
+
+(There shoud be conclusion here)
 
 # References
