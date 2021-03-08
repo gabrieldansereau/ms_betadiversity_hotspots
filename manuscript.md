@@ -109,12 +109,12 @@ stand out and receive a high LCBD score whenever they display an exceptional
 community composition, be it a unique assemblage of species, or a richer or
 poorer community than most in the region [@Legendre2013BetDiv]. However, both
 the original study and later empirical ones have shown a decreasing relationship
-between LCBD scores and species richness [@Legendre2013BetDiv; @Silva2014LocReg;
-@Heino2017UnrCor; @Heino2017ExpSpe]. In other words, the method tends to
-identify the poorest sites as the most exceptional ones. This remains to be
-shown on extended continuous scales, as overall beta diversity is strongly
-dependent on scale, therefore the relationship could potentially be different in
-such a case.
+between LCBD scores and species richness [@Legendre2013BetDiv;
+@daSilva2014LocReg; @Heino2017UnrCor; @Heino2017ExpSpe]. In other words, the
+method tends to identify the poorest sites as the most exceptional ones. This
+remains to be shown on extended continuous scales, as overall beta diversity is
+strongly dependent on scale, therefore the relationship could potentially be
+different in such a case.
 
 This study shows that species distribution modelling offers relevant LCBD and
 community-level predictions on extended spatial scales, similar to the ones
@@ -356,7 +356,7 @@ concord to ours)
 Our result for our species-rich Northeast subregion showed a decreasing,
 slightly curvilinear relationship between LCBD values and species richness. This
 is in line with the original study on fish communities [@Legendre2013BetDiv] and
-with following ones on insect metacommunities [@Silva2014LocReg;
+with following ones on insect metacommunities [@daSilva2014LocReg;
 @Heino2017UnrCor; @Heino2017ExpSpe], dung beetles [@daSilva2018DisCor;
 @daSilva2020CanTax], aquatic beetles [@Heino2019KniPat], stream
 macroinvertebrates [@Sor2018UniSam], stream diatoms [@Vilmi2017EcoUni],
@@ -382,12 +382,12 @@ scores shows that the LCBD method may identify unique sites based on different
 characteristics depending on the region on which it is used. Comparative studies
 have previously found a significative relationship between presence-absence LCBD
 values and richness, but not between abundance LCBD values and richness
-[@Silva2014LocReg; @Heino2017ExpSpe]. In a presence-absence context, in contrast
-with one based on abundance and count data, our results tend to confirm that
-species richness is probably the most important element to determine the LCBD
-value. In a species-rich region, such as our Northeast one (median richness of
-23), the only way to stand out is to have few species. On the other hand, in a
-species-poor region, sites with higher richness can also be unique, yet still
+[@daSilva2014LocReg; @Heino2017ExpSpe]. In a presence-absence context, in
+contrast with one based on abundance and count data, our results tend to confirm
+that species richness is probably the most important element to determine the
+LCBD value. In a species-rich region, such as our Northeast one (median richness
+of 23), the only way to stand out is to have few species. On the other hand, in
+a species-poor region, sites with higher richness can also be unique, yet still
 less than the sites with the lowest richness. In other words, the method
 identifies the poorest sites as the most unique in both species-rich and
 species-poor regions, while only identifying rich sites as unique in the
