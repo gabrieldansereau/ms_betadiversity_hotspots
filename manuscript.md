@@ -320,39 +320,6 @@ diversity on extended scales.
 
 # Discussion
 
-Our results show that SDM models provide uniqueness predictions similar to the
-occurrence data while filling in gaps in poorly sampled regions. This is of
-interest as it provides a quantitative evaluation, however imperfect, for sites
-where we would otherwise not have anything. At the coarse spatial scale we used,
-there is also evidence of a spatial smoothing effect caused by the SDMs:
-New-England and the Northeast United States shows more uniform richness and
-uniqueness values on the SDM data than on the observed one. Given that we used a
-very coarse spatial scales, this shows that SDMs may overcome some large scale
-bias in the occurrence data, notably around cities. It also shows that the LCBD
-method has more potential to highlight unique regions more than unique sites on
-extended continuous scales, or at least highlight regional rather than site
-differences. This is in contrast to @Heino2017UnrCor, who found no spatial
-effect regarding LCBD or richness, although this was in a totally different
-context -- insect communities in discrete urban ponds, whereas our models on
-continuous with mobile species intend to capture dispersal between sites -- but
-in line with @daSilva2018DisCor, who showed that LCBD distributions were
-spatially structured across sampling sites. @Landeiro2018SpeLow showed that
-uniqueness is more associated with environmental conditions than with spatial
-positioning, which would concord with our results given that our SDMs only used
-environmental data. Our results do not exactly concord with those of
-@Heino2019KniPat, as LCBD scores did not increase with latitude, but rather
-increased in an East-West gradient. Uniqueness at high latitudes is a
-consequence of environmental filtering [@Tolonen2018EcoUni], but with our even
-broader scale it is possible that we cover both high latitude and central
-desertic regions, which may be more unique if they hold a few specialist
-species, or few suitable and reachable habitat patches given the coarse
-resolution we used  Overall, these distribution results have implications in
-terms of conservation, which will be discussed later in light of our regional
-and scaling results. (Ideally there should be something meaningful on birds beta
-diversity somewhere here, probably from @Melo2009EnvDri, which shows higher BD
-in mountainous areas and shows some maps of BD for all Americas which somewhat
-concord to ours)
-
 Our result for our species-rich Northeast subregion showed a decreasing,
 slightly curvilinear relationship between LCBD values and species richness. This
 is in line with the original study on fish communities [@Legendre2013BetDiv] and
@@ -412,6 +379,39 @@ but beta diversity increased at landscape scales. @Tan2017HowBet showed that
 both total beta diversity and its causes are dependent on scales, as beta
 diversity decreases with increasing scales, and that environmental filtering has
 greater effect at bigger grain size, such as ours.
+
+Our results show that SDM models provide uniqueness predictions similar to the
+occurrence data while filling in gaps in poorly sampled regions. This is of
+interest as it provides a quantitative evaluation, however imperfect, for sites
+where we would otherwise not have anything. At the coarse spatial scale we used,
+there is also evidence of a spatial smoothing effect caused by the SDMs:
+New-England and the Northeast United States shows more uniform richness and
+uniqueness values on the SDM data than on the observed one. Given that we used a
+very coarse spatial scales, this shows that SDMs may overcome some large scale
+bias in the occurrence data, notably around cities. It also shows that the LCBD
+method has more potential to highlight unique regions more than unique sites on
+extended continuous scales, or at least highlight regional rather than site
+differences. This is in contrast to @Heino2017UnrCor, who found no spatial
+effect regarding LCBD or richness, although this was in a totally different
+context -- insect communities in discrete urban ponds, whereas our models on
+continuous with mobile species intend to capture dispersal between sites -- but
+in line with @daSilva2018DisCor, who showed that LCBD distributions were
+spatially structured across sampling sites. @Landeiro2018SpeLow showed that
+uniqueness is more associated with environmental conditions than with spatial
+positioning, which would concord with our results given that our SDMs only used
+environmental data. Our results do not exactly concord with those of
+@Heino2019KniPat, as LCBD scores did not increase with latitude, but rather
+increased in an East-West gradient. Uniqueness at high latitudes is a
+consequence of environmental filtering [@Tolonen2018EcoUni], but with our even
+broader scale it is possible that we cover both high latitude and central
+desertic regions, which may be more unique if they hold a few specialist
+species, or few suitable and reachable habitat patches given the coarse
+resolution we used  Overall, these distribution results have implications in
+terms of conservation, which will be discussed later in light of our regional
+and scaling results. (Ideally there should be something meaningful on birds beta
+diversity somewhere here, probably from @Melo2009EnvDri, which shows higher BD
+in mountainous areas and shows some maps of BD for all Americas which somewhat
+concord to ours)
 
 (There should be something on the implication of our findings for conservation
 here. Some studies have argued that species-rich and highly-unique sites are
