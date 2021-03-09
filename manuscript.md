@@ -302,7 +302,7 @@ sites only comprise around 10 species and few sites comprise more than 20,
 regions with 40 species stand out more and are more exceptional in such
 species-poor regions than they would be in species-rich ones.
 
-![Comparison between a species-rich region (Northeast) and a species-poor one (Southwest) at a given scale, based on the SDM predictions. The left side figures represent the scores from the assembled presence-absence predictions, calculated separately in each region after applying the Hellinger transformation. The values were scaled to the maximum LCBD observed in each subregion. The right figures represent the decreasing relationship between LCBD values and species richness, with the number of sites in as the bins of the 2-dimensional histogram. The dashed lines represent the median species richness in each subregion.](figures/subareas-combined.png){#fig:subareas}
+![Comparison between a species-rich region (Northeast) and a species-poor one (Southwest) at a given scale, based on the SDM predictions for Warblers species in North America. The left side figures represent the scores from the assembled presence-absence predictions, calculated separately in each region after applying the Hellinger transformation. The values were scaled to the maximum LCBD observed in each subregion. The right figures represent the decreasing relationship between LCBD values and species richness, with the number of sites in as the bins of the 2-dimensional histogram. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region.](figures/subareas-combined.png){#fig:subareas}
 
 ## Uniqueness depends on the scale on which it is measured
 
@@ -316,7 +316,7 @@ minimum relative LCBD values also increase, going from near zero to 0.3,
 showing a higher contribution of the less exceptional sites to the overall
 diversity on extended scales.
 
-![Effect of scaling and full region extent size on the relationship between site richness and LCBD value from the SDM predictions. The LCBD values are re-calculated at each scale based on the sites in this region only and scaled to the maximum value observed in each one. The dashed lines represent the median richness in each region.](figures/subareas-scaling.png){#fig:scaling}
+![Effect of scaling and full region extent size on the relationship between site richness and LCBD value from the SDM predictions for Warblers species in North America. The LCBD values are re-calculated at each scale based on the sites in this region only and scaled to the maximum value observed in each one. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region.](figures/subareas-scaling.png){#fig:scaling}
 
 # Discussion
 
