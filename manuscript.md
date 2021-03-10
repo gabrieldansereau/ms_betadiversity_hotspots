@@ -320,8 +320,11 @@ diversity on extended scales.
 
 # Discussion
 
-Our result for our species-rich Northeast subregion showed a decreasing,
-slightly curvilinear relationship between LCBD values and species richness. This
+Our results showed a decreasing relationship between species richness and LCBD
+values; however, the exact form of this relationship varies depending on the
+scale and the region. Our species-rich Northeast subregion ([@fig:subareas])
+showed a decreasing relationship similar to previous studies and slightly
+curvilinear, as described by @Heino2017ExpSpe. This result for Warblers species
 is in line with the original study on fish communities [@Legendre2013BetDiv] and
 with following ones on insect metacommunities [@daSilva2014LocReg;
 @Heino2017UnrCor; @Heino2017ExpSpe], dung beetles [@daSilva2018DisCor;
@@ -331,18 +334,19 @@ multi-trophic pelagic food webs (phytoplankton, zooplankton, fish)
 [@Taranu2020LarMul], mammals (medium-to-large, small, volant)
 [@daSilva2020CanTax], wetland birds [@deDeus2020AviBet], and a few other
 phylogenetic groups (plants, lizards, mites, anurans, mesoinvertebrates)
-[@Landeiro2018SpeLow]. However, it was originally argued that this was not a
-general or obligatory relationship [@Legendre2013BetDiv].  Different
+[@Landeiro2018SpeLow]. However, it was originally argued that the negative
+relationship was not a general or obligatory [@Legendre2013BetDiv]. Different
 LCBD-richness relationships have also been observed, with both positive and
 negative relationships for different sites or taxonomic groups in some studies
-[@Kong2017SpaVar; @Teittinen2017LocGeo], as well as a negative relation with the
-number of common species and a positive relation with the number of rare species
-[@Qiao2015BetDiv]. This led @daSilva2018DisCor to say that the proportion of
-rare and common species in the communities seems to determine if the
-relationship will be negative, non-significant, or positive. Our results show
-that this negative LCBD-richness relationship is indeed not constant and
-displays regional variation, as the profile was different in our species poor
-Southwest subregion. 
+[@Kong2017SpaVar; @Teittinen2017LocGeo], as well as a negative relationship with
+the number of common species but a positive relationship with the number of rare
+species [@Qiao2015BetDiv]. This led @daSilva2018DisCor to say that the
+proportion of rare and common species in the communities seems to determine if
+the relationship will be negative, non-significant, or positive. Our results
+further show that the relationship may depend on the richness profile of the
+region, as the relationship was different in our species-poor Southwest
+subregion, with a sharper initial decrease in contribution for medium-rich sites
+and a higher contribution for highly rich ones.
 
 The regional variation in the relationship between species richness and LCBD
 scores shows that the LCBD method may identify unique sites based on different

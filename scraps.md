@@ -87,3 +87,7 @@ that extremely rich sites are just much less ecologically possible. It is
 unlikely that all species could be found in a single site given their different
 niche preferences, while poor sites are much more feasible. These sites will
 almost always contribute more to the variance, as measured by LCBD values. 
+
+Our results confirm that the relationship is generally decreasing, slightly
+curvilinear [@Heino2017ExpSpe], but not constant; our results further show that
+this variation depends on the region and the scale on which the measure is used.
