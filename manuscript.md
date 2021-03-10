@@ -387,20 +387,26 @@ greater effect at bigger grain size, such as ours.
 Our results show that SDM models provide uniqueness predictions similar to the
 occurrence data while filling in gaps in poorly sampled regions. This is of
 interest as it provides a quantitative evaluation, however imperfect, for sites
-where we would otherwise not have anything. At the coarse spatial scale we used,
-there is also evidence of a spatial smoothing effect caused by the SDMs:
-New-England and the Northeast United States shows more uniform richness and
-uniqueness values on the SDM data than on the observed one. Given that we used a
-very coarse spatial scales, this shows that SDMs may overcome some large scale
-bias in the occurrence data, notably around cities. It also shows that the LCBD
-method has more potential to highlight unique regions more than unique sites on
-extended continuous scales, or at least highlight regional rather than site
-differences. This is in contrast to @Heino2017UnrCor, who found no spatial
-effect regarding LCBD or richness, although this was in a totally different
-context -- insect communities in discrete urban ponds, whereas our models on
-continuous with mobile species intend to capture dispersal between sites -- but
-in line with @daSilva2018DisCor, who showed that LCBD distributions were
-spatially structured across sampling sites. @Landeiro2018SpeLow showed that
+where we would otherwise not have anything. Our SDMs also offered relevant LCBD
+predictions using eBird, arguably one the largest presence-absence dataset
+available (when using its complete checklists system), showed the measure's
+potential on such massive data. Moreover, our results show that relevant
+community-level predictions can be achieved using simple stacked-SDMs. These two
+elements open up new opportunities for LCBD analyses on extended spatial scales,
+as well as for the diversity of taxons on which it can be applied. At the coarse
+spatial scale we used, there is also evidence of a spatial smoothing effect
+caused by the SDMs: New-England and the Northeast United States shows more
+uniform richness and uniqueness values on the SDM data than on the observed one.
+Given that we used a very coarse spatial scales, this shows that SDMs may
+overcome some large scale bias in the occurrence data, notably around cities. It
+also shows that the LCBD method has more potential to highlight unique regions
+more than unique sites on extended continuous scales, or at least highlight
+regional rather than site differences. This is in contrast to @Heino2017UnrCor,
+who found no spatial effect regarding LCBD or richness, although this was in a
+totally different context -- insect communities in discrete urban ponds, whereas
+our models on continuous with mobile species intend to capture dispersal between
+sites -- but in line with @daSilva2018DisCor, who showed that LCBD distributions
+were spatially structured across sampling sites. @Landeiro2018SpeLow showed that
 uniqueness is more associated with environmental conditions than with spatial
 positioning, which would concord with our results given that our SDMs only used
 environmental data. Our results do not exactly concord with those of
@@ -423,6 +429,6 @@ both relevant, yet different targets for conservation, notably
 @Dubois2020EcoUni and @Yao2021EcoUni with LCBD, and @Socolar2016HowSho with beta
 diversity)
 
-(There shoud be conclusion here)
+(There should be a conclusion here)
 
 # References
