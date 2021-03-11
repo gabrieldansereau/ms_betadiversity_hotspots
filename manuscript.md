@@ -321,21 +321,21 @@ diversity on extended scales.
 # Discussion
 
 Our results showed a decreasing relationship between species richness and LCBD
-values; however, the exact form of this relationship varies depending on the
-scale and the region. Our species-rich Northeast subregion ([@fig:subareas])
-showed a decreasing relationship similar to previous studies and slightly
-curvilinear, as described by @Heino2017ExpSpe. This result for Warblers species
-is in line with the original study on fish communities [@Legendre2013BetDiv] and
-with following ones on insect metacommunities [@daSilva2014LocReg;
-@Heino2017UnrCor; @Heino2017ExpSpe], dung beetles [@daSilva2018DisCor;
-@daSilva2020CanTax], aquatic beetles [@Heino2019KniPat], stream
-macroinvertebrates [@Sor2018UniSam], stream diatoms [@Vilmi2017EcoUni],
+values, but also highlight that the exact form of this relationship varies
+depending on the scale and the region. Our species-rich Northeast subregion
+([@fig:subareas]) showed a decreasing relationship, similar to previous studies,
+and slightly curvilinear, as described by @Heino2017ExpSpe. This result for
+Warblers species is in line with the original study on fish communities
+[@Legendre2013BetDiv] and with following ones on insect metacommunities
+[@daSilva2014LocReg; @Heino2017UnrCor; @Heino2017ExpSpe], dung beetles
+[@daSilva2018DisCor; @daSilva2020CanTax], aquatic beetles [@Heino2019KniPat],
+stream macroinvertebrates [@Sor2018UniSam], stream diatoms [@Vilmi2017EcoUni],
 multi-trophic pelagic food webs (phytoplankton, zooplankton, fish)
 [@Taranu2020LarMul], mammals (medium-to-large, small, volant)
 [@daSilva2020CanTax], wetland birds [@deDeus2020AviBet], and a few other
 phylogenetic groups (plants, lizards, mites, anurans, mesoinvertebrates)
 [@Landeiro2018SpeLow]. However, it was originally argued that the negative
-relationship was not a general or obligatory [@Legendre2013BetDiv]. Different
+relationship was not general or obligatory [@Legendre2013BetDiv]. Different
 LCBD-richness relationships have also been observed, with both positive and
 negative relationships for different sites or taxonomic groups in some studies
 [@Kong2017SpaVar; @Teittinen2017LocGeo], as well as a negative relationship with
