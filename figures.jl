@@ -9,6 +9,7 @@ raw = (Y = Y,
        richness = richness,
        richness_plot = richness_plot,
        lcbd = lcbd,
+       beta_total = beta_total,
        lcbd_plot = lcbdtr_plot,
        rel_plot = rel2d_plot
        )
@@ -21,13 +22,13 @@ sdm = (Y = Y,
        richness = richness,
        richness_plot = richness_plot,
        lcbd = lcbd,
+       beta_total = beta_total,
        lcbd_plot = lcbdtr_plot,
        rel_plot = rel2d_plot
        )
 
 
 # Plots
-extrema(vcat(vec(raw.richness.grid), vec(sdm.richness.grid)))
 lims_richness = extrema(mapreduce(collect, vcat, [raw.richness, sdm.richness]))
 lims_lcbd = extrema(mapreduce(collect, vcat, [raw.lcbd, sdm.lcbd]))
 
