@@ -111,12 +111,13 @@ and a high number of sites [@Tan2017HowBet; @Tan2019UndPro;
 @DAntraccoli2020MorSpe]. @Niskanen2017DriHig predicted LCBD values of plant
 communities (and 3 other diversity measures) on a continuous scale and a high
 number of sites (> 25 000) using Boosted Regression Trees (BRTs); however, they
-modelled the diversity measures directly instead of measuring them after
-modelling species distributions first, as we suggest here. They also used a
-finer resolution (1 km x 1 km) on a regional scale, not a continental one.
-Therefore, the distribution of LCBD values on broad, continuous scales with a
-high number of sites and predicted species assemblages remains to be
-investigated.
+modelled the diversity measures directly, instead of measuring them after
+modelling species distributions first as we suggest here, and obtained lower
+predictive accuracy for LCBD than for the other measures, highlighting the
+challenge of predicting this measure . They also used a finer resolution (1 km x
+1 km) on a regional scale, not a continental one. Therefore, the distribution of
+LCBD values on broad, continuous scales with a high number of sites and
+predicted species assemblages remains to be investigated.
 
 Measuring ecological uniqueness from LCBD indices on extended continuous scales
 also raises the question of which sites will be identified as exceptional, and
@@ -197,7 +198,10 @@ resolution of 10 arc-minutes (around 18 km² at the equator), the coarsest
 resolution available, using the _Julia_ package `SimpleSDMLayers.jl`
 [@Dansereau2021SimJl]. The coarse resolution should mitigate potential
 imprecisions in the eBird data regarding the extent of the sampled areas in each
-observation checklist. We used the standard _bioClim_ variables, which represent
+observation checklist. Moreover, some studies have argued that coarser
+resolutions lead to less overestimation of species richness and are better to
+identify bird biodiversity hotspots given the patchiness of observation data
+[@Hurlbert2007SpeRic]. We used the standard _bioClim_ variables, which represent
 annual trends, ranges, and extremes of temperature and precipitation, but
 selected only 8 out of the 19 ones to avoid redundancy among them (bio1, bio2,
 bio5, bio6, bio12, bio13, bio14, bio15). The Copernicus data is a set of
@@ -242,16 +246,21 @@ predicted community matrix $\hat Y$, for a new total of 92 117 sites (this was
 not necessary for the observed community matrix $Y$, as it was, by design, only
 composed of sites with at least one species present) and applied the Hellinger
 transformation to both matrices, as recommended by @Legendre2013BetDiv for
-presence-absence data. We then measured the local contributions to beta
-diversity (LCBD), which quantify how much a specific site (a row in each matrix)
+presence-absence data. We then measured total beta diversity as the variance of
+the community matrices and calculated the local contributions to beta diversity
+(LCBD), which quantify how much a specific site (a row in each matrix)
 contributes to the overall variance in the community [@Legendre2013BetDiv]. High
 LCBD values indicate a unique community composition, while low values indicate a
-more common species set. We note that our LCBD values, which add up to 1 by
-definition, were very low given the high number of sites in both $Y$ and $\hat
-Y$. However, the relative difference between the scores matters more than the
-absolute value to differentiate their uniqueness. Therefore, we decided to
-report the LCBD values relative to the maximum value from each matrix Y, meaning
-that the new maximum value was 1, and all other values represented fractions.
+more common species set. Measuring beta diversity as the variance of the
+community matrices offers a critical advantage in terms of computations in this
+case, as alternative approaches based on site pairwise dissimilarity would
+require a much higher number of computations given the high number of sites in
+our study. We note that our LCBD values, which add up to 1 by definition, were
+very low given the high number of sites in both $Y$ and $\hat Y$. However, the
+relative difference between the scores matters more than the absolute value to
+differentiate their uniqueness. Therefore, we decided to report the LCBD values
+relative to the maximum value from each matrix Y, meaning that the new maximum
+value was 1, and all other values represented fractions.
 
 ## Investigation of regional and scaling variation
 
