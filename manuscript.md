@@ -415,20 +415,21 @@ scales, the uniqueness profiles from the subregions will merge, but can create a
 new profile with a lot more variation. When too many poor sites are present,
 rich sites will almost certainly have lower LCBD values. This shows that
 aggregating too many different sites can possibly mask some patterns of
-uniqueness. @Allen2019LonEff showed that bird biodiversity was indeed dependent
-on scale, as gamma diversity decreased with land-use change at regional scales,
-but beta diversity increased at landscape scales. @Tan2017HowBet showed that
-both total beta diversity and its causes are dependent on scales, as beta
-diversity decreases with increasing scales, and that environmental filtering has
-greater effect at bigger grain size, such as ours.
+uniqueness. Total beta diversity increased with spatial extent ([@fig:scaling;
+@fig:medians]), which is in line with previous studies [@Barton2013SpaSca;
+@Heino2015ComAna]. Median LCBD values and gamma diversity showed a similar
+pattern. @Allen2019LonEff showed that bird biodiversity was indeed dependent on
+scale, as gamma diversity decreased with land-use change at regional scales, but
+beta diversity increased at landscape scales. Total beta diversity was high at
+the continental scale, but lower that what has been observed in some studies [@Sor2018UniSam].
 
 Our results show that SDM models provide uniqueness predictions similar to the
 occurrence data while filling in gaps in poorly sampled regions. This is of
 interest as it provides a quantitative evaluation, however imperfect, for sites
 where we would otherwise not have anything. Our SDMs also offered relevant LCBD
 predictions using eBird, arguably one the largest presence-absence dataset
-available (when using its complete checklists system), showed the measure's
-potential on such massive data. Moreover, our results show that relevant
+available (when using its complete checklists system), and showed the measure's
+potential on such massive data. Moreover, our results showed that relevant
 community-level predictions can be achieved using simple stacked-SDMs. These two
 elements open up new opportunities for LCBD analyses on extended spatial scales,
 as well as for the diversity of taxons on which it can be applied. At the coarse
@@ -454,18 +455,11 @@ consequence of environmental filtering [@Tolonen2018EcoUni], but with our even
 broader scale it is possible that we cover both high latitude and central
 desertic regions, which may be more unique if they hold a few specialist
 species, or few suitable and reachable habitat patches given the coarse
-resolution we used  Overall, these distribution results have implications in
-terms of conservation, which will be discussed later in light of our regional
-and scaling results. (Ideally there should be something meaningful on birds beta
-diversity somewhere here, probably from @Melo2009EnvDri, which shows higher BD
-in mountainous areas and shows some maps of BD for all Americas which somewhat
-concord to ours)
-
-(There should be something on the implication of our findings for conservation
-here. Some studies have argued that species-rich and highly-unique sites are
-both relevant, yet different targets for conservation, notably
-@Dubois2020EcoUni and @Yao2021EcoUni with LCBD, and @Socolar2016HowSho with beta
-diversity)
+resolution we used. Overall, these distribution results have implications in
+terms of conservation, as they confirm that species richness and ecological
+uniqueness measured from LCBD values may conflict and highlight different
+potential hotspots [@Dubois2020EcoUni; @Yao2021EcoUni], thus reinstating the
+need to protect both with complementary strategies.
 
 (There should be a conclusion here)
 
