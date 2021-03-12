@@ -42,11 +42,11 @@ sites with exceptional species composition, hence exceptional biodiversity. Such
 a method, focusing on specific sites, is useful for both community ecology and
 conservation biology, as it highlights areas that are most important for their
 research or conservation values. However, the use of LCBD indices is currently
-limited in two ways. First, LBCD indices are typically used on smaller regional
+limited in two ways. First, LBCD indices are typically used on local or regional
 scales with relatively few sites, for example on fish communities at intervals
 along a river stream [@Legendre2013BetDiv]. Second, LCBD calculation
 methods require complete information on community composition, such as a
-community composition matrix Y, thus they are inappropriate for partially
+community composition matrix $Y$, thus they are inappropriate for partially
 sampled sites, let alone for unsampled ones. Accordingly, the method is of
 limited use to identify areas with exceptional biodiversity in regions with poor
 and sparse sampling. However, predictive approaches are increasingly common
@@ -54,21 +54,24 @@ given recent development of computational methods, which often generate novel
 ecological insights from existing data [@Poisot2019DatSyn] including for
 unsampled or lesser-known locations, as well as larger spatial scales. Here, we
 examine whether the LCBD method can be used to assess ecological uniqueness on
-extended and continuous scales based on predictions of species distributions,
+broad and continuous scales based on predictions of species distributions,
 and evaluate whether this brings novel ecological insights regarding the
 identification of exceptional biodiversity areas.
 
-Ecological communities are at their simplest an assemblage of species. Viewing
-them as such opens the perspective of predicting community composition from
-predictions of individual species, the aim of species distribution models (SDMs)
-[@Guisan2005PreSpe]. Community-level modelling from SDMs is not an especially
-novel idea [@Ferrier2002ExtSta; @Ferrier2006SpaMod], but it is increasingly
-relevant with the advent of large-scale, massive, and open data sources on
-species occurrences, often contributed by citizens, such as eBird and GBIF. At
-their core, SDMs aim to predict the distribution of a species based on
+Species distribution models (SDMs) [@Guisan2005PreSpe] can bring a new
+perspective to LCBD studies by allowing to fill-in gaps and perform analyses on
+much broader scales.  In a community matrix $Y$, such as required for LCBD
+calculation, ecological communities are abstracted as assemblages of species
+present at different sites. Viewing communities as such opens the perspective of
+predicting community composition from predictions of individual species, which
+is precisely the aim of SDMs. Community-level modelling from SDMs is not an
+especially novel idea [@Ferrier2002ExtSta; @Ferrier2006SpaMod], but it is
+increasingly relevant with the advent of large-scale, massive, and open data
+sources on species occurrences, often contributed by citizens, such as eBird and
+GBIF. At their core, SDMs aim to predict the distribution of a species based on
 information about where the species was previously reported, matched with
 environmental data at those locations, and then make predictions at other
-(unsampled) locations based on their respective environmental conditions . Going
+(unsampled) locations based on their respective environmental conditions. Going
 from single-species SDMs to a whole community is not a trivial task -- many
 alternatives have been suggested, such as stacked species distribution models
 (S-SDMs) [@Ferrier2006SpaMod], spatially explicit species assemblage modelling
@@ -79,58 +82,69 @@ strengths, but even S-SDMs, in a sense the most simple and less
 community-specific method, have been shown to provide reliable community
 predictions [@Norberg2019ComEva; @Zurell2020TesSpe]. This is important, as in
 the context of large scale studies with a high number of sites and species, such
-as required for uniqueness analysis on extended continuous scales, reducing the
+as required for uniqueness analysis on broad continuous scales, reducing the
 model complexity with a simpler, yet efficient model as an S-SDM can be critical
 in terms of required computations. Regardless of the method used,
 community-level analyses can be applied on the resulting community prediction
 [@Ferrier2006SpaMod], something which has been lacking for measures other than
-species richness [@Ferrier2006SpaMod]. This is true for the framework of local
-contributions to beta diversity (LCBD) [@Legendre2013BetDiv], measuring the
-uniqueness of communities, which to our knowledge has never been applied on SDM
-results. 
+species richness [@Ferrier2006SpaMod], and notably to the LCBD framework, which
+knowledge has never been applied on SDM results. 
 
 However, applying local contributions to beta diversity on SDM predictions
 raises the issue of calculating the uniqueness scores on much larger community
 matrices. The total number of sites will increase because of (i) the continuous
 scale of the predictions, as there will be more sites in the region of interest
 now that it is not restricted to sampled ones, and (ii)  because of the larger
-spatial extent allowed by SDM predictions. As mentioned earlier, LCBD scores are
-normally used on relatively few sites on regional scales (although some studies
-did apply it on near continental ones [@Yang2015ComSim; @Poisot2017HosPar;
-@Taranu2020LarMul], but the total number of sites was relatively low). Having a
-lot of sites as well as a large extent opens up the possibility of capturing a
-lot of variability of habitats­ and community composition, but also a great
-number of very similar ones, which could possibly change the way that
-exceptional sites contribute to the overall variance in the large-scale
-community. Measuring ecological uniqueness from LCBD indices on extended
-continuous scales also raises the question of which sites will be identified as
-exceptional, and for what reason. The intent of the method is that sites should
-stand out and receive a high LCBD score whenever they display an exceptional
-community composition, be it a unique assemblage of species, or a richer or
-poorer community than most in the region [@Legendre2013BetDiv]. However, both
-the original study and later empirical ones have shown a decreasing relationship
+spatial extent allowed by SDM predictions. A high number of sites as well as a
+large extent opens up the possibility of capturing a lot of variability of
+habitats­ and community composition, but also a great number of very similar
+ones, which could possibly change the way that exceptional sites contribute to
+the overall variance in the large-scale community. LCBD scores have normally
+been used on local or regional scales with relatively few sites
+[@Legendre2013BetDiv; @daSilva2014LocReg; @Heino2017UnrCor; @Heino2017ExpSpe].
+Some studies did use the measure over broader, near continental extents
+[@Yang2015ComSim; @Poisot2017HosPar; @Taranu2020LarMul], but the total number of
+sites in these studies was relatively low. Recent studies also investigated LCBD
+and beta diversity on sites distributed in grids or as pixels of environmental
+raster layers, hence continuous scales, but these did not cover large extents
+and a high number of sites [@Tan2017HowBet; @Tan2019UndPro;
+@DAntraccoli2020MorSpe]. @Niskanen2017DriHig predicted LCBD values of plant
+communities (and 3 other diversity measures) on a continuous scale and a high
+number of sites (> 25 000) using Boosted Regression Trees (BRTs); however, they
+modelled the diversity measures directly instead of measuring them after
+modelling species distributions first, as we suggest here. They also used a
+finer resolution (1 km x 1 km) on a regional scale, not a continental one.
+Therefore, the distribution of LCBD values on broad, continuous scales with a
+high number of sites and predicted species assemblages remains to be
+investigated.
+
+Measuring ecological uniqueness from LCBD indices on extended continuous scales
+also raises the question of which sites will be identified as exceptional, and
+for what reason. The intent of the method is that sites should stand out and
+receive a high LCBD score whenever they display an exceptional community
+composition, be it a unique assemblage of species, or a richer or poorer
+community than most in the region [@Legendre2013BetDiv]. However, both the
+original study and later empirical ones have shown a decreasing relationship
 between LCBD scores and species richness [@Legendre2013BetDiv;
 @daSilva2014LocReg; @Heino2017UnrCor; @Heino2017ExpSpe]. In other words, the
-method tends to identify the poorest sites as the most exceptional ones. This
-remains to be shown on extended continuous scales, as overall beta diversity is
-strongly dependent on scale, therefore the relationship could potentially be
-different in such a case.
+method tends to identify the poorest sites as the most exceptional ones.
+However, this negative remains to be tested on broad continuous scales. Total
+beta diversity increases with spatial extent [@Barton2013SpaSca] and is strongly
+dependent on scale, notably because of en higher environmental heterogeneity and
+sampling of different local species pool [@Heino2015ComAna], which could
+potentially add some variation to the relationship.
 
 This study shows that species distribution modelling offers relevant LCBD and
-community-level predictions on extended spatial scales, similar to the ones
+community-level predictions on broad spatial scales, similar to the ones
 obtained from occurrence data, hereby providing uniqueness assessments in poorly
 sampled regions. Our results further highlight a changing relationship between
 site richness and LCBD values depending on (i) the regions on which it is used,
 as species poor and species rich sites display different uniqueness profiles;
-and on (ii) the scale at which it is applied, as increasing the scale can merge
-the uniqueness profiles of contrasting subregions to create a new, distinct one
-at the extended scale. Hence, our method could prove useful to identify beta
-diversity hotspots in unsampled locations on large spatial scales, which could
-be important targets for conservation purposes.
-
-Hence, our results has repercussions for the identification of beta diversity
-hotspots or regions on large spatial scales with the LCBD methods with regards
-to be selection of conservation targets.
+and on (ii) the scale at which it is applied, as increasing the spatial extent
+can merge the uniqueness profiles of contrasting subregions to create a new,
+distinct one at a broader scale. Hence, our method could prove useful to
+identify beta diversity hotspots in unsampled locations on large spatial scales,
+which could be important targets for conservation purposes.
 
 # Methods
 
@@ -331,10 +345,12 @@ Warblers species is in line with the original study on fish communities
 [@daSilva2018DisCor; @daSilva2020CanTax], aquatic beetles [@Heino2019KniPat],
 stream macroinvertebrates [@Sor2018UniSam], stream diatoms [@Vilmi2017EcoUni],
 multi-trophic pelagic food webs (phytoplankton, zooplankton, fish)
-[@Taranu2020LarMul], mammals (medium-to-large, small, volant)
-[@daSilva2020CanTax], wetland birds [@deDeus2020AviBet], and a few other
-phylogenetic groups (plants, lizards, mites, anurans, mesoinvertebrates)
-[@Landeiro2018SpeLow]. However, it was originally argued that the negative
+[@Taranu2020LarMul], temperate forest trees [@Tan2019UndPro], mammals
+(medium-to-large, small, volant) [@daSilva2020CanTax], wetland birds
+[@deDeus2020AviBet], and a few other phylogenetic groups (plants, lizards,
+mites, anurans, mesoinvertebrates) [@Landeiro2018SpeLow]. The slightly
+curvilinear form was also observed previously [@Heino2017ExpSpe;
+@Tan2019UndPro]. However, it was originally argued that the negative
 relationship was not general or obligatory [@Legendre2013BetDiv]. Different
 LCBD-richness relationships have also been observed, with both positive and
 negative relationships for different sites or taxonomic groups in some studies

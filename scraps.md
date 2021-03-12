@@ -91,3 +91,7 @@ almost always contribute more to the variance, as measured by LCBD values.
 Our results confirm that the relationship is generally decreasing, slightly
 curvilinear [@Heino2017ExpSpe], but not constant; our results further show that
 this variation depends on the region and the scale on which the measure is used.
+
+Hence, our results has repercussions for the identification of beta diversity
+hotspots or regions on large spatial scales with the LCBD methods with regards
+to be selection of conservation targets.
