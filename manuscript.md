@@ -133,7 +133,13 @@ However, this negative remains to be tested on broad continuous scales. Total
 beta diversity increases with spatial extent [@Barton2013SpaSca] and is strongly
 dependent on scale, notably because of en higher environmental heterogeneity and
 sampling of different local species pool [@Heino2015ComAna], which could
-potentially add some variation to the relationship.
+potentially add some variation to the relationship. Neither the previous studies
+on broad scales [@Poisot2017HosPar; @Taranu2020LarMul; @Yang2015ComSim], on
+continuous ones [@Tan2019UndPro; @DAntraccoli2020MorSpe], or on a high number of
+sites [@Niskanen2017DriHig] have specifically measured the variations of the
+richness-LCBD relationship according to different regions and spatial extents.
+These studies all brought forward relevant elements which now need to be
+combined in a single study.
 
 This study shows that species distribution modelling offers relevant LCBD and
 community-level predictions on broad spatial scales, similar to the ones
@@ -461,6 +467,17 @@ uniqueness measured from LCBD values may conflict and highlight different
 potential hotspots [@Dubois2020EcoUni; @Yao2021EcoUni], thus reinstating the
 need to protect both with complementary strategies.
 
-(There should be a conclusion here)
+The results of this study highlight important aspects regarding how ecological
+uniqueness can be measured on broad continuous scales. First, the negative
+relationship often observed between species richness and local contributions to
+beta diversity (LCBD) can take different forms depending on the richness profile
+of the regions on which it is measured, implying that species-rich and
+species-poor regions may allow different ways to be unique. Second, the negative
+relationship is not constant when varying the spatial extent and is much less
+clearly defined on broad scales due to the combination of the contrasting
+regional relationships. Finally, species distribution models (SDMs) offer a
+promising way to generate uniqueness predictions on broad and continuous scales
+which match that of observation data while providing new information for poorly
+or unsampled locations.
 
 # References
