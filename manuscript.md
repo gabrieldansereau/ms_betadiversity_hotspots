@@ -369,7 +369,7 @@ multi-trophic pelagic food webs (phytoplankton, zooplankton, fish)
 (medium-to-large, small, volant) [@daSilva2020CanTax], wetland birds
 [@deDeus2020AviBet], and a few other phylogenetic groups (plants, lizards,
 mites, anurans, mesoinvertebrates) [@Landeiro2018SpeLow]. The slightly
-curvilinear form was also observed previously [@Heino2017ExpSpe;
+curvilinear form was also in different studies [@Heino2017ExpSpe;
 @Tan2019UndPro]. However, it was originally argued that the negative
 relationship was not general or obligatory [@Legendre2013BetDiv]. Different
 LCBD-richness relationships have also been observed, with both positive and
@@ -398,13 +398,15 @@ a species-poor region, sites with higher richness can also be unique, yet still
 less than the sites with the lowest richness. In other words, the method
 identifies the poorest sites as the most unique in both species-rich and
 species-poor regions, while only identifying rich sites as unique in the
-species-poor region. This could be explained from niche theory and
-presence-absence data: while extremely-rich sites could in theory have high LCBD
-values, such are sites unlikely given ecological constraints. It is unlikely
-that all species present in a region would cohabit in a single site given their
-different niche requirements. On presence-absence data, however, the number of
-species present at a site is the only way to introduce variance, while on
-abundance data the variation could come from the species counts.
+species-poor region. Extremely-rich sites could in theory have high LCBD values,
+but such sites may be unlikely given ecological constraints and species niche
+preferences. It is unlikely that all species present in a region would cohabit
+in a single site given their different niche requirements. However, on
+presence-absence data, the number of species present at a site is the only way
+to introduce variance (while on abundance data the variation could come from the
+species counts). Therefore, the curvilinear form may depend on how big the
+contrast will be between the region's median richness and its richest
+ecologically possible sites.
 
 The variation in the LCBD-richness relationship when scaling up and changing the
 the overall study extent shows that the uniqueness patterns highlighted are not
