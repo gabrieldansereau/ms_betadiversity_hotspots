@@ -264,8 +264,10 @@ mostly species-rich, and a Southwest subregion, mostly species-poor (for both
 observed and predicted data). The coordinates of both subregions are shown on
 @fig:subareas. Second, we recalculated the LCBD indices at three different
 scales, starting with a focus on the Northeast subregion and progressively
-extending the extent to encompass the Southwest subregion (@fig:scaling). We did
-these two verifications with both the observed and predicted data but only
+extending the extent to encompass the Southwest subregion (@fig:scaling). These
+are conceptually similar to the spatial windows of @Barton2013SpaSca, which
+allow to study the variation of beta diversity according to spatial extent. We
+did these two verifications with both the observed and predicted data but only
 illustrate the results with the predicted data as both were qualitatively
 similar.
 
@@ -276,7 +278,7 @@ similar.
 The species distribution models generated richness and uniqueness results that
 matched those from observed data, comforting their potential to fill-in gaps in
 poorly sampled regions ([@fig:maps]). Species richness from observation data
-([@fig:maps]a) is higher on the East coast and lower on the West coast, with
+([@fig:maps]a) was higher on the East coast and lower on the West coast, with
 many unsampled patches in the North, Midwest, and Southwest. Richness results
 from SDM data ([@fig:maps]b) filled in most of the gaps while still displaying
 higher richness on the East coast, as well as sites with few or no species up
@@ -299,24 +301,26 @@ while present, was less clear than on the richness maps.
 
 The relationship between LCBD values and species richness displayed two
 contrasting profiles in species-rich and species-poor regions ([@fig:subareas]).
-In a species-rich region, such as the Northeastern region of our study extent
-(North America), LCBD scores display a decreasing relationship with species
-richness. Hence, the sites with the highest LCBD values, i.e. the unique ones in
-terms of species composition, are the species-poor sites, while the species-rich
-sites display lower LCBD scores. Therefore, our results show that the only way
-for a site to stand out and "be exceptional" in such a region is to have few
-species. Since most sites in the Northeastern region comprise between 20 to 30
-warblers species, the richest ones with 40 species do not stand out and are not
-as exceptional as the ones with 10 species or fewer. The Southwest subarea, on
-the other hand, shows a different relationship. While the sites with the highest
-LCBD values are once again the poorest ones in terms of species richness, the
-decreasing relationship with richness is initially much sharper and displays a
-more significant increase as richness reaches 20 species. Since most
-sites only comprise around 10 species and few sites comprise more than 20, 
-regions with 40 species stand out more and are more exceptional in such
-species-poor regions than they would be in species-rich ones.
+In the species-rich Northeastern region of our study extent (North America),
+LCBD scores displayed a decreasing relationship with species richness. Hence,
+the sites with the highest LCBD values, i.e. the unique ones in terms of species
+composition, were the species-poor sites, while the species-rich sites displayed
+lower LCBD scores. Therefore, our results show that the only way for a site to
+stand out and "be exceptional" in such a region is to have few species. Since
+most sites in the Northeastern region comprised between 20 to 30 warblers
+species, the richest ones with 40 species do not stand out and are not as
+exceptional as the ones with 10 species or fewer. The Southwest subarea, on the
+other hand, showed a different relationship. While the sites with the highest
+LCBD values were once again the poorest ones in terms of species richness, the
+decreasing relationship with richness was initially much sharper and displays a
+more significant increase as richness reaches 20 species. Since most sites only
+comprised around 10 species and few sites comprise more than 20, regions with 40
+species stand out more and are more exceptional in such species-poor regions
+than they would be in species-rich ones. Total beta diversity was also higher in
+the Southwest subregion (0.436) than in the Northeast one (0.175), indicating
+higher compositional differences between the sites.
 
-![Comparison between a species-rich region (Northeast) and a species-poor one (Southwest) at a given scale, based on the SDM predictions for Warblers species in North America. The left side figures represent the scores from the assembled presence-absence predictions, calculated separately in each region after applying the Hellinger transformation. The values were scaled to the maximum LCBD observed in each subregion. The right figures represent the decreasing relationship between LCBD values and species richness, with the number of sites in as the bins of the 2-dimensional histogram. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region.](figures/subareas-combined.png){#fig:subareas}
+![Comparison between a species-rich region (Northeast) and a species-poor one (Southwest) at a given scale based on the SDM predictions for Warblers species in North America. The richness-LCBD relationship displayed contrasting profiles for the subregions according to their general richness. Total beta diversity was higher in the Southwest subregion than in the Northeast one. The left side figures represent the scores from the assembled presence-absence predictions, calculated separately in each region after applying the Hellinger transformation. The values were scaled to the maximum LCBD observed in each subregion. The right figures represent the decreasing relationship between LCBD values and species richness, with the number of sites in as the bins of the 2-dimensional histogram. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region.](figures/subareas-combined.png){#fig:subareas}
 
 ## Uniqueness depends on the scale on which it is measured
 
@@ -328,22 +332,29 @@ reaches species-poor regions, the relationship broadens, displays more variance,
 and loses its clear definition while remaining generally decreasing. The
 minimum relative LCBD values also increase, going from near zero to 0.3,
 showing a higher contribution of the less exceptional sites to the overall
-diversity on extended scales.
+diversity on extended scales. Total beta diversity was higher when increasing
+the spatial extent, going from 0.116 to 0.682. Gamma diversity and median LCBD
+values displayed similar increasing trends with subarea extent, while median
+richness decreased as the extent reached the species-poor sites of the Southwest
+region ([@fig:medians]).
 
-![Effect of scaling and full region extent size on the relationship between site richness and LCBD value from the SDM predictions for Warblers species in North America. The LCBD values are re-calculated at each scale based on the sites in this region only and scaled to the maximum value observed in each one. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region.](figures/subareas-scaling.png){#fig:scaling}
+![Effect of scaling and full region extent size on the relationship between site richness and LCBD value from the SDM predictions for Warblers species in North America. The relationship progressively broadens and displays more variance when scaling while total beta diversity increases. The LCBD values are re-calculated at each scale based on the sites in this region only and scaled to the maximum value observed in each one. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region.](figures/subareas-scaling.png){#fig:scaling}
+
+![Change of diversity measures when increasing subarea extent. Total beta diversity, gamma diversity, and median LCBD value showed positive trends increase with subarea extent while median richness decreased. All measures were scaled to their respective maximal values. The range of subarea extent showed here is the same as in @fig:scaling.](figures/subareas-medians.png){#fig:medians}
 
 # Discussion
 
 Our results showed a decreasing relationship between species richness and LCBD
-values, but also highlight that the exact form of this relationship varies
-depending on the scale and the region. Our species-rich Northeast subregion
-([@fig:subareas]) showed a decreasing relationship, similar to previous studies,
-and slightly curvilinear, as described by @Heino2017ExpSpe. This result for
-Warblers species is in line with the original study on fish communities
-[@Legendre2013BetDiv] and with following ones on insect metacommunities
-[@daSilva2014LocReg; @Heino2017UnrCor; @Heino2017ExpSpe], dung beetles
-[@daSilva2018DisCor; @daSilva2020CanTax], aquatic beetles [@Heino2019KniPat],
-stream macroinvertebrates [@Sor2018UniSam], stream diatoms [@Vilmi2017EcoUni],
+values on broad continuous scales, but also highlight that the exact form of
+this relationship varies depending on the region and the spatial extent on which
+it is measured. Our species-rich Northeast subregion ([@fig:subareas]) showed a
+decreasing relationship, very similar to previous studies, and slightly
+curvilinear, as described by @Heino2017ExpSpe. This result for Warblers species
+is in line with the original study on fish communities [@Legendre2013BetDiv] and
+with following ones on insect metacommunities [@daSilva2014LocReg;
+@Heino2017UnrCor; @Heino2017ExpSpe], dung beetles [@daSilva2018DisCor;
+@daSilva2020CanTax], aquatic beetles [@Heino2019KniPat], stream
+macroinvertebrates [@Sor2018UniSam], stream diatoms [@Vilmi2017EcoUni],
 multi-trophic pelagic food webs (phytoplankton, zooplankton, fish)
 [@Taranu2020LarMul], temperate forest trees [@Tan2019UndPro], mammals
 (medium-to-large, small, volant) [@daSilva2020CanTax], wetland birds
