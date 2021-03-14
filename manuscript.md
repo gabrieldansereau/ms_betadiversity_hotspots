@@ -105,7 +105,7 @@ species richness [@Legendre2013BetDiv; @daSilva2014LocReg; @Heino2017UnrCor;
 sites as the most exceptional ones. However, this negative relationship remains
 to be tested on broad continuous scales. Total beta diversity increases with
 spatial extent [@Barton2013SpaSca] and is strongly dependent on scale, notably
-because of en higher environmental heterogeneity and sampling of different local
+because of higher environmental heterogeneity and sampling of different local
 species pool [@Heino2015ComAna], which could potentially add some variation to
 the relationship. Neither the previous studies on broad scales
 [@Poisot2017HosPar; @Taranu2020LarMul; @Yang2015ComSim], on continuous ones
@@ -179,12 +179,12 @@ resolution available, using the _Julia_ package `SimpleSDMLayers.jl`
 [@Dansereau2021SimJl]. The coarse resolution should mitigate potential
 imprecisions in the eBird data regarding the extent of the sampled areas in each
 observation checklist. Moreover, some studies have argued that coarser
-resolutions lead to less overestimation of species richness and better identify
-bird biodiversity hotspots given the patchiness of observation data
-[@Hurlbert2007SpeRic]. We used the standard _bioClim_ variables, which represent
-annual trends, ranges, and extremes of temperature and precipitation, but
-selected only 8 out of the 19 ones to avoid redundancy (bio1, bio2, bio5, bio6,
-bio12, bio13, bio14, bio15). The Copernicus data is a set of variables
+resolutions lead to less overestimation of species richness and better
+identification of bird biodiversity hotspots given the patchiness of observation
+data [@Hurlbert2007SpeRic]. We used the standard _bioClim_ variables, which
+represent annual trends, ranges, and extremes of temperature and precipitation,
+but selected only 8 out of the 19 ones to avoid redundancy (bio1, bio2, bio5,
+bio6, bio12, bio13, bio14, bio15). The Copernicus data is a set of variables
 representing ten land cover classes (e.g. crops, trees, urban areas) and
 measured as a percentage of land cover. The data is only available at a finer
 resolution of 100m, which we downloaded directly from the website. We coarsened
@@ -239,8 +239,8 @@ We note that our LCBD values, which add up to 1 by definition, were very low
 given the high number of sites in both $Y$ and $\hat Y$. However, the relative
 difference between the scores matters more than the absolute value to
 differentiate their uniqueness. Therefore, we decided to report the LCBD values
-relative to each matrix's maximum value, meaning that the new maximum value was
-one and all other values represented fractions.
+relative to the respective maximum value from each set, meaning that the new
+maximum value was 1 and all other values represented fractions of it.
 
 ## Investigation of regional and scaling variation
 
@@ -272,19 +272,18 @@ many unsampled patches in the North, Midwest, and Southwest. Richness results
 from SDM data ([@fig:maps]b) filled in most of the gaps while still displaying
 higher richness on the East coast and sites with few or no species up North and
 in the Midwest. There was no clear latitudinal gradient in richness, but rather
-an East-West one, with landmarks such as the Rockies and croplands in the
-Midwest, which should be species-poor habitats, notably visible on the maps,
-separating the East and West. The SDM predictions highlighted similar results
-regarding the LCBD sites, providing relevant measures to fill in gaps. LCBD
-scores were low on the East Coast and higher on the border of sampled sites in
-the Midwest. They were also higher in the North and in the South, where
-observations were more sparse ([@fig:maps]c). Results from SDM predictions were
-similar, with lower LCBD values in the East and more unique sites in the Midwest
-region, Central Mexico, and some Northern regions ([@fig:maps]d). There was no
-clear latitudinal gradient once again and the East-West contrast, while present,
-was less clear than on the richness maps. Absolute LCBD values (before scaling
-to the maximum value observed) ranged between 1.444e-5 and 5.860e-5 for
-observation data and between 5.788e-6 and 1.706e-5 for SDM data.
+an East-West one. Landmarks such as the Rockies and croplands in the Midwest
+(which should be species-poor habitats) were notably visible on the maps,
+separating the East and West. LCBD scores from observation data ([@fig:maps]c)
+were low on the East Coast and higher on the border of sampled sites in the
+Midwest. They were also higher in the North and in the South ([@fig:maps]d),
+where observations were more sparse. Results from SDM predictions were similar,
+with lower LCBD values in the East and more unique sites in the Midwest region,
+Central Mexico, and some Northern regions. There was no clear latitudinal
+gradient once again and the East-West contrast, while present, was less clear
+than on the richness maps. Absolute LCBD values (before scaling to the maximum
+value observed) ranged between 1.444e-5 and 5.860e-5 for observation data and
+between 5.788e-6 and 1.706e-5 for SDM data.
 
 ![Comparison of species richness and LCBD scores from observed and predicted Warblers occurrences in North America. Values were calculated for sites representing ten arc-minutes pixels.  We measured species richness after converting the occurrence data from eBird (a) and the SDM predictions from our single-species BART models (b) to a presence-absence format per species. We applied the Hellinger transformation to the presence-absence data, then calculated the LCBD values from the variance of the community matrices. We scaled the LCBD values from the occurrence data (c) and SDM predictions (d) to their respective maximal value. Absolute LCBD values (before scaling to the maximum value observed) ranged between 1.444e-5 and 5.860e-5 for observation data and between 5.788e-6 and 1.706e-5 for SDM data. Areas in light grey (not on the colour scale) represent mainland sites with environmental data but without any Warblers species present.](figures/combined-maps.png){#fig:maps}
 
@@ -320,7 +319,7 @@ between 6.106e-5 and 5.240e-4 for the Southwest one.
 The LCBD-richness relationship showed some important variation when scaling up
 and changing the region's study extent ([@fig:scaling]). On smaller scales,
 starting with a species-rich region, the relationship is well-defined,
-decreasing and curvilinear. However, as the scale increases and progressively
+decreasing, and curvilinear. However, as the scale increases and progressively
 reaches species-poor regions, the relationship broadens, displays more variance,
 and loses its clear definition while keeping a decreasing form. The minimum
 relative LCBD values also increase, going from near zero to 0.3, showing a
@@ -341,9 +340,9 @@ sites ([@fig:medians]).
 # Discussion
 
 Our results showed a decreasing relationship between species richness and LCBD
-values on broad continuous scales but also highlight that the exact form of this
-relationship varies depending on the region and the spatial extent on which it
-is measured. Our species-rich Northeast subregion ([@fig:subareas]) showed a
+values on broad continuous scales but also highlighted that the exact form of
+this relationship varies depending on the region and the spatial extent on which
+it is measured. Our species-rich Northeast subregion ([@fig:subareas]) showed a
 decreasing relationship, very similar to previous studies, and slightly
 curvilinear, as described by @Heino2017ExpSpe. This result for Warblers species
 is in line with the original study on fish communities [@Legendre2013BetDiv] and
@@ -356,7 +355,7 @@ multi-trophic pelagic food webs (phytoplankton, zooplankton, fish)
 (medium-to-large, small, volant) [@daSilva2020CanTax], wetland birds
 [@deDeus2020AviBet], and a few other phylogenetic groups (plants, lizards,
 mites, anurans, mesoinvertebrates) [@Landeiro2018SpeLow]. The slightly
-curvilinear form was also in different studies [@Heino2017ExpSpe;
+curvilinear form was also found in different studies [@Heino2017ExpSpe;
 @Tan2019UndPro]. However, it was originally argued that the negative
 relationship was not general or obligatory [@Legendre2013BetDiv]. Different
 LCBD-richness relationships have also been observed, with both positive and
@@ -377,23 +376,22 @@ characteristics depending on the region for which it is used. Comparative
 studies have previously found a significant relationship between
 presence-absence LCBD values and richness, but not between abundance LCBD values
 and richness [@daSilva2014LocReg; @Heino2017ExpSpe]. In a presence-absence
-context, in contrast with one based on abundance and count data, our results
-tend to confirm that species richness is probably the most important element to
-determine the LCBD value. In a species-rich region, such as our Northeast one
-(median richness of 23), the only way to stand out is to have few species. On
-the other hand, in a species-poor region, sites with higher richness can also be
-unique, yet still less than the sites with the lowest richness. In other words,
-the method identifies the poorest sites as the most unique in both species-rich
-and species-poor regions while only identifying rich sites as unique in the
-species-poor region. Extremely-rich sites could, in theory, have high LCBD
-values, but such sites may be rare given ecological constraints and species
-niche preferences. It is unlikely that all species present at the regional level
-would cohabit in a single site given their different niche requirements.
-However, on presence-absence data, the number of species present is the only way
-to introduce variance (while on abundance data, the variation could come from
-the species counts). Therefore, the curvilinear form may depend on how big the
-contrast will be between the region's median richness and its richest
-ecologically possible sites.
+context, our results tend to confirm that species richness is probably the most
+important element to determine the LCBD value. In a species-rich region, such as
+our Northeast one (median richness of 23), the only way to stand out is to have
+few species. On the other hand, in a species-poor region, sites with higher
+richness can also be unique, yet still less than the sites with the lowest
+richness. In other words, the method identifies the poorest sites as the most
+unique in both species-rich and species-poor regions while only identifying rich
+sites as unique in the species-poor region. Extremely-rich sites could, in
+theory, have high LCBD values, but such sites may be rare given ecological
+constraints and species niche preferences. It is unlikely that all species
+present at the regional level would cohabit in a single site given their
+different niche requirements. However, on presence-absence data, the number of
+species present is the only way to introduce variance (while on abundance data,
+the variation could come from the species counts). Therefore, the curvilinear
+form may depend on how big the contrast will be between the region's median
+richness and its richest ecologically possible sites.
 
 The variation in the LCBD-richness relationship when scaling up and changing the
 overall study extent shows that the uniqueness patterns highlighted are not
@@ -402,11 +400,14 @@ uniqueness profiles will merge at broad spatial scales, but this can create a
 new profile with a lot more variation. When too many poor sites are present,
 rich sites will almost certainly have lower LCBD values. Aggregating too many
 different sites might then possibly mask some patterns of uniqueness. Total beta
-diversity increased with spatial extent ([@fig:scaling; @fig:medians]), which is
-in line with previous studies [@Barton2013SpaSca; @Heino2015ComAna]. Median LCBD
-values and gamma diversity showed a similar pattern. Total beta diversity was
-high at the continental scale but lower than what has been observed in some
-studies [@Sor2018UniSam].
+diversity, on the other hand, showed the variation expected from previous
+studies, increasing with spatial extent ([@fig:scaling; @fig:medians])
+[@Barton2013SpaSca; @Heino2015ComAna]. Its value was high at the continental
+scale (0.628) but lower than what has been observed in some studies (e.g. 0.80
+in @Sor2018UniSam). Median LCBD values and gamma diversity showed a similar
+increasing trend but median richness (alpha diversity) showed a decreasing one.
+This highlights that total beta diversity and LCBD values can increase even if
+alpha diversity decreases. 
 
 Our results show that SDM models provide uniqueness predictions similar to the
 occurrence data while filling in gaps in poorly sampled regions. This is of
