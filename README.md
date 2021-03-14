@@ -1,10 +1,5 @@
 # Beta Diversity Hotspots - The Manuscript
 
-<p align="center">
-  <img align = "center" src="figures/lcbd-bart.png" width="75%"
-       title = "Species richness">
-</p>
-
 M.Sc chapter manuscript. See the repo with codes [here](https://github.com/gabrieldansereau/betadiversity-hotspots).
 
 ## Manuscript versions
