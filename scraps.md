@@ -95,3 +95,5 @@ this variation depends on the region and the scale on which the measure is used.
 Hence, our results has repercussions for the identification of beta diversity
 hotspots or regions on large spatial scales with the LCBD methods with regards
 to be selection of conservation targets.
+
+Uniqueness at high latitudes is a consequence of environmental filtering [@Tolonen2018EcoUni], but with our even broader scale, it is possible that we cover both high latitude and central desertic regions, which may be more unique if they hold a few specialist species, or few suitable and reachable habitat patches given the coarse resolution we used.
