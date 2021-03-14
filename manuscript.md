@@ -6,30 +6,6 @@ bibliography: [references.bib]
 
 <div style="text-align: justify">
 
-# Abstract 
-
-(copy-paste from metadata, I just like having it here too)
-
-Beta diversity is an essential measure to describe the organization of
-biodiversity in space. The calculation of local contributions to beta diversity
-(LCBD), specifically, allows for the identification of sites with exceptional
-diversity within a region of interest. To this day, LCBD indices have primarily
-been used on regional and smaller scales, with relatively few sites.
-Furthermore, as beta diversity implies a comparison among the sites of a given
-region, their use is typically restricted to strictly sampled sites with known
-species composition, hence to discontinuous spatial scales. Here, we investigate
-the variation of LCBD indices on extended spatial scales, including species-poor
-and species-rich regions, and examine their applicability for continuous scales
-and unsampled sites through species distribution models (SDMs). To this aim, we
-used Bayesian additive regression trees (BARTs) to model species composition on
-continuous scales based on observation data from the eBird database. Our results
-highlight a changing relationship between site richness and LCBD values for
-species-poor and species-rich regions depending on the extent of the whole
-region of interest. We also show that SDMs return relevant LCBD predictions
-displaying the same relationship as the one obtained with observation data only.
-Hence, our method could help identify beta diversity hotspots in unsampled
-locations, which could be important targets for conservation purposes.
-
 # Introduction
 
 Beta diversity, defined as the variation in species composition among sites in a
