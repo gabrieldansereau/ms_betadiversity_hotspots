@@ -264,7 +264,7 @@ mostly species-rich, and a Southwest subregion, mostly species-poor (for both
 the observed and predicted data). @Fig:subareas shows the coordinates of both
 subregions. Second, we recalculated the LCBD indices at three different extents,
 starting with a focus on the Northeast subregion and progressively extending the
-extent to encompass the Southwest subregion ([@Fig:scaling]). These are
+extent to encompass the Southwest subregion ([@Fig:3scales]). These are
 conceptually similar to the spatial windows of @Barton2013SpaSca, which allow
 one to study the variation of beta diversity according to spatial extent. We did
 these two verifications with both the observed and predicted data but only
@@ -328,7 +328,7 @@ between 6.106e-5 and 5.240e-4 for the Southwest one.
 ## Uniqueness depends on the scale on which it is measured
 
 The LCBD-richness relationship showed some important variation when scaling up
-and changing the region's study extent ([@Fig:scaling]). For smaller extents,
+and changing the region's study extent ([@Fig:3scales]). For smaller extents,
 starting with a species-rich region, the relationship is well-defined,
 decreasing, and curvilinear. However, as the scale increases and progressively
 reaches species-poor regions, the relationship broadens, displays more variance,
@@ -344,9 +344,9 @@ species present at a spatial extent) and median LCBD values displayed similar
 increasing trends with subarea extent, while median richness decreased as the
 extent reached the Southwest region's species-poor sites ([@Fig:medians]).
 
-![Effect of scaling and full region extent size on the relationship between site richness and LCBD value from the SDM predictions for warbler species in North America. The relationship progressively broadens and displays more variance when scaling while total beta diversity increases. The LCBD values were recalculated at each scale based on the sites in this region and then were scaled to the maximum value in each region. Absolute LCBD values (before scaling) ranged between  2.243e-4 and 5.276e-3 at the finest scale, between 2.176e-5 and 3.813e-4 at the intermediate one, and between 1.180e-5 and 5.220e-5 at the broadest one. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region.](figures/subareas-scaling.png){#fig:scaling}
+![Effect of scaling and full region extent size on the relationship between site richness and LCBD value from the SDM predictions for warbler species in North America. The relationship progressively broadens and displays more variance when scaling while total beta diversity increases. The LCBD values were recalculated at each scale based on the sites in this region and then were scaled to the maximum value in each region. Absolute LCBD values (before scaling) ranged between  2.243e-4 and 5.276e-3 at the finest scale, between 2.176e-5 and 3.813e-4 at the intermediate one, and between 1.180e-5 and 5.220e-5 at the broadest one. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region.](figures/subareas-3scales.png){#fig:3scales}
 
-![Change of diversity measures when increasing subarea extent. Total beta diversity, gamma diversity, and median LCBD value showed positive trends increase with subarea extent while median richness decreased. All measures were scaled to their respective maximal values. Absolute values (before scaling) ranged between 15 and 26 for median richness, 0.0844 and 0.532 for relative LCBD medians,  0.116 and 0.682 for total beta diversity, and 36 and 62 for gamma diversity. The range of subarea extent showed here is the same as in @Fig:scaling.](figures/subareas-medians.png){#fig:medians}
+![Change of diversity measures when increasing subarea extent. Total beta diversity, gamma diversity, and median LCBD value showed positive trends increase with subarea extent while median richness decreased. All measures were scaled to their respective maximal values. Absolute values (before scaling) ranged between 15 and 26 for median richness, 0.0844 and 0.532 for relative LCBD medians,  0.116 and 0.682 for total beta diversity, and 36 and 62 for gamma diversity. The range of subarea extent showed here is the same as in @Fig:3scales.](figures/subareas-medians.png){#fig:medians}
 
 # Discussion
 
@@ -412,7 +412,7 @@ new profile with a lot more variation. When too many poor sites are present,
 rich sites will almost certainly have lower LCBD values. Aggregating too many
 different sites might then possibly mask some patterns of uniqueness. Total beta
 diversity, on the other hand, showed the variation expected from previous
-studies, increasing with spatial extent ([@Fig:scaling; @Fig:medians])
+studies, increasing with spatial extent ([@Fig:3scales; @Fig:medians])
 [@Barton2013SpaSca; @Heino2015ComAna]. Its value was high at the continental
 scale (0.628) but lower than what has been observed in some studies (e.g. 0.80
 in @Sor2018UniSam). Median LCBD values and gamma diversity showed a similar
