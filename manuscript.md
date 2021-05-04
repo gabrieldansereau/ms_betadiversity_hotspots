@@ -50,6 +50,25 @@ The species distribution models generated richness and uniqueness results that m
 
 ![Comparison of species richness and LCBD scores from observed and predicted warbler occurrences in North America. Values were calculated for sites representing ten arc-minutes pixels.  We measured species richness after converting the occurrence data from eBird (a) and the SDM predictions from our single-species BART models (b) to a presence-absence format per species. We applied the Hellinger transformation to the presence-absence data, then calculated the LCBD values from the variance of the community matrices. We scaled the LCBD values from the occurrence data (c) and SDM predictions (d) to their respective maximal value. Absolute LCBD values (before scaling to the maximum value observed) ranged between 1.444e-5 and 5.860e-5 for observation data and between 5.788e-6 and 1.706e-5 for SDM data. Areas in light grey (not on the colour scale) represent mainland sites with environmental data but without any warbler species present.](figures/combined-maps.png){#fig:maps}
 
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{figures/combined-maps.png}
+\caption{Comparison of species richness and LCBD scores from observed
+and predicted warbler occurrences in North America. Values were
+calculated for sites representing ten arc-minutes pixels. We measured
+species richness after converting the occurrence data from eBird (a) and
+the SDM predictions from our single-species BART models (b) to a
+presence-absence format per species. We applied the Hellinger
+transformation to the presence-absence data, then calculated the LCBD
+values from the variance of the community matrices. We scaled the LCBD
+values from the occurrence data (c) and SDM predictions (d) to their
+respective maximal value. Absolute LCBD values (before scaling to the
+maximum value observed) ranged between 1.444e-5 and 5.860e-5 for
+observation data and between 5.788e-6 and 1.706e-5 for SDM data. Areas
+in light grey (not on the colour scale) represent mainland sites with
+environmental data but without any warbler species present.}
+\end{figure}
+
 ## Uniqueness displays regional variation as two distinct profiles
 
 The relationship between LCBD values and species richness displayed two contrasting profiles in species-rich and species-poor regions ([@Fig:subareas]). In the species-rich Northeastern region of our study extent (North America), LCBD scores displayed a decreasing relationship with species richness. Hence, the sites with the highest LCBD values, i.e. the unique ones in terms of species composition, were the species-poor sites, while the species-rich sites displayed lower LCBD scores. Therefore, our results show that the only way for a site to stand out and "be exceptional" in such a region is to have few species. Since most sites in the Northeastern region comprise 20 to 30 warbler species, the richest ones with 40 species do not stand out and are not as exceptional as those with 10 species or fewer. The Southwest subarea, on the other hand, showed a different relationship. While the sites with the highest LCBD values were once again the poorest ones in terms of species richness, the decreasing relationship with richness was initially much sharper and displayed a more significant increase as richness reaches 20 species. Since most sites comprised around 10 species and few ones more than 20, sites with 40 species stand out more and are more exceptional in such species-poor regions than they would be in species-rich ones. Total beta diversity was also higher in the Southwest subregion (0.436) than in the Northeast one (0.175), indicating higher compositional differences between the sites. Absolute LCBD values (before scaling to the maximum value observed) ranged between 6.994e-5 and 1.319e-3 for the Northeast subregion and between 6.106e-5 and 5.240e-4 for the Southwest one.
