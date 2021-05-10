@@ -46,10 +46,11 @@
   
   Main conclusions: Sites identified as unique over broad spatial extents may vary according to the regional richness, total extent size, and the proportion of rare species. Species distribution modelling can be used to predict ecological uniqueness over broad spatial extents, which could help identify beta diversity hotspots and important targets for conservation purposes in unsampled locations."],
   "keywords": [
-    "biogeography",
-    "community ecology",
     "beta diversity",
+    "ecological uniqueness",
+    "local contributions to beta diversity",
     "species distribution modelling",
-    "spatial scales"
+    "broad spatial scale",
+    "eBird",
   ]
 }
