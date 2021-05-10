@@ -1,5 +1,3 @@
-BARTPATH=../betadiversity-hotspots/fig/bart
-
 ## Basic rule
 # target: dependency
 # 	action
@@ -14,12 +12,14 @@ BARTPATH=../betadiversity-hotspots/fig/bart
 # % is the wildcard for targets & dependencies
 # $* is the wildcard in the action
 
-.PHONY: all
+.PHONY: all figures rm
 all: figures
 
-FIGFILES=combined-maps.png subareas-combined.png subareas-medians.png subareas-3scales.png comparison-richness.png comparison-lcbd.png residuals_richness-negbinomial.png residuals_lcbd-betareg.png rare-species_ascending_plots.png
+# FETCH FIGURES 
+FIGFILES=combined-maps.png subareas-combined.png subareas-medians.png subareas-3scales.png comparison-combined.png residuals-combined.png rare-species_ascending_plots.png
 FIGPATHS=$(patsubst %.png, figures/%.png, $(FIGFILES))
-.PHONY: figures
+BARTPATH=../betadiversity-hotspots/fig/bart
+
 figures: $(FIGPATHS)
 	
 figures/subareas-combined.png: $(BARTPATH)/05-1_bart_subareas_combined.png
@@ -31,18 +31,11 @@ figures/subareas-medians.png: $(BARTPATH)/05-4_bart_subareas_medians.png
 figures/subareas-3scales.png: $(BARTPATH)/05-2_bart_subareas_3scales.png
 	cp $< $@
 
-figures/combined-maps.png: $(BARTPATH)/07_bart_combined-maps.png
-	cp $< $@
-
-figures/comparison-%.png: $(BARTPATH)/07_bart_comparison-%.png
-	cp $< $@
-
-figures/residuals_%.png: $(BARTPATH)/07_bart_residuals_%.png
+figures/%.png: $(BARTPATH)/07_bart_%.png
 	cp $< $@
 
 figures/rare-species_%.png: $(BARTPATH)/08_bart_rare-species_%.png
 	cp $< $@
 
-.PHONY: clean
-clean:
+rm:
 	rm figures/*
