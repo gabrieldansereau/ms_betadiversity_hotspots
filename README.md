@@ -1,16 +1,28 @@
-# Beta Diversity Hotspots - The Manuscript
+# Evaluating ecological uniqueness over broad spatial extents using species distribution modelling
 
-M.Sc chapter manuscript. See the repo with codes [here](https://github.com/gabrieldansereau/betadiversity-hotspots).
+Manuscript from my M.Sc work on identifying hotspots of unique biodiversity across increasing spatial scales.
+
+Deals with beta diversity, eBird, species distribution modelling, spatial scales, and more!
 
 ## Manuscript versions
 
 [main_html]: https://gabrieldansereau.github.io/ms_betadiversity_hotspots/
 [main_draft]: https://gabrieldansereau.github.io/ms_betadiversity_hotspots/draft.pdf
 [main_preprint]: https://gabrieldansereau.github.io/ms_betadiversity_hotspots/preprint.pdf
+[ecoevo_preprint]: https://ecoevorxiv.org/tvmyg
+[code_repo]: https://github.com/gabrieldansereau/betadiversity-hotspots
+
 
 - [:blue_book: website][main_html]
 - [:page_facing_up: draft][main_draft]
 - [:newspaper: preprint][main_preprint]
+- [:tada: EcoEvoRxiv preprint][ecoevo_preprint]
+
+## Teaser
+
+See the [code repo][code_repo] for more!
+
+![Scaling GIF](https://github.com/gabrieldansereau/betadiversity-hotspots/blob/main/fig/bart/05-3_bart_subareas.gif)
 
 ## About the manuscript building
 
