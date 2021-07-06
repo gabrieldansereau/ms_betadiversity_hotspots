@@ -22,7 +22,7 @@ Deals with beta diversity, eBird, species distribution modelling, spatial scales
 
 See the [code repo][code_repo] for more!
 
-![Scaling GIF](https://github.com/gabrieldansereau/betadiversity-hotspots/blob/main/fig/bart/05-3_bart_subareas.gif)
+![Scaling GIF](https://github.com/gabrieldansereau/betadiversity-hotspots/blob/main/fig/bart/05_bart_scaling.gif)
 
 ## About the manuscript building
 
