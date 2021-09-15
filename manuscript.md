@@ -62,7 +62,7 @@ Species richness from observation data ([@Fig:maps]a) was higher on the East Coa
 
 ![Comparison of species richness and LCBD scores from observed and predicted warbler occurrences in North America. Values were calculated for sites representing ten arcminute pixels. We measured species richness after converting the occurrence data from eBird (a) and the SDM predictions from our single-species BART models (b) to a presence-absence format per species. We applied the Hellinger transformation to the presence-absence data, then calculated the LCBD values from the variance of the community matrices separately for the occurrence data (c) and the SDM predictions (d). Areas in light grey (not on the colour scale) represent mainland sites with environmental data but without any warbler species present.](figures/comparison-combined.png){#fig:maps}
 
-: Range of LCBD values for all figures.{#tbl:lcbd}
+: Range of LCBD values for all figures. {#tbl:lcbd}
 
 \input{tables/lcbd.md}
 
