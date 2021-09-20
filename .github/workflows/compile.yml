@@ -44,12 +44,12 @@ jobs:
           cp -r figures dist/
           cp references.json dist/
           cp .assets/logo.png dist/
-      - name: Input the tables from the files
-        run: |
-          for TABLE in `ls tables`
-          do
-            perl -0777 -i -pe "s/\\\input{tables\\/$TABLE}/`cat tables\\/$TABLE`/g" manuscript.md
-          done
+      # - name: Input the tables from the files
+      #   run: |
+      #     for TABLE in `ls tables`
+      #     do
+      #       perl -0777 -i -pe "s/\\\input{tables\\/$TABLE}/`cat tables\\/$TABLE`/g" manuscript.md
+      #     done
       - name: Build the website
         run: pandoc manuscript.md -o dist/index.html -F pandoc-crossref --citeproc --bibliography=references.json --metadata-file=metadata.json --metadata-file=affiliations.json --template=.assets/templates/index.html
       - name: Build the tex files
