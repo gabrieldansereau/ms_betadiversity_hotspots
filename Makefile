@@ -1,5 +1,5 @@
 # NON-TARGET FILES
-.PHONY: all rm figures
+.PHONY: all rm figures build draft
 
 # DEFAULT RULE
 all: figures
@@ -38,3 +38,36 @@ figures/comparison-residuals.png: $(BARTPATH)/09_bart_residuals.png
 # REMOVE FIGURES
 rm:
 	rm figures/*
+
+# BUILD worklow files locally
+build:
+	# Convert the bib file to json
+	export LANG=en_US.UTF-8
+	pandoc references.bib -t csljson -o references.json
+	# Cleanup the bibliography
+	python .assets/scripts/bibliography.py
+	# Cleanup the affiliations
+	python .assets/scripts/affiliations.py
+	# Prepare the output
+	mkdir -p dist
+	cp -r figures dist/
+	cp references.json dist/
+	cp .assets/logo.png dist/
+	# Build the website
+	pandoc manuscript.md -o dist/index.html -F pandoc-crossref --citeproc --bibliography=references.json --metadata-file=metadata.json --metadata-file=affiliations.json --template=.assets/templates/index.html
+	# Build the tex files
+	pandoc manuscript.md -s -o dist/draft.tex -F pandoc-crossref --citeproc --bibliography=references.json --metadata-file=metadata.json --metadata-file=affiliations.json --template=.assets/templates/draft.tex
+	pandoc manuscript.md -s -o dist/preprint.tex -F pandoc-crossref --citeproc --bibliography=references.json --metadata-file=metadata.json --metadata-file=affiliations.json --template=.assets/templates/preprint.tex
+
+# Build a Word doc
+word: build
+	pandoc dist/index.html -s -o dist/draft.docx
+
+# Build the PDF files
+draft: build
+	pandoc manuscript.md -s -o dist/draft.pdf -F pandoc-crossref --citeproc --bibliography=references.json --metadata-file=metadata.json --metadata-file=affiliations.json --template=.assets/templates/draft.tex
+	
+# Not working because of the logo
+# preprint: build
+# 	pandoc manuscript.md -s -o dist/preprint.pdf
+	
