@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Evaluating ecological uniqueness over broad spatial extents using species distribution modelling</title>
+    <script src="https://hypothes.is/embed.js" async></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Fira+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+        :root {
+            --citation: #1976D2;
+            --structure: #00897B;
+            --light: #9E9E9E;
+            --pale: #e0e0e0;
+            --nav: #fdfdfd;
+
+            --width: 820px;
+            --inner-space: 1.2em;
+        }
+
+        body {
+            font-family: "Fira Sans", sans-serif;
+            margin: 0 0;
+            padding: 0 0;
+        }
+
+        article > p {
+            line-height: 135%;
+        }
+        article > h1 {
+            padding-top: 3em;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+            border-bottom: 1px solid var(--structure);
+        }
+        a:hover {
+            font-weight: 600;
+        }
+        .citation {
+            color: var(--citation);
+        }
+        .container {
+            margin: 0em auto;
+            max-width: var(--width);
+            padding: var(--inner-space);
+        }
+        header > .container {
+            max-width: 100vw;
+        }
+        code, pre {
+            font-family: "Fira Mono", monospace;
+        }
+        pre {
+            white-space: pre-wrap;
+        }
+        h1, h2, h3 {
+            color: var(--structure);
+            font-family: "Fira Sans Condensed", sans-serif;
+        }
+        header {
+            font-family: "Fira Sans Condensed", sans-serif;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            background-color: var(--nav);
+            border: 1px solid var(--pale);
+            z-index: 5;
+            color: black;
+        }
+        .header--title {
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+        .header--authors > span {
+            color: var(--light);
+            font-weight: 400;
+        }
+        main {
+            padding-top: 8em !important;
+            padding-bottom: 8em !important;
+        }
+        footer {
+            background-color: var(--pale);
+            font-weight: 300;
+        }
+        .abstract {
+            color: var(--light);
+            margin-bottom: 5em;
+        }
+        figure {
+            max-width: 100%;
+            border: 1px solid var(--pale);
+            border-radius: 2px;
+            margin: 1em 0.5em;
+        }
+        figure > img {
+            max-width: 100%;
+            display: block;
+            margin: 0em auto;
+        }
+        figure > figcaption {
+            padding: var(--inner-space);
+        }
+        table {
+            width: 100%;
+            min-width: 100%;
+            border-collapse: collapse;
+        }
+        table > caption {
+            padding: var(--inner-space);
+        }
+        figcaption, caption {
+            color: var(--light);
+            font-weight: 300;
+        }
+        thead {
+            color: var(--structure);
+        }
+        td, th {
+            padding: 3px;
+        }
+        tr > th {
+            text-align: center !important;
+        }
+        tr {
+            border-top: 1px solid var(--light);
+            border-bottom: 1px solid var(--light);
+        }
+        tbody > tr:nth-child(even) {background: var(--pale)};
+        tbody {
+            border-bottom: 1px solid var(--structure);
+        }
+        #refs {
+            font-size: 90%;
+            column-count: 2;
+        }
+        #refs > .csl-entry {
+            padding-bottom: 0.2em;
+            padding-top: 0.2em;
+        }
+        .hanging-indent > .csl-entry {
+            padding-left: 15px ;
+            text-indent: -15px ;
+        }    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css"
+    integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous" />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js"
+    integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O"
+    crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js"
+    integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF"
+    crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false }
+                ]
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header--title">Evaluating ecological uniqueness over broad spatial extents using species distribution modelling</div>
+            <div class="header--authors">
+                                <span class="header--author">
+                                        <a href="https://orcid.org/0000-0002-2212-3584" target="_blank">
+                        Gabriel Dansereau
+                    </a>
+                                                                <sup class="affilcode">1</sup>
+                                            <sup class="affilcode">2</sup>
+                                    </span>
+                                <span class="header--author">
+                                        <a href="https://orcid.org/0000-0002-3838-3305" target="_blank">
+                        Pierre Legendre
+                    </a>
+                                                                <sup class="affilcode">1</sup>
+                                            <sup class="affilcode">2</sup>
+                                    </span>
+                                <span class="header--author">
+                                        <a href="https://orcid.org/0000-0002-0735-5184" target="_blank">
+                        Timothée Poisot
+                    </a>
+                                                                <sup class="affilcode">1</sup>
+                                            <sup class="affilcode">2</sup>
+                                    </span>
+                            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="abstract">
+            <b>Abstract:</b> Local contributions to beta diversity (LCBD) can be used to identify sites with high ecological uniqueness and exceptional species composition within a region of interest. Yet, these indices are typically used on local or regional scales with relatively few sites, as they require information on complete community compositions difficult to acquire on larger scales. Here, we investigated how LCBD indices can be predicted over broad spatial extents using species distribution modelling and examined the effect of scale changes on beta diversity quantification. We used Bayesian additive regression trees (BARTs) to predict warbler species distributions in North America based on observations recorded in the eBird database. We then calculated LCBD indices for observed and predicted data and compared the site-wise difference using direct comparison, a spatial association test, and generalized linear regression. We also examined the relationship between LCBD values and species richness in different regions and at various spatial extents. Our results showed that species distribution models provided uniqueness estimates highly correlated with observed data. The form and variance of the LCBD-richness relationship varied according to the region and the total extent size. The relationship was also affected by the proportion of rare species in the communities. Therefore, sites identified as unique over broad spatial extents may vary according to regional characteristics. These results show that species distribution modelling can be used to predict ecological uniqueness over broad spatial extents, which could help identify beta diversity hotspots and important targets for conservation purposes in unsampled locations.<br />
+            <div class="artifacts">
+                <a href="draft.pdf" title="Draft PDF" target="_blank">draft</a>
+                <a href="preprint.pdf" title="Preprint PDF" target="_blank">preprint</a>
+            </div>
+        </section>
+        
+        <article>
+            <div style="text-align: justify">
+
+            <h1 id="introduction">Introduction</h1>
+            <p>Beta diversity, defined as the variation in species composition among sites in a geographic region of interest <span class="citation" data-cites="Legendre2005AnaBet">(Legendre, Borcard, and Peres-Neto 2005)</span>, is an essential measure to describe the organization of biodiversity through space. Total beta diversity within a community can be partitioned into local contributions to beta diversity (LCBD) <span class="citation" data-cites="Legendre2013BetDiv">(Legendre and De Cáceres 2013)</span>, which allow the identification of sites with exceptional species composition, hence unique biodiversity and potential conservation value. Sites with unique community composition often differ from those with high species richness, possibly as they harbour rare species or help maintain beta diversity <span class="citation" data-cites="daSilva2018DisCor Heino2017UnrCor Landeiro2018SpeLow">(da Silva, Hernández, and Heino 2018; Heino et al. 2017; Landeiro et al. 2018)</span>. Hence, focusing on uniqueness can prove helpful as a complementary approach to species richness <span class="citation" data-cites="Heino2017ExpSpe daSilva2018DisCor Yao2021EcoUni Dubois2020EcoUni">(Heino and Grönroos 2017; da Silva, Hernández, and Heino 2018; Yao et al. 2021; Dubois, Proulx, and Pellerin 2020)</span>. However, the use of LCBD indices is currently limited in two ways. First, LBCD indices are typically used on data collected over local or regional scales with relatively few sites, for example, on fish communities at intervals along a river or stream <span class="citation" data-cites="Legendre2013BetDiv">(Legendre and De Cáceres 2013)</span>. Second, LCBD calculation methods require complete information on community composition; thus, they are inappropriate for partially sampled sites (e.g., where data for some species are missing or uncertain) and cannot directly provide assessments for unsampled ones. Accordingly, this method is of limited use to identify areas with exceptional biodiversity in regions with sparse sampling. However, predictive approaches offer an opportunity to overcome such limitations, as computational methods often uncover novel ecological insights from existing data <span class="citation" data-cites="Poisot2019DatSyn">(Poisot et al. 2019)</span>, including in lesser-known locations and on larger spatial scales.</p>
+            <p>Species distribution models (SDMs) <span class="citation" data-cites="Guisan2005PreSpe">(Guisan and Thuiller 2005)</span> can bring a new perspective to LCBD studies by filling in gaps in community composition data to perform analyses on broader scales. Single-species SDMs aim at predicting the distribution of a species in unsampled locations based on information (such as environmental data) from sampled locations with reported occurrences. Many approaches allow going from single-species SDMs to a whole community on which to evaluate community-level metrics, yet their relevance has not been explicitly evaluated for ecological uniqueness and LCBD indices. The most straightforward approach is stacked distribution models (S-SDMs) <span class="citation" data-cites="Ferrier2006SpaMod Guisan2011SesNew">(Ferrier and Guisan 2006; Guisan and Rahbek 2011)</span>. Single-species SDMs are first performed separately, then combined to form a community prediction on which community-level analyses can be applied. S-SDMs tend to overestimate species richness <span class="citation" data-cites="Dubuis2011PreSpa DAmen2015UsiSpe Zurell2020TesSpe">(Dubuis et al. 2011; D’Amen et al. 2015; Zurell et al. 2020)</span>, which could result from thresholding the probabilities into presence-absence data before stacking the species distributions <span class="citation" data-cites="Calabrese2014StaSpe">(Calabrese et al. 2014)</span>. Summing the occurrence probabilities without applying a threshold is an alternative <span class="citation" data-cites="Calabrese2014StaSpe">(Calabrese et al. 2014)</span>, but it may limit some analyses as it does not return species identities for every site <span class="citation" data-cites="Zurell2020TesSpe">(Zurell et al. 2020)</span>, as is required with LCBD calculations. In comparison, joint species distribution models (JSDMs)<span class="citation" data-cites="Pollock2014UndCoo">(Pollock et al. 2014)</span> try to improve predictions by incorporating species co-occurrence or shared environmental responses into the models. However, these models do not always improve community-level predictions compared to S-SDMs <span class="citation" data-cites="Zurell2020TesSpe">(Zurell et al. 2020)</span>. Spatially explicit species assemblage modelling (SESAM) <span class="citation" data-cites="Guisan2011SesNew">(Guisan and Rahbek 2011)</span>, hierarchical modelling of species communities (HMSC) <span class="citation" data-cites="Ovaskainen2017HowMak">(Ovaskainen et al. 2017)</span>, and Bayesian networks (BN) <span class="citation" data-cites="Staniczenko2017LinMac">(Staniczenko et al. 2017)</span> are other alternatives that could yield better community predictions than S-SDMs. On the other hand, they add methodological and computational overload, impeding their use for broad spatial extents. Moreover, their relevance for community prediction is often validated against extensive work on species richness. By comparison, ecological uniqueness and LCBD indices have rarely been used in predictive frameworks. Therefore, S-SDMs may prove an appropriate first step to establish some prediction baselines.</p>
+            <p>Combining LCBD indices with a predictive approach through SDMs will allow measuring uniqueness over broader spatial extents, across continuous landscapes, and on a higher number of sites than what has previously been studied. LCBD scores have typically been used at local or regional scales with relatively few sites <span class="citation" data-cites="Legendre2013BetDiv daSilva2014LocReg Heino2017UnrCor Heino2017ExpSpe">(up to 60 sites on extents covering 10 km to 400 km, Legendre and De Cáceres 2013; da Silva and Hernández 2014; Heino et al. 2017; Heino and Grönroos 2017)</span>. Some studies did use the measure over broader, near-continental extents <span class="citation" data-cites="Yang2015ComSim Poisot2017HosPar Taranu2020LarMul">(Yang et al. 2015; Poisot et al. 2017; Taranu, Pinel-Alloul, and Legendre 2020)</span>, but the total number of sites in these studies were relatively small (maximum 51 sites). Recent studies also investigated LCBD and beta diversity on sites distributed in contiguous grids or as pixels, hence uniform sampling intervals and no spatial gaps, but these did not cover large extents and a high number of sites <span class="citation" data-cites="Tan2017HowBet Tan2019UndPro Legendre2019SpaTem DAntraccoli2020MorSpe">(up to 1250 sites and 6 km<sup>2</sup>, Tan et al. 2017, 2019; Legendre and Condit 2019; D’Antraccoli et al. 2020)</span>. Two recent studies have, however, adopted promising predictive approaches on regional extents. First, <span class="citation" data-cites="Niskanen2017DriHig">Niskanen et al. (2017)</span> predicted LCBD values of plant communities (and three other diversity measures) on a continuous scale and a high number of sites (&gt; 25,000) using Boosted Regression Trees (BRTs). However, they modelled the diversity measures directly after calculating them on a smaller number of sampled sites. Second, <span class="citation" data-cites="Vasconcelos2018ExpImp">Vasconcelos, Nascimento, and Prado (2018)</span> used ecological niche models (ENMs) to predict anurans ecological niches according to actual and forecasted environmental conditions, then calculated the LCBD values on the predictions to identify biodiversity hotspots. Using this approach, predicted LCBD values are calculated in a way closer to the original formulation. This development of predictive techniques is exciting, especially as it could be pushed a step further to continental extents, a higher number of sites, and more species occurrences using SDMs and massive data sources. Still, it should be accompanied by an investigation of the determinant of ecological uniqueness in such conditions.</p>
+            <p>Measuring ecological uniqueness from LCBD indices over broad spatial extents and spatially continuous data also raises the question of which sites will be identified as exceptional and for what reason. The method intends that sites stand out and receive a high LCBD score whenever they display an exceptional community composition, be it a unique assemblage of species with high conservation value or a community richer or poorer than others in the region <span class="citation" data-cites="Legendre2013BetDiv">(Legendre and De Cáceres 2013)</span>. Both the original study and many of the later empirical ones have shown a negative relationship between LCBD scores and species richness <span class="citation" data-cites="Legendre2013BetDiv daSilva2014LocReg Heino2017UnrCor Heino2017ExpSpe">(Legendre and De Cáceres 2013; da Silva and Hernández 2014; Heino et al. 2017; Heino and Grönroos 2017)</span>, although other studies observed both negative and positive relationships at different sites <span class="citation" data-cites="Kong2017SpaVar">(Kong et al. 2017)</span> or quadrats <span class="citation" data-cites="Yao2021EcoUni">(Yao et al. 2021)</span>. Some studies showed that the direction of the relationship is related to the percentage of rare species in the community <span class="citation" data-cites="daSilva2018DisCor Yao2021EcoUni">(da Silva, Hernández, and Heino 2018; Yao et al. 2021)</span>. However, beta diversity and species rarity are both concepts that depend on scale. For instance, total beta diversity increases with spatial extent <span class="citation" data-cites="Barton2013SpaSca">(Barton et al. 2013)</span> and varies because of higher environmental heterogeneity and sampling of different local species pools <span class="citation" data-cites="Heino2015ComAna">(Heino et al. 2015)</span>. Therefore, the LCBD-richness relationship and the effect of rare species on LCBD values should be investigated over broad spatial extents, as they might not be constant across scales.</p>
+            <p>Here, we examined whether species distribution models (SDMs) can be combined with local contributions to beta diversity (LCBD) to assess ecological uniqueness over broader spatial extents. We also investigated the effect of scale changes on beta diversity quantification. We first predicted species distributions on continental scales using extended occurrence data from eBird and Bayesian additive regression trees (BARTs). We then quantified uniqueness with the LCBD measure for both predicted and observed data. Next, we examined the site-wise difference using direct comparison, a spatial autocorrelation test, and generalized linear regression. We then investigated the relationship between uniqueness and species richness for different regions and scales and according to the proportion of rare species.</p>
+            <h1 id="methods">Methods</h1>
+            <h2 id="occurrence-data">Occurrence data</h2>
+            <p>We used occurrence data from eBird <span class="citation" data-cites="Sullivan2009EbiCit">(Sullivan et al. 2009)</span> downloaded through the eBird Basic Data set from June 2019 <span class="citation" data-cites="eBirdBasicDataset2019VerEbd">(eBird Basic Dataset 2019)</span>. We restricted our analyses to the New World warbler family (<em>Parulidae</em>) in North America (Canada, the United States, Mexico). eBird is a semi-structured citizen science data set, meaning that observations are reported as checklists of species detected in an observation run <span class="citation" data-cites="Johnston2020AnaGui">(Johnston et al. 2020)</span>. Observers can explicitly specify that their checklist contains all species they could detect and identify during a sampling event, in which case it is labelled as a “complete checklist.” Using complete checklists instead of regular ones allows researchers to infer non-detections in locations where detection efforts occurred, which offers performance gains in species distribution models <span class="citation" data-cites="Johnston2020AnaGui">(Johnston et al. 2020)</span>. Therefore, we selected the data from the complete checklists only. Our final data set comprised 62 warbler species and 22,974,330 observations from 9,103,750 checklists. Warblers are a diverse group with many species, are popular among birders given their charismatic aspect, and are widely distributed in various habitats across North America.</p>
+            <h2 id="environmental-data">Environmental data</h2>
+            <p>Our environmental data consisted of climatic data from WorldClim 2.1 <span class="citation" data-cites="Fick2017Wor2N">(Fick and Hijmans 2017)</span> and land cover data from the Copernicus Global Land Service <span class="citation" data-cites="Buchhorn2019CopGlo">(Buchhorn et al. 2019)</span>. We restricted these data to a spatial extent comprised between -145.0 and -50.0 degrees of longitude and between 20.0 and 75.0 degrees of latitude. First, the WorldClim data consist of spatially interpolated monthly climate data for global land areas. We used the standard <span class="smallcaps">bioclim</span> variables <span class="citation" data-cites="Booth2014BioFir">(Booth et al. 2014)</span> from WorldClim 2.1, which represent annual trends, ranges, and extremes of temperature and precipitation, but selected only 8 out of the 19 ones to avoid redundancy (bio1, bio2, bio5, bio6, bio12, bio13, bio14, bio15). We downloaded the data at a resolution of 10 arcminutes (around 18 km<sup>2</sup> at the equator), the coarsest resolution available, which should mitigate potential imprecision in the eBird data regarding the extent of the sampled areas in each observation checklist. Moreover, some studies have argued that coarser resolutions lead to less overestimation of species richness and better identification of bird biodiversity hotspots given the patchiness of observation data <span class="citation" data-cites="Hurlbert2007SpeRic">(Hurlbert and Jetz 2007)</span>. We acknowledge that using an arcminutes-based resolution means that the surface area of our pixels will not be equal depending on the latitude.</p>
+            <p>Second, the Copernicus data are a set of variables representing ten land cover classes (e.g., crops, trees, urban areas) and measured as a percentage of land cover. The data are only available at a finer resolution of 100 m. We coarsened them to the same ten arcminute resolution as the WorldClim data by averaging the pixels’ cover fraction values. We removed two variables (moss and snow) from our predictive models as their cover fraction was 0% on all sites with warbler observations.</p>
+            <h2 id="species-distribution-models">Species distribution models</h2>
+            <p>We converted the occurrence data to a presence-absence format compatible with community analyses. We considered every pixel from our ten arcminutes environmental layers as a site and then verified, for each species, if there was a single observation in every site. Finally, we recorded the outcome as a binary value: present (1) if a species was ever recorded in a site and absent (0) if it was not. Complete checklists help ensure that these zeros represent non-detections, rather than the species not being reported; hence we considered them as absence data, similar to <span class="citation" data-cites="Johnston2020AnaGui">Johnston et al. (2020)</span>, although we recognize that there exists a doubt on whether these truly represent non-detections.</p>
+            <p>We predicted species distribution data on continuous scales from our presence-absence data using Bayesian Additive Regression Trees (BARTs) <span class="citation" data-cites="Chipman2010BarBay">(Chipman, George, and McCulloch 2010)</span>, a classification and regression trees method recently suggested for species distribution modelling <span class="citation" data-cites="Carlson2020EmbSpe">(Carlson 2020)</span>. BARTs are based on an ensemble of trees, similarly to Boosted Regression Trees and Random Forest, but follow a sum-of-trees model and a Bayesian framework. Trees are first constrained as weak learners by priors regarding structure and nodes, then updated through an iterative Bayesian backfitting Markov Chain Monte Carlo (MCMC) algorithm which ultimately generates a posterior distribution of predicted classification probabilities <span class="citation" data-cites="Chipman2010BarBay Carlson2020EmbSpe">(Chipman, George, and McCulloch 2010; Carlson 2020)</span>. In the context of species distribution modelling, BARTs showed high performance when compared to other predictive algorithms <span class="citation" data-cites="Konowalik2021EvaMet Tytar2021AssHab">(Konowalik and Nosol 2021; Tytar and Baidashnikov 2021)</span>. We first performed BARTs separately for all species and estimated the probability of occurrence in all the sites of our region of interest using the posterior median. We then converted the results to a binary outcome according to the threshold that maximized the True Skill Statistic (TSS) for each species, as suggested by <span class="citation" data-cites="Carlson2020EmbSpe">Carlson (2020)</span>.</p>
+            <h2 id="quantification-of-ecological-uniqueness">Quantification of ecological uniqueness</h2>
+            <p>We used the method of <span class="citation" data-cites="Legendre2013BetDiv">Legendre and De Cáceres (2013)</span> to quantify compositional uniqueness from overall beta diversity for both the observed and predicted data. First, we assembled the presence-absence data by site to form two site-by-species community matrices, one from observed data, called <span class="math inline"><em>Y</em></span> (39,024 sites by 62 species), and one from predicted data, called <span class="math inline"><em>Ŷ</em></span> (99,382 sites by 62 species). Next, we measured species richness per site as the number of species present. Finally, we removed the sites without any species from the predicted matrix <span class="math inline"><em>Ŷ</em></span>, for a new total of 85,526 sites (this was unnecessary for the observed matrix <span class="math inline"><em>Y</em></span>). We then applied the Hellinger transformation to both matrices in order to compute beta diversity from the community composition data <span class="citation" data-cites="Legendre2013BetDiv">(Legendre and De Cáceres 2013)</span>. We measured total beta diversity as the variance of each community matrix and calculated the local contributions to beta diversity (LCBD), which quantify how much a specific site (a row in each matrix) contributes to the overall variance in the community <span class="citation" data-cites="Legendre2013BetDiv">(Legendre and De Cáceres 2013)</span>. High LCBD values indicate a unique community composition, while low values indicate a more common species set. We note that our LCBD values, which add up to 1 because the values are divided by the total sum-of-squares of the data matrix, were very low given the high number of sites in both <span class="math inline"><em>Y</em></span> and <span class="math inline"><em>Ŷ</em></span>. However, the relative difference between the scores in one set matters more than the absolute value to differentiate their uniqueness.</p>
+            <h2 id="comparison-of-observed-and-predicted-values">Comparison of observed and predicted values</h2>
+            <p>We performed three verification to compare the richness and uniqueness estimates obtained from our predicted distributions to those obtained with the eBird occurrence data. First, we performed a direct comparison by subtracting the richness and LCBD estimates obtained from <span class="math inline"><em>Y</em></span> (the observed data) from the estimates obtained from <span class="math inline"><em>Ŷ</em></span> (the predicted data). To do so, we used the richness estimates as-is but modified the LCBD values to achieve a non-biased comparison, given that the values were initially calculated on sets of different lengths. Therefore, we recomputed the LCBD scores only for the sites for which we had occurrences in both <span class="math inline"><em>Y</em></span> and <span class="math inline"><em>Ŷ</em></span>, which mostly corresponded to the sites in <span class="math inline"><em>Y</em></span>, minus a few sites where the SDMs predicted no species occurrence. We then plotted the richness and LCBD differences to examine their spatial distributions. Second, we performed the modified <em>t</em> test from <span class="citation" data-cites="Clifford1989AssSig">Clifford, Richardson, and Hemon (1989)</span> to assess the correlation between the observed and predicted estimates and test for spatial association. We performed the test separately for the richness and the LCBD estimates. Third, we performed Generalized Linear Models between the observed and predicted estimates and plotted the deviance residuals to examine their spatial distribution. We used a negative binomial regression with a log link function for the richness estimates and a beta regression with a logit link function for the LCBD values, similar to <span class="citation" data-cites="Heino2017ExpSpe">Heino and Grönroos (2017)</span> and <span class="citation" data-cites="Yao2021EcoUni">Yao et al. (2021)</span>.</p>
+            <h2 id="investigation-of-regional-and-scaling-variation">Investigation of regional and scaling variation</h2>
+            <p>To investigate possible regional and scaling effects, we recalculated LCBD values on various subregions at different locations and scales. First, we selected two subregions of equivalent size (20.0 longitude degrees by 10.0 latitude degrees) with contrasting richness profiles and corresponding to different ecoregions to verify if the relationship between species richness and LCBD values was similar. The first subregion was in the Northeast (longitude between -80.0 and -60.0, latitude between 40.0 and 50.0), was mostly species-rich (for both the observed and predicted data), and corresponded to the Eastern Temperate Forests level I ecoregion <span class="citation" data-cites="CommissionforEnvironmentalCooperation1997EcoReg">(Commission for Environmental Cooperation 1997)</span>. The second subregion was in the Southwest (longitude between -120.0 and 100.0, latitude between 30.0 and 40.0), was mostly species-poor, and covered Mediterranean California, North American Deserts, Temperate Sierras, and Southern Semi-Arid Highlands ecoregions <span class="citation" data-cites="CommissionforEnvironmentalCooperation1997EcoReg">(Commission for Environmental Cooperation 1997)</span>. Second, we recalculated the LCBD indices at three different extents, starting with a focus on the Northeast subregion and progressively extending the extent to encompass the Southwest subregion. We did these two verifications with both the observed and predicted data but only illustrate the results with the predicted data as both were qualitatively similar.</p>
+            <h2 id="proportion-of-rare-species">Proportion of rare species</h2>
+            <p>We investigated the effect of the proportion of rare species in the community on the direction of the relationship between species richness and LCBD values in our Northeast and Southwest subregions. Following <span class="citation" data-cites="DeCaceres2012VarTre">De Cáceres et al. (2012)</span> and <span class="citation" data-cites="Yao2021EcoUni">Yao et al. (2021)</span>, we classified species as rare when they occurred in less than 40% of the sites in each subregion. We calculated the proportion of rare species for every site. We then grouped the sites for both subregions depending on whether they were part of an ascending or a descending portion in the LCBD-richness relationship. Given that the relationship sometimes displays a curvilinear form with a positive quadratic term <span class="citation" data-cites="Heino2017ExpSpe Tan2019UndPro">(Heino and Grönroos 2017; Tan et al. 2019)</span>, we separated the ascending and descending portions based on the species richness at the site with the lowest LCBD value (using the median richness if there were multiple sites). This value corresponds to the inflection point of the relationships. For example, the lowest LCBD value was 7.045e-05 in the Northeast subregion and the corresponding richness was 23. All the sites with more than 23 species were assigned to the ascending portion, and all the sites with 23 species or fewer were assigned to the descending portion. In the Southwest subregion, the lowest LCBD value and its corresponding richness were 5.438e-05 and 12, respectively. We then mapped the ascending and descending groups to view their spatial distribution. We also examined the distribution of the rare species proportions in both groups using a kernel density estimation plot. Similar to our previous verification, we performed this analysis with both observed and predicted data but once again only illustrate the results with the predicted data as both were qualitatively similar.</p>
+            <h2 id="software">Software</h2>
+            <p>We used <em>Julia v1.6.1</em> <span class="citation" data-cites="Bezanson2017JulFre">(Bezanson et al. 2017)</span> for most of the project and <em>R v4.1.0</em> <span class="citation" data-cites="RCoreTeam2021RLan">(R Core Team 2021)</span> for some specific steps. We used the <em>Julia</em> package <code>SimpleSDMLayers.jl</code> <span class="citation" data-cites="Dansereau2021SimJl">(Dansereau and Poisot 2021)</span> as the basic framework for our analyses, to download the WorldClim 2.1 data, and to map our results through the package’s integration of <code>Plots.jl</code>. We also used <code>StatsPlots.jl</code> to produce the kernel density estimation plots in our rare species analysis. We computed the LCBD indices with our own function implemented in <em>Julia</em>, whose results were verified by comparison to the <code>beta.div</code> function from the package <code>adespatial</code> <span class="citation" data-cites="Dray2021AdeMul">(Dray et al. 2021)</span> in <em>R</em>. We used the <em>R</em> packages <code>auk</code> <span class="citation" data-cites="Strimas-Mackey2018AukEbi">(Strimas-Mackey, Miller, and Hochachka 2018)</span> to extract and manipulate eBird data, <code>embarcadero</code> <span class="citation" data-cites="Carlson2020EmbSpe">(Carlson 2020)</span> to perform the BART models, <code>vegan</code> <span class="citation" data-cites="Oksanen2019VegCom">(Oksanen et al. 2019)</span> to apply the Hellinger transformations, and <code>SpatialPack</code> <span class="citation" data-cites="Vallejos2020SpaRel">(Vallejos, Osorio, and Bevilacqua 2020)</span> to perform the modified <em>t</em> test (with the function <code>modified.ttest</code>) from <span class="citation" data-cites="Clifford1989AssSig">Clifford, Richardson, and Hemon (1989)</span>. We used <code>MASS</code> <span class="citation" data-cites="Venables2002ModApp">(Venables and Ripley 2002)</span> and <code>betareg</code> <span class="citation" data-cites="Cribari-Neto2010BetReg">(Cribari-Neto and Zeileis 2010)</span> to perform the negative binomial and beta regressions, respectively. We also used <code>GDAL</code> <span class="citation" data-cites="GDAL/OGRcontributors2021GdaOgr">(GDAL/OGR contributors 2021)</span> to coarsen the Copernicus land cover data. All the scripts required to reproduce the analyses are archived on Zenodo (<a href="https://doi.org/10.5281/zenodo.6024392" class="uri">https://doi.org/10.5281/zenodo.6024392</a>).</p>
+            <h1 id="results">Results</h1>
+            <h2 id="species-distribution-models-generate-relevant-community-predictions">Species distribution models generate relevant community predictions</h2>
+            <p>Species richness from observation data (Fig. 1a) was higher on the East Coast and lower on the West Coast, with many unsampled patches in the North, South, and Central West. Richness results from SDM data (Fig. 1b) displayed higher richness on the East Coast and sites with few or no species up north and in the Central West. There was no clear latitudinal gradient in richness but rather an East-West one. Landmarks such as the Rockies and croplands in the Central West (which should be species-poor habitats) were notably visible on the maps, separating the East and West. LCBD scores from observation data (Fig. 1c) were low on the East Coast and higher on the border of sampled sites in the Central West. They were also higher in the North and in the South where observations were sparser. Results from SDM predictions were qualitatively similar (Fig. 1d), with lower LCBD values in the East and more unique sites in the Central West, Central Mexico, and some Northern regions. There was no clear latitudinal gradient, and the East-West contrast, while present, was less clear than on the richness maps.</p>
+            <figure>
+            <img src="figures/comparison-combined.png" id="fig:maps" alt="Figure 1: Comparison of species richness and LCBD scores from observed and predicted warbler occurrences in North America. Values were calculated for sites representing ten arcminute pixels. We measured species richness after converting the occurrence data from eBird (a) and the SDM predictions from our single-species BART models (b) to a presence-absence format per species. We applied the Hellinger transformation to the presence-absence data, then calculated the LCBD values from the variance of the community matrices separately for the occurrence data (c) and the SDM predictions (d). Areas in light grey (not on the colour scale) represent mainland sites with environmental data but without any warbler species present." /><figcaption aria-hidden="true">Figure 1: Comparison of species richness and LCBD scores from observed and predicted warbler occurrences in North America. Values were calculated for sites representing ten arcminute pixels. We measured species richness after converting the occurrence data from eBird (a) and the SDM predictions from our single-species BART models (b) to a presence-absence format per species. We applied the Hellinger transformation to the presence-absence data, then calculated the LCBD values from the variance of the community matrices separately for the occurrence data (c) and the SDM predictions (d). Areas in light grey (not on the colour scale) represent mainland sites with environmental data but without any warbler species present.</figcaption>
+            </figure>
+            <p>The modified <em>t</em> test of <span class="citation" data-cites="Clifford1989AssSig">Clifford, Richardson, and Hemon (1989)</span> showed a high correlation between the observed and predicted estimates of richness and uniqueness, as well as a statistically significant spatial association between the values. For species richness, the correlation coefficient was 0.777, the <em>F</em>-statistic was 20.007, and the p-value was 6.093e-04. For LCBD scores, the correlation coefficient was 0.518, the <em>F</em>-statistic was 40.083, and the p-value was 5.528e-09.</p>
+            <p>The difference between the observed and predicted estimates (predicted richness - observed richness and predicted LCBD - observed LCBD) showed opposite geographic distributions for species richness and ecological uniqueness (Fig. 2). Predicted richness estimates were higher than observed estimates on the East Coast, on the West Coast and in Mexico but were lower than observed estimates in the Central West (Fig. 2a). Predicted LCBD estimates, on the other hand, were lower than observed estimates on the East Coast and higher in the Central West (Fig. 2b). Regression residuals showed similar geographic distributions to their corresponding difference values (Fig. 3).</p>
+            <figure>
+            <img src="figures/comparison-difference.png" id="fig:comparison-combined" alt="Figure 2: Comparison between observed and predicted estimates of species richness (a) and ecological uniqueness (b). The difference values represent the estimate from the predicted data set minus the estimate from the observed data set. LCBD values were recalculated for the same set of sites with observations in both data sets." /><figcaption aria-hidden="true">Figure 2: Comparison between observed and predicted estimates of species richness (a) and ecological uniqueness (b). The difference values represent the estimate from the predicted data set minus the estimate from the observed data set. LCBD values were recalculated for the same set of sites with observations in both data sets.</figcaption>
+            </figure>
+            <figure>
+            <img src="figures/comparison-residuals.png" id="fig:residuals-combined" alt="Figure 3: Comparison of the regression residuals between the observed and predicted estimates of species richness (a) and ecological uniqueness (b). The estimate from the predicted data set was used as the dependent variable and the estimate from the observed data set as the independent variable. A negative binomial regression with a log link function was used for species richness, and a beta regression with a logit link function was used for uniqueness. LCBD values were recalculated for the same set of sites with observations in both data sets." /><figcaption aria-hidden="true">Figure 3: Comparison of the regression residuals between the observed and predicted estimates of species richness (a) and ecological uniqueness (b). The estimate from the predicted data set was used as the dependent variable and the estimate from the observed data set as the independent variable. A negative binomial regression with a log link function was used for species richness, and a beta regression with a logit link function was used for uniqueness. LCBD values were recalculated for the same set of sites with observations in both data sets.</figcaption>
+            </figure>
+            <h2 id="uniqueness-displays-regional-variation-as-two-distinct-profiles">Uniqueness displays regional variation as two distinct profiles</h2>
+            <p>The relationship between LCBD values and species richness displayed contrasting profiles in species-rich and species-poor regions (Fig. 4). In the species-rich Northeast region , LCBD scores displayed a mostly decreasing relationship with species richness, with a slightly curvilinear form and increase of values for very rich sites. The sites with the highest LCBD values were the species-poor sites while the species-rich sites displayed scores. The Southwest subarea showed a different relationship with a sharper initial decline and a larger increase as richness reached 20 species. The sites with the highest LCBD values were the poorest in terms of species richness, as in the Northeast region, but the species-rich sites were proportionally more unique in the Southwest region. Total beta diversity was higher in the Southwest subregion (0.417) than in the Northeast (0.179), indicating higher compositional differences between the sites.</p>
+            <figure>
+            <img src="figures/subareas-combined.png" id="fig:subareas" alt="Figure 4: Comparison between a species-rich region (Northeast, a) and a species-poor one (Southwest, b) based on the SDM predictions for warbler species in North America. The left-side figures represent the LCBD scores for the assembled presence-absence predictions, calculated separately in each region. The colour scales are set to the respective range of LCBD scores to highlight the relative change within each region rather than compare the scores between both regions. The right-side 2-dimensional histograms represent the decreasing and slightly curvilinear relationship between LCBD values and species richness. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region, while BDtot represents the total beta diversity." /><figcaption aria-hidden="true">Figure 4: Comparison between a species-rich region (Northeast, a) and a species-poor one (Southwest, b) based on the SDM predictions for warbler species in North America. The left-side figures represent the LCBD scores for the assembled presence-absence predictions, calculated separately in each region. The colour scales are set to the respective range of LCBD scores to highlight the relative change within each region rather than compare the scores between both regions. The right-side 2-dimensional histograms represent the decreasing and slightly curvilinear relationship between LCBD values and species richness. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region, while BDtot represents the total beta diversity.</figcaption>
+            </figure>
+            <h2 id="uniqueness-depends-on-the-scale-on-which-it-is-measured">Uniqueness depends on the scale on which it is measured</h2>
+            <p>The LCBD-richness relationship showed important variation when scaling up and changing the region’s extent (Fig. 5). For smaller extents, starting with a species-rich region, the relationship is well defined, mostly decreasing but notably curvilinear (with a lesser increase for richness values higher than the median). However, as the extent increases and progressively reaches species-poor regions, the relationship broadens, displays more variance, and loses its curvilinear aspect while keeping a decreasing form. Total beta diversity was higher when increasing the spatial extent, going from 0.121 to 0.284 and 0.687.</p>
+            <figure>
+            <img src="figures/subareas-extents.png" id="fig:extents" alt="Figure 5: Effect of extent size on the relationship between site richness and LCBD values based on the SDM predictions for warbler species in North America. The relationship progressively broadens and displays more variance when scaling up while total beta diversity increases. The LCBD values were recalculated at each scale based on the sites in this region. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region, while BDtot represents the total beta diversity." /><figcaption aria-hidden="true">Figure 5: Effect of extent size on the relationship between site richness and LCBD values based on the SDM predictions for warbler species in North America. The relationship progressively broadens and displays more variance when scaling up while total beta diversity increases. The LCBD values were recalculated at each scale based on the sites in this region. The vertical and horizontal dashed lines respectively represent the median richness and LCBD value in each region, while BDtot represents the total beta diversity.</figcaption>
+            </figure>
+            <h2 id="uniqueness-depends-on-the-proportion-of-rare-species">Uniqueness depends on the proportion of rare species</h2>
+            <p>The proportion of rare species per site differed depending on the classification in the ascending or descending portions of the LCBD-richness relationship (Fig. 6). The proportion of rare species was higher in the sites corresponding to the ascending portions of the relationships (shown in 4) than in the sites corresponding to the descending portions for both subregions. The classification of the sites in the two portions showed a clear latitudinal gradient in the Northeast subregion, while it was distributed in patches in the Southwest subregion (Fig. 6).</p>
+            <figure>
+            <img src="figures/rare-species.png" id="fig:rarespecies" alt="Figure 6: Proportion of rare species in the ascending and descending portions of the LCBD-richness relationship for the Northeast (a) and Southwest (b) subregions. The left side figures show the geographic distribution of the sites from each group. Sites were assigned to the ascending portion if their species richness was higher than the richness of the site with the lowest LCBD value, which corresponds to the inflection point of the right side figures of Fig. 4, and in the descending portion otherwise. The right side figures represent the kernel density estimation of the proportion of rare species in each group. Values on the y-axis are probability densities scaled so that the area under the curve equals one. Similarly, the area under the curve for a given range of values on the x-axis (proportions of rare species) represents the probability of observing a value in that range. Species were classified as rare when they occurred in fewer than 40% of the sites in the subregion. The proportion of rare species was then calculated for every site." /><figcaption aria-hidden="true">Figure 6: Proportion of rare species in the ascending and descending portions of the LCBD-richness relationship for the Northeast (a) and Southwest (b) subregions. The left side figures show the geographic distribution of the sites from each group. Sites were assigned to the ascending portion if their species richness was higher than the richness of the site with the lowest LCBD value, which corresponds to the inflection point of the right side figures of Fig. 4, and in the descending portion otherwise. The right side figures represent the kernel density estimation of the proportion of rare species in each group. Values on the y-axis are probability densities scaled so that the area under the curve equals one. Similarly, the area under the curve for a given range of values on the x-axis (proportions of rare species) represents the probability of observing a value in that range. Species were classified as rare when they occurred in fewer than 40% of the sites in the subregion. The proportion of rare species was then calculated for every site.</figcaption>
+            </figure>
+            <h1 id="discussion">Discussion</h1>
+            <p>Our results showed a decreasing relationship between species richness and LCBD values on broad spatial extents (Fig. 5c) but also highlighted that the exact form of this relationship varies depending on the region and the spatial extent on which it is measured. Our species-rich Northeast subregion (Fig. 4a) showed a decreasing relationship, very similar to previous studies, and slightly curvilinear, as described by <span class="citation" data-cites="Heino2017ExpSpe">Heino and Grönroos (2017)</span> and <span class="citation" data-cites="Tan2019UndPro">Tan et al. (2019)</span>. This result for warbler species is in line with the original study on fish communities <span class="citation" data-cites="Legendre2013BetDiv">(Legendre and De Cáceres 2013)</span> and with following ones on insect metacommunities <span class="citation" data-cites="daSilva2014LocReg Heino2017UnrCor Heino2017ExpSpe">(da Silva and Hernández 2014; Heino et al. 2017; Heino and Grönroos 2017)</span>, dung beetles <span class="citation" data-cites="daSilva2018DisCor daSilva2020CanTax">(da Silva, Hernández, and Heino 2018; da Silva, Bogoni, and Heino 2020)</span>, aquatic beetles <span class="citation" data-cites="Heino2019KniPat">(Heino and Alahuhta 2019)</span>, stream macroinvertebrates <span class="citation" data-cites="Sor2018UniSam">(Sor, Legendre, and Lek 2018)</span>, stream diatoms <span class="citation" data-cites="Vilmi2017EcoUni">(Vilmi, Karjalainen, and Heino 2017)</span>, multi-trophic pelagic food webs (phytoplankton, zooplankton, fish) <span class="citation" data-cites="Taranu2020LarMul">(Taranu, Pinel-Alloul, and Legendre 2020)</span>, temperate forest trees <span class="citation" data-cites="Tan2019UndPro">(Tan et al. 2019)</span>, mammals <span class="citation" data-cites="daSilva2020CanTax">(da Silva, Bogoni, and Heino 2020)</span>, wetland birds <span class="citation" data-cites="deDeus2020AviBet">(de Deus et al. 2020)</span>, and various phylogenetic groups (plants, lizards, mites, anurans, mesoinvertebrates) <span class="citation" data-cites="Landeiro2018SpeLow">(Landeiro et al. 2018)</span>. However, it was originally argued that the negative relationship was not general or obligatory <span class="citation" data-cites="Legendre2013BetDiv">(Legendre and De Cáceres 2013)</span>. Different LCBD-richness relationships have also been observed, with both positive and negative relationships for different sites or taxonomic groups in some studies <span class="citation" data-cites="Kong2017SpaVar Teittinen2017LocGeo">(Kong et al. 2017; Teittinen et al. 2017)</span>, as well as a negative relationship with the number of common species but a positive relationship with the number of rare species <span class="citation" data-cites="Qiao2015BetDiv">(Qiao et al. 2015)</span>.</p>
+            <p>Our results further show that the relationship may depend on the region’s richness profile, as the relationship was different in our species-poor Southwest subregion, with a sharper initial decrease (Fig. 4b). Therefore, the curvilinear form may depend on how pronounced the contrast is between the region’s median richness and its richest ecologically feasible sites. The increasing part of the curvilinear form for higher richness values was also more pronounced in our results (Fig. 4a,b; Fig. 5c) than in previous studies <span class="citation" data-cites="Tan2019UndPro">(e.g, Tan et al. 2019)</span>, which reinforces the idea that the relationship and its curvilinear form may vary depending on the region.</p>
+            <p>The variation in the LCBD-richness relationship when extending the study extent showed that the uniqueness patterns highlighted are not necessarily the same depending on the scale on which it is used (Fig. 5). The relationship progressively lost its clear definition and curvilinear form as the East and West profiles merged, creating a new distinct profile with more variation and no curvilinear form. Therefore, aggregating too many different sites might possibly mask some patterns of uniqueness in species-rich sites. Total beta diversity, on the other hand, showed the variation expected from previous studies, increasing with spatial extent (Fig. 5) <span class="citation" data-cites="Barton2013SpaSca Heino2015ComAna">(Barton et al. 2013; Heino et al. 2015)</span>. Its value was high at the continental scale (0.687) but lower than what has been observed in some studies <span class="citation" data-cites="Sor2018UniSam">(e.g., 0.80 on macroinvertebrate communities in the Lower Mekong Basin by Sor, Legendre, and Lek 2018)</span>.</p>
+            <p>Our results confirm that the proportion of rare species in the community may affect the direction of the relationship between species richness and ecological uniqueness (Fig. 6). <span class="citation" data-cites="daSilva2018DisCor">da Silva, Hernández, and Heino (2018)</span> suggested that the proportion of rare and common species in the communities determines whether the relationship will be negative, non-significant, or positive. <span class="citation" data-cites="Yao2021EcoUni">Yao et al. (2021)</span> showed an association between the direction of the relationship and the proportion of rare species, with sites with a lower proportion (between 60% and 75% in their case) displaying a negative relationship and sites with a higher proportion (around 85%) showing a positive one. Our results further show that sites associated with a positive relationship within a curvilinear one tended to have a higher rare species proportion (Fig. 6). This also implies that the proportion of rare species was higher in species-rich sites than in species-poor ones in both our Northeast and Southwest subregions. Further work should attempt to disentangle the effects of the rare species proportion and the region’s richness profile.</p>
+            <p>Our results showed that SDM models provide richness and uniqueness predictions highly correlated to the occurrence data while filling gaps in poorly sampled regions (Fig. 1). The results showed a statistically significant spatial association between predicted and observed estimates despite correcting for autocorrelation using the modified <em>t</em>-test from <span class="citation" data-cites="Clifford1989AssSig">Clifford, Richardson, and Hemon (1989)</span>. A positive autocorrelation on large distances indicates aggregates or structures repeating through space <span class="citation" data-cites="Legendre1989SpaPat">(Legendre and Fortin 1989)</span>. This is consistent with our results, as the distribution of richness and uniqueness values was visibly spatially structured in both our observed and predicted data (Fig. 1). Nonetheless, it is possible that the autocorrelation in the predicted values could represent an artifact of the predictive models (capturing the spatial structure from the environmental variables, for example), and might not represent the true autocorrelation expected for the uniqueness estimates. Further work could verify this by quantitatively comparing the autocorrelation and spatial structures in the observed and predicted uniqueness estimates.</p>
+            <p>Predicted values also tended to underestimate uniqueness in species-rich regions and overestimate it in species-poor ones, with the opposite trend for species richness (Figs. 2, 3). Overprediction of richness using S-SDMs was reported previously <span class="citation" data-cites="Dubuis2011PreSpa DAmen2015UsiSpe Zurell2020TesSpe">(Dubuis et al. 2011; D’Amen et al. 2015; Zurell et al. 2020)</span>. No comparable baseline exists for predictions of LCBD values, as our study is the first to compare LCBD estimates from observed and predicted data in such a way. However, some studies showed that LCBD distributions were spatially structured across sampling sites <span class="citation" data-cites="daSilva2018DisCor">(da Silva, Hernández, and Heino 2018)</span>. On the other hand, the spatial structure in our results did not exactly concord with the one reported by <span class="citation" data-cites="Heino2019KniPat">Heino and Alahuhta (2019)</span>, who showed a negative relationship between LCBD values and latitude for diving beetles communities in Northern Europe. In comparison, our LCBD scores increased both in the North and South (Fig. 1), hence did not strictly increase with latitude, and also showed a clear East-West gradient. Overall, our distribution results (Figs. 1-3) also have implications for conservation, as they confirm that species richness and ecological uniqueness measured from LCBD values may conflict and highlight different potential hotspots <span class="citation" data-cites="Dubois2020EcoUni Yao2021EcoUni">(Dubois, Proulx, and Pellerin 2020; Yao et al. 2021)</span>, thus reinstating the need to protect both with complementary strategies.</p>
+            <p>Our predictions for regions with sparse sampling are of interest as they allow a quantitative evaluation, however imperfect, for sites where we would otherwise have no information. Our SDMs also offered relevant LCBD predictions using eBird, arguably one of the largest presence-absence data sets available (when using its complete checklist system), showing the measure’s potential on such massive data. Together, the potential to generate uniqueness predictions in new locations and through massive data opens new opportunities for LCBD analyses on extended spatial scales and on a broader diversity of taxons. An interesting way forward would be to test these results using more advanced community assembling techniques than S-SDMs. The use of SESAM <span class="citation" data-cites="Guisan2011SesNew">(Guisan and Rahbek 2011)</span> with probabilistic SDMs, probability ranking, and species richness predictions as macroecological constraints returns high site-level prediction accuracy <span class="citation" data-cites="Zurell2020TesSpe">(Zurell et al. 2020)</span> and would be compatible with presence-absence LCBD calculations. The use of probabilistic stacks rather than binary ones <span class="citation" data-cites="Calabrese2014StaSpe">(Calabrese et al. 2014)</span> could also constitute a novel way to calculate LCBD indices. Both these procedures should reduce the richness deviation we observed, and it would be interesting to verify if this can also be the case with LCBD values. An ensemble of SDM algorithms could also be used to capture a broader range of possible outcomes for the LCBD predictions. However, given the high performance of BARTs in model comparisons <span class="citation" data-cites="Konowalik2021EvaMet Tytar2021AssHab">(Konowalik and Nosol 2021; Tytar and Baidashnikov 2021)</span> and the large extent we covered, we do not believe the changes to the LCBD gradients would be strong enough to affect our results in a meaningful way.</p>
+            <p>This study showed how ecological uniqueness can be measured over broad spatial extents, including for regions with sparse sampling, and how scale changes may affect beta diversity quantification. It is the first study to assess the relevance of local contributions to beta diversity calculated on the output of species distribution models. It is also the first to compare the relationship between LCBD values and species richness for different regions and spatial extents. First, our results showed that the negative relationship often observed between species richness and LCBD scores can take different forms depending on the richness profile of the regions on which it is measured. Therefore, species-rich and species-poor regions may display different ways to be unique. Second, the negative relationship was not constant when varying the spatial study extent and may be less clearly defined at broad scales when contrasting regional relationships are present. The broad-scale uniqueness profile might then be completely distinct from the regional profiles constituting it. Finally, species distribution models offer a promising way to generate uniqueness predictions on broad spatial extents and could prove useful to identify beta diversity hotspots in unsampled locations on large spatial scales, which could be important targets for conservation purposes.</p>
+            <h1 id="acknowledgments">Acknowledgments</h1>
+            <p>We acknowledge that this study was conducted on land within the traditional unceded territory of the Saint Lawrence Iroquoian, Anishinabewaki, Mohawk, Huron-Wendat, and Omàmiwininiwak nations. We received financial support from the Fonds de recherche du Québec - Nature et technologie (FRQNT) and the Computational Biodiversity Science and Services (BIOS<sup>2</sup>) NSERC CREATE training program. We thank Élise Filotas and Anne-Lise Routier for their helpful comments on this manuscript.</p>
+            <h1 class="unnumbered" id="references">References</h1>
+            <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+            <div id="ref-Barton2013SpaSca" class="csl-entry" role="doc-biblioentry">
+            Barton, Philip S., Saul A. Cunningham, Adrian D. Manning, Heloise Gibb, David B. Lindenmayer, and Raphael K. Didham. 2013. <span>“The Spatial Scaling of Beta Diversity.”</span> <em>Global Ecology and Biogeography</em> 22 (6): 639–47. <a href="https://doi.org/10.1111/geb.12031">https://doi.org/10.1111/geb.12031</a>.
+            </div>
+            <div id="ref-Bezanson2017JulFre" class="csl-entry" role="doc-biblioentry">
+            Bezanson, Jeff, Alan Edelman, Stefan Karpinski, and Viral B. Shah. 2017. <span>“Julia: A Fresh Approach to Numerical Computing.”</span> <em>SIAM Review</em> 59 (1): 65–98. <a href="https://doi.org/10.1137/141000671">https://doi.org/10.1137/141000671</a>.
+            </div>
+            <div id="ref-Booth2014BioFir" class="csl-entry" role="doc-biblioentry">
+            Booth, Trevor H., Henry A. Nix, John R. Busby, and Michael F. Hutchinson. 2014. <span>“BIOCLIM: The First Species Distribution Modelling Package, Its Early Applications and Relevance to Most Current MaxEnt Studies.”</span> <em>Diversity and Distributions</em> 20 (1): 1–9. <a href="https://doi.org/10.1111/ddi.12144">https://doi.org/10.1111/ddi.12144</a>.
+            </div>
+            <div id="ref-Buchhorn2019CopGlo" class="csl-entry" role="doc-biblioentry">
+            Buchhorn, Marcel, Bruno Smets, Luc Bertels, Myroslava Lesiv, Nandin-Erdene Tsendbazar, Martin Herold, and Steffen Fritz. 2019. <span>“Copernicus Global Land Service: Land Cover 100m: Epoch 2015: Globe.”</span> Zenodo. <a href="https://doi.org/10.5281/zenodo.3243509">https://doi.org/10.5281/zenodo.3243509</a>.
+            </div>
+            <div id="ref-Calabrese2014StaSpe" class="csl-entry" role="doc-biblioentry">
+            Calabrese, Justin M., Grégoire Certain, Casper Kraan, and Carsten F. Dormann. 2014. <span>“Stacking Species Distribution Models and Adjusting Bias by Linking Them to Macroecological Models.”</span> <em>Global Ecology and Biogeography</em> 23 (1): 99–112. <a href="https://doi.org/10.1111/geb.12102">https://doi.org/10.1111/geb.12102</a>.
+            </div>
+            <div id="ref-Carlson2020EmbSpe" class="csl-entry" role="doc-biblioentry">
+            Carlson, Colin J. 2020. <span>“Embarcadero: Species Distribution Modelling with Bayesian Additive Regression Trees in R.”</span> <em>Methods in Ecology and Evolution</em> 11 (7): 850–58. <a href="https://doi.org/10.1111/2041-210X.13389">https://doi.org/10.1111/2041-210X.13389</a>.
+            </div>
+            <div id="ref-Chipman2010BarBay" class="csl-entry" role="doc-biblioentry">
+            Chipman, Hugh A., Edward I. George, and Robert E. McCulloch. 2010. <span>“BART: Bayesian Additive Regression Trees.”</span> <em>Annals of Applied Statistics</em> 4 (1): 266–98. <a href="https://doi.org/10.1214/09-AOAS285">https://doi.org/10.1214/09-AOAS285</a>.
+            </div>
+            <div id="ref-Clifford1989AssSig" class="csl-entry" role="doc-biblioentry">
+            Clifford, Peter, Sylvia Richardson, and Denis Hemon. 1989. <span>“Assessing the Significance of the Correlation Between Two Spatial Processes.”</span> <em>Biometrics</em> 45 (1): 123–34. <a href="https://doi.org/10.2307/2532039">https://doi.org/10.2307/2532039</a>.
+            </div>
+            <div id="ref-CommissionforEnvironmentalCooperation1997EcoReg" class="csl-entry" role="doc-biblioentry">
+            Commission for Environmental Cooperation. 1997. <em>Ecological Regions of North America</em>. Commission for Environmental Cooperation. <a href="http://www3.cec.org/islandora/en/item/1701-ecological-regions-north-america-toward-common-perspective/">http://www3.cec.org/islandora/en/item/1701-ecological-regions-north-america-toward-common-perspective/</a>.
+            </div>
+            <div id="ref-Cribari-Neto2010BetReg" class="csl-entry" role="doc-biblioentry">
+            Cribari-Neto, Francisco, and Achim Zeileis. 2010. <span>“Beta Regression in R.”</span> <em>Journal of Statistical Software</em> 34 (1): 1–24. <a href="https://doi.org/10.18637/jss.v034.i02">https://doi.org/10.18637/jss.v034.i02</a>.
+            </div>
+            <div id="ref-DAmen2015UsiSpe" class="csl-entry" role="doc-biblioentry">
+            D’Amen, Manuela, Anne Dubuis, Rui F. Fernandes, Julien Pottier, Loïc Pellissier, and Antoine Guisan. 2015. <span>“Using Species Richness and Functional Traits Predictions to Constrain Assemblage Predictions from Stacked Species Distribution Models.”</span> <em>Journal of Biogeography</em> 42 (7): 1255–66. <a href="https://doi.org/10.1111/jbi.12485">https://doi.org/10.1111/jbi.12485</a>.
+            </div>
+            <div id="ref-DAntraccoli2020MorSpe" class="csl-entry" role="doc-biblioentry">
+            D’Antraccoli, Marco, Giovanni Bacaro, Enrico Tordoni, Gianni Bedini, and Lorenzo Peruzzi. 2020. <span>“More Species, Less Effort: Designing and Comparing Sampling Strategies to Draft Optimised Floristic Inventories.”</span> <em>Perspectives in Plant Ecology, Evolution and Systematics</em> 45: 125547. <a href="https://doi.org/10.1016/j.ppees.2020.125547">https://doi.org/10.1016/j.ppees.2020.125547</a>.
+            </div>
+            <div id="ref-Dansereau2021SimJl" class="csl-entry" role="doc-biblioentry">
+            Dansereau, Gabriel, and Timothée Poisot. 2021. <span>“SimpleSDMLayers.jl and GBIF.jl: A Framework for Species Distribution Modeling in Julia.”</span> <em>Journal of Open Source Software</em> 6 (57): 2872. <a href="https://doi.org/10.21105/joss.02872">https://doi.org/10.21105/joss.02872</a>.
+            </div>
+            <div id="ref-DeCaceres2012VarTre" class="csl-entry" role="doc-biblioentry">
+            De Cáceres, Miquel, Pierre Legendre, Renato Valencia, Min Cao, Li-Wan Chang, George Chuyong, Richard Condit, et al. 2012. <span>“The Variation of Tree Beta Diversity Across a Global Network of Forest Plots.”</span> <em>Global Ecology and Biogeography</em> 21 (12): 1191–1202. <a href="https://doi.org/10.1111/j.1466-8238.2012.00770.x">https://doi.org/10.1111/j.1466-8238.2012.00770.x</a>.
+            </div>
+            <div id="ref-deDeus2020AviBet" class="csl-entry" role="doc-biblioentry">
+            Deus, Filipe Ferreira de, Karl-L. Schuchmann, Julia Arieira, Ana Silvia de Oliveira Tissiani, and Marinêz Isaac Marques. 2020. <span>“Avian Beta Diversity in a Neotropical Wetland: The Effects of Flooding and Vegetation Structure.”</span> <em>Wetlands</em> 40 (5): 1513–27. <a href="https://doi.org/10.1007/s13157-019-01240-0">https://doi.org/10.1007/s13157-019-01240-0</a>.
+            </div>
+            <div id="ref-Dray2021AdeMul" class="csl-entry" role="doc-biblioentry">
+            Dray, Stéphane, David Bauman, Guillaume Blanchet, Daniel Borcard, Sylvie Clappe, Guillaume Guenard, Thibaut Jombart, et al. 2021. <span>“Adespatial: Multivariate Multiscale Spatial Analysis.”</span> <a href="https://CRAN.R-project.org/package=adespatial">https://CRAN.R-project.org/package=adespatial</a>.
+            </div>
+            <div id="ref-Dubois2020EcoUni" class="csl-entry" role="doc-biblioentry">
+            Dubois, Raphaëlle, Raphaël Proulx, and Stéphanie Pellerin. 2020. <span>“Ecological Uniqueness of Plant Communities as a Conservation Criterion in Lake-Edge Wetlands.”</span> <em>Biological Conservation</em> 243: 108491. <a href="https://doi.org/10.1016/j.biocon.2020.108491">https://doi.org/10.1016/j.biocon.2020.108491</a>.
+            </div>
+            <div id="ref-Dubuis2011PreSpa" class="csl-entry" role="doc-biblioentry">
+            Dubuis, Anne, Julien Pottier, Vanessa Rion, Loïc Pellissier, Jean-Paul Theurillat, and Antoine Guisan. 2011. <span>“Predicting Spatial Patterns of Plant Species Richness: A Comparison of Direct Macroecological and Species Stacking Modelling Approaches.”</span> <em>Diversity and Distributions</em> 17 (6): 1122–31. <a href="https://doi.org/10.1111/j.1472-4642.2011.00792.x">https://doi.org/10.1111/j.1472-4642.2011.00792.x</a>.
+            </div>
+            <div id="ref-eBirdBasicDataset2019VerEbd" class="csl-entry" role="doc-biblioentry">
+            eBird Basic Dataset. 2019. <em>Version: EBD_relJun-2019</em>. Cornell Lab of Ornithology, Ithaca, NY, USA.
+            </div>
+            <div id="ref-Ferrier2006SpaMod" class="csl-entry" role="doc-biblioentry">
+            Ferrier, Simon, and Antoine Guisan. 2006. <span>“Spatial Modelling of Biodiversity at the Community Level.”</span> <em>Journal of Applied Ecology</em> 43 (3): 393–404. <a href="https://doi.org/10.1111/j.1365-2664.2006.01149.x">https://doi.org/10.1111/j.1365-2664.2006.01149.x</a>.
+            </div>
+            <div id="ref-Fick2017Wor2N" class="csl-entry" role="doc-biblioentry">
+            Fick, Stephen E., and Robert J. Hijmans. 2017. <span>“WorldClim 2: New 1-Km Spatial Resolution Climate Surfaces for Global Land Areas.”</span> <em>International Journal of Climatology</em> 37 (12): 4302–15. <a href="https://doi.org/10.1002/joc.5086">https://doi.org/10.1002/joc.5086</a>.
+            </div>
+            <div id="ref-GDAL/OGRcontributors2021GdaOgr" class="csl-entry" role="doc-biblioentry">
+            GDAL/OGR contributors. 2021. <em>GDAL/OGR Geospatial Data Abstraction Software Library</em>. Manual. Open Source Geospatial Foundation. <a href="https://gdal.org">https://gdal.org</a>.
+            </div>
+            <div id="ref-Guisan2011SesNew" class="csl-entry" role="doc-biblioentry">
+            Guisan, Antoine, and Carsten Rahbek. 2011. <span>“SESAM a New Framework Integrating Macroecological and Species Distribution Models for Predicting Spatio-Temporal Patterns of Species Assemblages.”</span> <em>Journal of Biogeography</em> 38 (8): 1433–44. <a href="https://doi.org/10.1111/j.1365-2699.2011.02550.x">https://doi.org/10.1111/j.1365-2699.2011.02550.x</a>.
+            </div>
+            <div id="ref-Guisan2005PreSpe" class="csl-entry" role="doc-biblioentry">
+            Guisan, Antoine, and Wilfried Thuiller. 2005. <span>“Predicting Species Distribution: Offering More Than Simple Habitat Models.”</span> <em>Ecology Letters</em> 8 (9): 993–1009. <a href="https://doi.org/10.1111/j.1461-0248.2005.00792.x">https://doi.org/10.1111/j.1461-0248.2005.00792.x</a>.
+            </div>
+            <div id="ref-Heino2019KniPat" class="csl-entry" role="doc-biblioentry">
+            Heino, Jani, and Janne Alahuhta. 2019. <span>“Knitting Patterns of Biodiversity, Range Size and Body Size in Aquatic Beetle Faunas: Significant Relationships but Slightly Divergent Drivers.”</span> <em>Ecological Entomology</em> 44 (3): 413–24. <a href="https://doi.org/10.1111/een.12717">https://doi.org/10.1111/een.12717</a>.
+            </div>
+            <div id="ref-Heino2017UnrCor" class="csl-entry" role="doc-biblioentry">
+            Heino, Jani, Luis Mauricio Bini, Johan Andersson, Johannes Bergsten, Ulf Bjelke, and Frank Johansson. 2017. <span>“Unravelling the Correlates of Species Richness and Ecological Uniqueness in a Metacommunity of Urban Pond Insects.”</span> <em>Ecological Indicators</em> 73: 422–31. <a href="https://doi.org/10.1016/j.ecolind.2016.10.006">https://doi.org/10.1016/j.ecolind.2016.10.006</a>.
+            </div>
+            <div id="ref-Heino2017ExpSpe" class="csl-entry" role="doc-biblioentry">
+            Heino, Jani, and Mira Grönroos. 2017. <span>“Exploring Species and Site Contributions to Beta Diversity in Stream Insect Assemblages.”</span> <em>Oecologia</em> 183 (1): 151–60. <a href="https://doi.org/10.1007/s00442-016-3754-7">https://doi.org/10.1007/s00442-016-3754-7</a>.
+            </div>
+            <div id="ref-Heino2015ComAna" class="csl-entry" role="doc-biblioentry">
+            Heino, Jani, Adriano S. Melo, Luis Mauricio Bini, Florian Altermatt, Salman A. Al-Shami, David G. Angeler, Núria Bonada, et al. 2015. <span>“A Comparative Analysis Reveals Weak Relationships Between Ecological Factors and Beta Diversity of Stream Insect Metacommunities at Two Spatial Levels.”</span> <em>Ecology and Evolution</em> 5 (6): 1235–48. <a href="https://doi.org/10.1002/ece3.1439">https://doi.org/10.1002/ece3.1439</a>.
+            </div>
+            <div id="ref-Hurlbert2007SpeRic" class="csl-entry" role="doc-biblioentry">
+            Hurlbert, Allen H., and Walter Jetz. 2007. <span>“Species Richness, Hotspots, and the Scale Dependence of Range Maps in Ecology and Conservation.”</span> <em>Proceedings of the National Academy of Sciences</em> 104 (33): 13384–89. <a href="https://doi.org/10.1073/pnas.0704469104">https://doi.org/10.1073/pnas.0704469104</a>.
+            </div>
+            <div id="ref-Johnston2020AnaGui" class="csl-entry" role="doc-biblioentry">
+            Johnston, A., W. M. Hochachka, M. E. Strimas-Mackey, V. Ruiz Gutierrez, O. J. Robinson, E. T. Miller, T. Auer, S. T. Kelling, and D. Fink. 2020. <span>“Analytical Guidelines to Increase the Value of Citizen Science Data: Using eBird Data to Estimate Species Occurrence.”</span> <em>bioRxiv</em>, 574392. <a href="https://doi.org/10.1101/574392">https://doi.org/10.1101/574392</a>.
+            </div>
+            <div id="ref-Kong2017SpaVar" class="csl-entry" role="doc-biblioentry">
+            Kong, Heng, Mathieu Chevalier, Pascal Laffaille, and Sovan Lek. 2017. <span>“Spatio-Temporal Variation of Fish Taxonomic Composition in a South-East Asian Flood-Pulse System.”</span> <em>PLOS ONE</em> 12 (3): e0174582. <a href="https://doi.org/10.1371/journal.pone.0174582">https://doi.org/10.1371/journal.pone.0174582</a>.
+            </div>
+            <div id="ref-Konowalik2021EvaMet" class="csl-entry" role="doc-biblioentry">
+            Konowalik, Kamil, and Agata Nosol. 2021. <span>“Evaluation Metrics and Validation of Presence-Only Species Distribution Models Based on Distributional Maps with Varying Coverage.”</span> <em>Scientific Reports</em> 11 (1): 1482. <a href="https://doi.org/10.1038/s41598-020-80062-1">https://doi.org/10.1038/s41598-020-80062-1</a>.
+            </div>
+            <div id="ref-Landeiro2018SpeLow" class="csl-entry" role="doc-biblioentry">
+            Landeiro, Victor Lemes, Bárbarah Franz, Jani Heino, Tadeu Siqueira, and Luis Mauricio Bini. 2018. <span>“Species-Poor and Low-Lying Sites Are More Ecologically Unique in a Hyperdiverse Amazon Region: Evidence from Multiple Taxonomic Groups.”</span> <em>Diversity and Distributions</em> 24 (7): 966–77. <a href="https://doi.org/10.1111/ddi.12734">https://doi.org/10.1111/ddi.12734</a>.
+            </div>
+            <div id="ref-Legendre2005AnaBet" class="csl-entry" role="doc-biblioentry">
+            Legendre, Pierre, Daniel Borcard, and Pedro R. Peres-Neto. 2005. <span>“Analyzing Beta Diversity: Partitioning the Spatial Variation of Community Composition Data.”</span> <em>Ecological Monographs</em> 75 (4): 435–50. <a href="https://doi.org/10.1890/05-0549">https://doi.org/10.1890/05-0549</a>.
+            </div>
+            <div id="ref-Legendre2019SpaTem" class="csl-entry" role="doc-biblioentry">
+            Legendre, Pierre, and Richard Condit. 2019. <span>“Spatial and Temporal Analysis of Beta Diversity in the Barro Colorado Island Forest Dynamics Plot, Panama.”</span> <em>Forest Ecosystems</em> 6 (1): 7. <a href="https://doi.org/10.1186/s40663-019-0164-4">https://doi.org/10.1186/s40663-019-0164-4</a>.
+            </div>
+            <div id="ref-Legendre2013BetDiv" class="csl-entry" role="doc-biblioentry">
+            Legendre, Pierre, and Miquel De Cáceres. 2013. <span>“Beta Diversity as the Variance of Community Data: Dissimilarity Coefficients and Partitioning.”</span> <em>Ecology Letters</em> 16 (8): 951–63. <a href="https://doi.org/10.1111/ele.12141">https://doi.org/10.1111/ele.12141</a>.
+            </div>
+            <div id="ref-Legendre1989SpaPat" class="csl-entry" role="doc-biblioentry">
+            Legendre, Pierre, and Marie-Josée Fortin. 1989. <span>“Spatial Pattern and Ecological Analysis.”</span> <em>Vegetatio</em> 80 (2): 107–38. <a href="https://doi.org/10.1007/BF00048036">https://doi.org/10.1007/BF00048036</a>.
+            </div>
+            <div id="ref-Niskanen2017DriHig" class="csl-entry" role="doc-biblioentry">
+            Niskanen, Annina K. J., Risto K. Heikkinen, Henry Väre, and Miska Luoto. 2017. <span>“Drivers of High-Latitude Plant Diversity Hotspots and Their Congruence.”</span> <em>Biological Conservation</em> 212: 288–99. <a href="https://doi.org/10.1016/j.biocon.2017.06.019">https://doi.org/10.1016/j.biocon.2017.06.019</a>.
+            </div>
+            <div id="ref-Oksanen2019VegCom" class="csl-entry" role="doc-biblioentry">
+            Oksanen, Jari, F. Guillaume Blanchet, Michael Friendly, Roeland Kindt, Pierre Legendre, Dan McGlinn, Peter R. Minchin, et al. 2019. <span>“Vegan: Community Ecology Package.”</span> <a href="https://CRAN.R-project.org/package=vegan">https://CRAN.R-project.org/package=vegan</a>.
+            </div>
+            <div id="ref-Ovaskainen2017HowMak" class="csl-entry" role="doc-biblioentry">
+            Ovaskainen, Otso, Gleb Tikhonov, Anna Norberg, F. Guillaume Blanchet, Leo Duan, David Dunson, Tomas Roslin, and Nerea Abrego. 2017. <span>“How to Make More Out of Community Data? A Conceptual Framework and Its Implementation as Models and Software.”</span> <em>Ecology Letters</em> 20 (5): 561–76. <a href="https://doi.org/10.1111/ele.12757">https://doi.org/10.1111/ele.12757</a>.
+            </div>
+            <div id="ref-Poisot2017HosPar" class="csl-entry" role="doc-biblioentry">
+            Poisot, Timothée, Cynthia Guéveneux-Julien, Marie-Josée Fortin, Dominique Gravel, and Pierre Legendre. 2017. <span>“Hosts, Parasites and Their Interactions Respond to Different Climatic Variables.”</span> <em>Global Ecology and Biogeography</em> 26 (8): 942–51. <a href="https://doi.org/10.1111/geb.12602">https://doi.org/10.1111/geb.12602</a>.
+            </div>
+            <div id="ref-Poisot2019DatSyn" class="csl-entry" role="doc-biblioentry">
+            Poisot, Timothée, Richard LaBrie, Erin Larson, Anastasia Rahlin, and Benno I. Simmons. 2019. <span>“Data-Based, Synthesis-Driven: Setting the Agenda for Computational Ecology.”</span> <em>Ideas in Ecology and Evolution</em> 12. <a href="https://doi.org/10.24908/iee.2019.12.2.e">https://doi.org/10.24908/iee.2019.12.2.e</a>.
+            </div>
+            <div id="ref-Pollock2014UndCoo" class="csl-entry" role="doc-biblioentry">
+            Pollock, Laura J., Reid Tingley, William K. Morris, Nick Golding, Robert B. O’Hara, Kirsten M. Parris, Peter A. Vesk, and Michael A. McCarthy. 2014. <span>“Understanding Co-Occurrence by Modelling Species Simultaneously with a Joint Species Distribution Model (JSDM).”</span> <em>Methods in Ecology and Evolution</em> 5 (5): 397–406. <a href="https://doi.org/10.1111/2041-210X.12180">https://doi.org/10.1111/2041-210X.12180</a>.
+            </div>
+            <div id="ref-Qiao2015BetDiv" class="csl-entry" role="doc-biblioentry">
+            Qiao, Xiujuan, Qianxi Li, Qinghu Jiang, Junmeng Lu, Scott Franklin, Zhiyao Tang, Qinggang Wang, et al. 2015. <span>“Beta Diversity Determinants in Badagongshan, a Subtropical Forest in Central China.”</span> <em>Scientific Reports</em> 5 (1): 17043. <a href="https://doi.org/10.1038/srep17043">https://doi.org/10.1038/srep17043</a>.
+            </div>
+            <div id="ref-RCoreTeam2021RLan" class="csl-entry" role="doc-biblioentry">
+            R Core Team. 2021. <span>“R: A Language and Environment for Statistical Computing.”</span> Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+            </div>
+            <div id="ref-daSilva2020CanTax" class="csl-entry" role="doc-biblioentry">
+            Silva, Pedro Giovâni da, Juliano André Bogoni, and Jani Heino. 2020. <span>“Can Taxonomic and Functional Metrics Explain Variation in the Ecological Uniqueness of Ecologically-Associated Animal Groups in a Modified Rainforest?”</span> <em>Science of The Total Environment</em> 708: 135171. <a href="https://doi.org/10.1016/j.scitotenv.2019.135171">https://doi.org/10.1016/j.scitotenv.2019.135171</a>.
+            </div>
+            <div id="ref-daSilva2014LocReg" class="csl-entry" role="doc-biblioentry">
+            Silva, Pedro Giovâni da, and Malva Isabel Medina Hernández. 2014. <span>“Local and Regional Effects on Community Structure of Dung Beetles in a Mainland-Island Scenario.”</span> <em>PLOS ONE</em> 9 (10): e111883. <a href="https://doi.org/10.1371/journal.pone.0111883">https://doi.org/10.1371/journal.pone.0111883</a>.
+            </div>
+            <div id="ref-daSilva2018DisCor" class="csl-entry" role="doc-biblioentry">
+            Silva, Pedro Giovâni da, Malva Isabel Medina Hernández, and Jani Heino. 2018. <span>“Disentangling the Correlates of Species and Site Contributions to Beta Diversity in Dung Beetle Assemblages.”</span> <em>Diversity and Distributions</em> 24 (11): 1674–86. <a href="https://doi.org/10.1111/ddi.12785">https://doi.org/10.1111/ddi.12785</a>.
+            </div>
+            <div id="ref-Sor2018UniSam" class="csl-entry" role="doc-biblioentry">
+            Sor, Ratha, Pierre Legendre, and Sovan Lek. 2018. <span>“Uniqueness of Sampling Site Contributions to the Total Variance of Macroinvertebrate Communities in the Lower Mekong Basin.”</span> <em>Ecological Indicators</em> 84: 425–32. <a href="https://doi.org/10.1016/j.ecolind.2017.08.038">https://doi.org/10.1016/j.ecolind.2017.08.038</a>.
+            </div>
+            <div id="ref-Staniczenko2017LinMac" class="csl-entry" role="doc-biblioentry">
+            Staniczenko, Phillip P. A., Prabu Sivasubramaniam, K. Blake Suttle, and Richard G. Pearson. 2017. <span>“Linking Macroecology and Community Ecology: Refining Predictions of Species Distributions Using Biotic Interaction Networks.”</span> <em>Ecology Letters</em> 20 (6): 693–707. <a href="https://doi.org/10.1111/ele.12770">https://doi.org/10.1111/ele.12770</a>.
+            </div>
+            <div id="ref-Strimas-Mackey2018AukEbi" class="csl-entry" role="doc-biblioentry">
+            Strimas-Mackey, Matthew, Eliot Miller, and Wesley Hochachka. 2018. <span>“Auk: eBird Data Extraction and Processing with AWK.”</span> <a href="https://cornelllabofornithology.github.io/auk/">https://cornelllabofornithology.github.io/auk/</a>.
+            </div>
+            <div id="ref-Sullivan2009EbiCit" class="csl-entry" role="doc-biblioentry">
+            Sullivan, Brian L., Christopher L. Wood, Marshall J. Iliff, Rick E. Bonney, Daniel Fink, and Steve Kelling. 2009. <span>“eBird: A Citizen-Based Bird Observation Network in the Biological Sciences.”</span> <em>Biological Conservation</em> 142 (10): 2282–92. <a href="https://doi.org/10.1016/j.biocon.2009.05.006">https://doi.org/10.1016/j.biocon.2009.05.006</a>.
+            </div>
+            <div id="ref-Tan2017HowBet" class="csl-entry" role="doc-biblioentry">
+            Tan, Lingzhao, Chunyu Fan, Chunyu Zhang, Klaus von Gadow, and Xiuhua Fan. 2017. <span>“How Beta Diversity and the Underlying Causes Vary with Sampling Scales in the Changbai Mountain Forests.”</span> <em>Ecology and Evolution</em> 7 (23): 10116–23. <a href="https://doi.org/10.1002/ece3.3493">https://doi.org/10.1002/ece3.3493</a>.
+            </div>
+            <div id="ref-Tan2019UndPro" class="csl-entry" role="doc-biblioentry">
+            Tan, Lingzhao, Chunyu Fan, Chunyu Zhang, and Xiuhai Zhao. 2019. <span>“Understanding and Protecting Forest Biodiversity in Relation to Species and Local Contributions to Beta Diversity.”</span> <em>European Journal of Forest Research</em> 138 (6): 1005–13. <a href="https://doi.org/10.1007/s10342-019-01220-3">https://doi.org/10.1007/s10342-019-01220-3</a>.
+            </div>
+            <div id="ref-Taranu2020LarMul" class="csl-entry" role="doc-biblioentry">
+            Taranu, Zofia E., Bernadette Pinel-Alloul, and Pierre Legendre. 2020. <span>“Large-Scale Multi-Trophic Co-Response Models and Environmental Control of Pelagic Food Webs in Québec Lakes.”</span> <em>Oikos</em> n/a (n/a). <a href="https://doi.org/10.1111/oik.07685">https://doi.org/10.1111/oik.07685</a>.
+            </div>
+            <div id="ref-Teittinen2017LocGeo" class="csl-entry" role="doc-biblioentry">
+            Teittinen, Anette, Jianjun Wang, Simon Strömgård, and Janne Soininen. 2017. <span>“Local and Geographical Factors Jointly Drive Elevational Patterns in Three Microbial Groups Across Subarctic Ponds.”</span> <em>Global Ecology and Biogeography</em> 26 (8): 973–82. <a href="https://doi.org/10.1111/geb.12607">https://doi.org/10.1111/geb.12607</a>.
+            </div>
+            <div id="ref-Tytar2021AssHab" class="csl-entry" role="doc-biblioentry">
+            Tytar, V., and O. Baidashnikov. 2021. <span>“Associations Between Habitat Quality and Body Size in the Carpathian-Podolian Land Snail Vestia Turgida: Species Distribution Model Selection and Assessment of Performance.”</span> <em>Zoodiversity</em> 55 (1): 25–40. <a href="http://ojs.akademperiodyka.org.ua/index.php/Zoodiversity/article/view/67">http://ojs.akademperiodyka.org.ua/index.php/Zoodiversity/article/view/67</a>.
+            </div>
+            <div id="ref-Vallejos2020SpaRel" class="csl-entry" role="doc-biblioentry">
+            Vallejos, R., F. Osorio, and M. Bevilacqua. 2020. <em>Spatial Relationships Between Two Georeferenced Variables: With Applications in r</em>. New York: Springer. <a href="http://srb2gv.mat.utfsm.cl/">http://srb2gv.mat.utfsm.cl/</a>.
+            </div>
+            <div id="ref-Vasconcelos2018ExpImp" class="csl-entry" role="doc-biblioentry">
+            Vasconcelos, Tiago S., Bruno T. M. do Nascimento, and Vitor H. M. Prado. 2018. <span>“Expected Impacts of Climate Change Threaten the Anuran Diversity in the Brazilian Hotspots.”</span> <em>Ecology and Evolution</em> 8 (16): 7894–7906. <a href="https://doi.org/10.1002/ece3.4357">https://doi.org/10.1002/ece3.4357</a>.
+            </div>
+            <div id="ref-Venables2002ModApp" class="csl-entry" role="doc-biblioentry">
+            Venables, W. N., and B. D. Ripley. 2002. <em>Modern Applied Statistics with S</em>. Fourth. New York: Springer. <a href="http://www.stats.ox.ac.uk/pub/MASS4/">http://www.stats.ox.ac.uk/pub/MASS4/</a>.
+            </div>
+            <div id="ref-Vilmi2017EcoUni" class="csl-entry" role="doc-biblioentry">
+            Vilmi, Annika, Satu Maaria Karjalainen, and Jani Heino. 2017. <span>“Ecological Uniqueness of Stream and Lake Diatom Communities Shows Different Macroecological Patterns.”</span> <em>Diversity and Distributions</em> 23 (9): 1042–53. <a href="https://doi.org/10.1111/ddi.12594">https://doi.org/10.1111/ddi.12594</a>.
+            </div>
+            <div id="ref-Yang2015ComSim" class="csl-entry" role="doc-biblioentry">
+            Yang, Jun, Frank A. La Sorte, Petr Pyšek, Pengbo Yan, David Nowak, and Joe McBride. 2015. <span>“The Compositional Similarity of Urban Forests Among the World’s Cities Is Scale Dependent.”</span> <em>Global Ecology and Biogeography</em> 24 (12): 1413–23. <a href="https://doi.org/10.1111/geb.12376">https://doi.org/10.1111/geb.12376</a>.
+            </div>
+            <div id="ref-Yao2021EcoUni" class="csl-entry" role="doc-biblioentry">
+            Yao, Jie, Jihong Huang, Yi Ding, Yue Xu, Han Xu, and Runguo Zang. 2021. <span>“Ecological Uniqueness of Species Assemblages and Their Determinants in Forest Communities.”</span> <em>Diversity and Distributions</em> 27 (3): 454–62. <a href="https://doi.org/10.1111/ddi.13205">https://doi.org/10.1111/ddi.13205</a>.
+            </div>
+            <div id="ref-Zurell2020TesSpe" class="csl-entry" role="doc-biblioentry">
+            Zurell, Damaris, Niklaus E. Zimmermann, Helge Gross, Andri Baltensweiler, Thomas Sattler, and Rafael O. Wüest. 2020. <span>“Testing Species Assemblage Predictions from Stacked and Joint Species Distribution Models.”</span> <em>Journal of Biogeography</em> 47 (1): 101–13. <a href="https://doi.org/10.1111/jbi.13608">https://doi.org/10.1111/jbi.13608</a>.
+            </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h2>Affiliations</h2> 
+            <sup>1</sup>&nbsp;Département de sciences biologiques, Université de Montréal, Montréal, Canada; <sup>2</sup>&nbsp;Québec Centre for Biodiversity Science, Montréal, Canada
+        </div>
+    </footer>
+    
+    
+</body>
+</html>

@@ -1,0 +1,108 @@
+\begin{figure}
+\hypertarget{fig:maps}{%
+\centering
+\includegraphics{figures/comparison-combined.png}
+\caption{Comparison of species richness and LCBD scores from observed
+and predicted warbler occurrences in North America. Values were
+calculated for sites representing ten arcminute pixels. We measured
+species richness after converting the occurrence data from eBird (a) and
+the SDM predictions from our single-species BART models (b) to a
+presence-absence format per species. We applied the Hellinger
+transformation to the presence-absence data, then calculated the LCBD
+values from the variance of the community matrices separately for the
+occurrence data (c) and the SDM predictions (d). Areas in light grey
+(not on the colour scale) represent mainland sites with environmental
+data but without any warbler species present.}\label{fig:maps}
+}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:comparison-combined}{%
+\centering
+\includegraphics{figures/comparison-difference.png}
+\caption{Comparison between observed and predicted estimates of species
+richness (a) and ecological uniqueness (b). The difference values
+represent the estimate from the predicted data set minus the estimate
+from the observed data set. LCBD values were recalculated for the same
+set of sites with observations in both data
+sets.}\label{fig:comparison-combined}
+}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:residuals-combined}{%
+\centering
+\includegraphics{figures/comparison-residuals.png}
+\caption{Comparison of the regression residuals between the observed and
+predicted estimates of species richness (a) and ecological uniqueness
+(b). The estimate from the predicted data set was used as the dependent
+variable and the estimate from the observed data set as the independent
+variable. A negative binomial regression with a log link function was
+used for species richness, and a beta regression with a logit link
+function was used for uniqueness. LCBD values were recalculated for the
+same set of sites with observations in both data
+sets.}\label{fig:residuals-combined}
+}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:subareas}{%
+\centering
+\includegraphics{figures/subareas-combined.png}
+\caption{Comparison between a species-rich region (Northeast, a) and a
+species-poor one (Southwest, b) based on the SDM predictions for warbler
+species in North America. The left-side figures represent the LCBD
+scores for the assembled presence-absence predictions, calculated
+separately in each region. The colour scales are set to the respective
+range of LCBD scores to highlight the relative change within each region
+rather than compare the scores between both regions. The right-side
+2-dimensional histograms represent the decreasing and slightly
+curvilinear relationship between LCBD values and species richness. The
+vertical and horizontal dashed lines respectively represent the median
+richness and LCBD value in each region, while BDtot represents the total
+beta diversity.}\label{fig:subareas}
+}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:extents}{%
+\centering
+\includegraphics{figures/subareas-extents.png}
+\caption{Effect of extent size on the relationship between site richness
+and LCBD values based on the SDM predictions for warbler species in
+North America. The relationship progressively broadens and displays more
+variance when scaling up while total beta diversity increases. The LCBD
+values were recalculated at each scale based on the sites in this
+region. The vertical and horizontal dashed lines respectively represent
+the median richness and LCBD value in each region, while BDtot
+represents the total beta diversity.}\label{fig:extents}
+}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:rarespecies}{%
+\centering
+\includegraphics{figures/rare-species.png}
+\caption{Proportion of rare species in the ascending and descending
+portions of the LCBD-richness relationship for the Northeast (a) and
+Southwest (b) subregions. The left side figures show the geographic
+distribution of the sites from each group. Sites were assigned to the
+ascending portion if their species richness was higher than the richness
+of the site with the lowest LCBD value, which corresponds to the
+inflection point of the right side figures of Fig.~\ref{fig:subareas},
+and in the descending portion otherwise. The right side figures
+represent the kernel density estimation of the proportion of rare
+species in each group. Values on the y-axis are probability densities
+scaled so that the area under the curve equals one. Similarly, the area
+under the curve for a given range of values on the x-axis (proportions
+of rare species) represents the probability of observing a value in that
+range. Species were classified as rare when they occurred in fewer than
+40\% of the sites in the subregion. The proportion of rare species was
+then calculated for every site.}\label{fig:rarespecies}
+}
+\end{figure}
